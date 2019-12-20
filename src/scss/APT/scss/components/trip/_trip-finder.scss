@@ -1,0 +1,31 @@
+﻿.trip-finder-hero {
+    position: relative;
+
+    &__sort-options {
+        right: 12px;
+        top: 70px;
+        transform: translateX(50%);
+    }
+
+    &__search-results {
+        position: absolute;
+        top: 55%;
+        transform: translateY(-50%);
+        font-size: 5vh;
+        text-align: center;
+        left: 0;
+        right: 0;
+        color: $proj-colour-15;
+        font-family: $font-family-secondary;
+
+        .search-filter {
+            display: inline-block;
+        }
+
+        @include breakpoint(sm) {
+            top: 60%;
+            line-height: normal;
+            font-size: 36px;
+        }
+    }
+}

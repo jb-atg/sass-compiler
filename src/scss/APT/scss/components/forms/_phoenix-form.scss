@@ -1,0 +1,84 @@
+.phoenix-form {
+    padding-bottom: $padding-lg;
+
+    &--one-column {
+
+        .signup-title {
+            text-align: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 700px;
+        }
+    }
+
+    &__list {
+        padding-left: 0;
+    }
+
+    &__listitem {
+        margin-bottom: 1.5rem;
+    }
+
+    &__subtitle {
+        display: block;
+        margin-bottom: 3rem;
+    }
+
+    &__btn {
+        margin-top: 2rem;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .form-group--reduced {
+        @include breakpoint(sm) {
+            height: 0;
+            overflow: visible;
+        }
+    }
+
+    &__char-count {
+        display: block;
+        margin-top: .5rem;
+        font-size: .8rem;
+    }
+
+    &__confirmation {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        &__icon {
+            font-size: 6rem;
+            margin: 0;
+        }
+
+        &__title {
+            text-transform: capitalize;
+            margin-top: 0;
+            margin-bottom: 4rem;
+        }
+
+        &__lead {
+            text-transform: none;
+        }
+
+        &__cta {
+            margin-top: 2rem;
+        }
+    }
+
+    .field-set {
+        @extend %clearfix;
+    }
+
+    .checkbox {
+        fieldset {
+            padding-left: $padding-large-horizontal;
+        }
+    }
+}

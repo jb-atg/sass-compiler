@@ -1,0 +1,145 @@
+$navbar-desktop-link-height: 60px;
+$global-nav-font-size-sm: 14px;
+$global-nav-font-size: 16px;
+
+@mixin navbar-desktop-link-border-bottom($is-active: false, $is-link: false) {
+    $border-bottom-color: transparent;
+
+    @if $is-active {
+        @if $is-link {
+            $border-bottom-color: $proj-colour-15;
+        } @else {
+            $border-bottom-color: $proj-colour-15;
+        }
+    }
+
+    border-bottom: 3px solid $border-bottom-color;
+}
+
+.navbar {
+
+    &.desktop {
+        border: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        height: 115px;
+        width: 100%;
+        // so the dropdown menu is aligned properly, remove positioning unless explicitly assigned
+        div {
+            position: static;
+        }
+
+        @include breakpoint(xs-max) {
+            display: none;
+        }
+
+        .navbar-header {
+            width: 100%;
+            &.row {
+                position: relative;
+            }
+
+            // override clearfix from bootstrap 
+            // as it break the flex row on Safari
+            &::before,
+            &::after {
+                content: none;
+            }
+        }
+
+        .navbar-section {
+            padding: 0;
+        }
+
+        .navbar-list {
+            &.right-align {
+                text-align: right;
+
+                .navbar-listitem {
+                    @include breakpoint(sm) {
+                        margin-left: 5px;
+                    }
+                    @include breakpoint(md) {
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            &.left-align {
+                text-align: left;
+
+                .navbar-listitem {
+                    @include breakpoint(sm) {
+                        margin-right: 5px;
+                    }
+                    @include breakpoint(md) {
+                        margin-right: 20px;
+                    }
+                }
+            }
+
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar-listitem {
+            display: inline-block;
+        }
+
+        .navbar-dropdown {
+            &.open {
+                .navbar-listitem-link {
+                    font-family: $font-family-secondary;
+                    @include navbar-desktop-link-border-bottom(true);
+                    text-decoration: none;
+                }
+
+                .expandable {
+                    &:after {
+                        @include icon(icon-uparrow);
+                    }
+                }
+            }
+        }
+
+        .navbar-listitem-link {
+            cursor: pointer;
+            text-transform: uppercase;
+            display: inline-block;
+            line-height: $navbar-desktop-link-height;
+            height: $navbar-desktop-link-height;
+            color: $proj-colour-15;
+            position: relative;
+            @include breakpoint(sm) {
+                font-size: $global-nav-font-size-sm;
+            }
+            @include breakpoint(md) {
+                font-size: $global-nav-font-size;
+            }
+
+            &.expandable {
+                &:after {
+                    @include icon(icon-downarrow);
+                    line-height: $navbar-desktop-link-height;
+                    margin-left: 3px;
+                    font-size: 12px;
+                }
+            }
+
+            &:hover {
+                font-family: $font-family-secondary;
+                text-decoration: none;
+                @include navbar-desktop-link-border-bottom(true);
+            }
+            
+            &:active,
+            &:focus,
+            &.active {
+                &:not(.expandable) {
+                    @include navbar-desktop-link-border-bottom(true, true);
+                }
+            }
+        }
+    }
+}

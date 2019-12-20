@@ -1,0 +1,22 @@
+
+.booking-nav {
+    background-color: $proj-colour-05;
+
+    &__link {
+        color: $proj-colour-15;
+
+        &:active,
+        &:focus,
+        &:hover {
+            color: rgba($proj-colour-14, .7); 
+        }
+    }
+
+    &__arrow--left::after {
+        @include icon(icon-leftarrow-small);
+    }
+
+    &__arrow--right::after {
+        @include icon(icon-rightarrow-small);
+    }
+}

@@ -1,0 +1,55 @@
+﻿.footer-nav {
+    &.desktop {
+        margin-top: $footer-nav-desktop-margin-top;
+
+        h6 {
+            text-transform: none;
+        }
+
+        .footer-nav-menu-row {
+            padding-top: $footer-nav-menu-row-padding;
+        }
+
+        .footer-nav-header {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            padding: 15px 0;
+            border-bottom: $footer-divider;
+            font-family: $footer-nav-desktop-header-font-family;
+            color: $footer-nav-desktop-header-colour;
+            font-size: $footer-nav-header-primary-font-size;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .footer-nav-list-header {
+            line-height: $footer-nav-desktop-listitem-line-height;
+            font-family: $footer-nav-desktop-header-font-family;
+            margin: 0;
+            color: $footer-nav-desktop-header-colour;
+            font-size: $footer-nav-header-secondary-font-size;
+        }
+
+        .footer-nav-list {
+            line-height: $footer-nav-desktop-listitem-line-height;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: $footer-nav-desktop-listitem-font-size;
+            color: $footer-nav-desktop-listitem-colour;
+            font-family: $footer-nav-desktop-listitem-font-family;
+
+            a {
+                font-family: $font-family-secondary;
+                font-size: $footer-nav-desktop-listitem-font-size;
+                color: $footer-nav-desktop-listitem-colour;
+
+                &:hover {
+                    color: $footer-nav-desktop-listitem-colour-hover;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+﻿.trip-journey-details {
+    @include breakpoint(sm) {
+        margin-left: auto;
+        max-width: 26.5625rem;
+    }
+
+    @include breakpoint(md) {
+        margin-right: 2rem;
+    }
+
+    &__wrapper {
+        background-color: $color-white;
+        padding: 2rem 1rem;
+
+        @include breakpoint(sm) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+
+    &__hr {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        margin-top: 0;
+    }
+
+    &__subtitle {
+        margin-bottom: .25rem;
+    }
+
+    &__list-item {
+
+        & + & {
+            margin-top: .25rem;
+        }
+
+        &--has-edit {
+            position: relative;
+            padding-right: 4rem;
+        }
+    }
+
+    &__edit {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__price-wrapper {
+        margin-bottom: 0;
+        margin-top: 1rem;
+        line-height: 1;
+
+        @include breakpoint(sm) {
+            margin-top: 2.5rem;
+        }
+    }
+
+    &__subprice,
+    &__from-label {
+        text-transform: capitalize;
+        color: $proj-colour-18;
+    }
+
+    &__back-button {
+        margin-top: 2rem;
+
+        &__icon {
+            font-size: .65rem;
+            margin-right: .25rem;
+        }
+    }
+}

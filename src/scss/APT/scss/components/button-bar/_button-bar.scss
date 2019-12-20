@@ -1,0 +1,56 @@
+﻿// Button bar component usage
+//  <ul class="button-bar">
+//      <li><a class="button-bar__item">Item 1</a></li>
+//      <li><a class="button-bar__item">Item 1</a></li>
+//      <li><a class="button-bar__item">Item 1</a></li>
+//  </ul>
+
+.button-bar {
+    width: auto;
+    display: flex;
+    flex-direction: wrap row;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+
+    li {
+        flex: 1;
+        &:first-child {
+            .button-bar__item {
+                border-radius: $button-bar-radius 0 0 $button-bar-radius;
+            }
+        }
+        &:last-child {
+            .button-bar__item {
+                border-radius: 0 $button-bar-radius $button-bar-radius 0;
+                border-right: 0;
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        padding: 0 4px;
+        text-align: center;
+        color: $proj-colour-26;
+        background-color: $proj-colour-15;
+        border-right: 1px solid $proj-colour-14;
+        transition: background-color $transition-quick-ease, color $transition-quick-ease;
+
+        &:hover {
+            text-decoration: none;
+            color: $proj-colour-27;
+            transition: background-color $transition-quick-ease, color $transition-quick-ease;
+        }
+
+        &.active {
+            background-color: $proj-colour-06;
+            color: $proj-colour-15;
+            transition: background-color $transition-quick-ease, color $transition-quick-ease;
+        }
+    }
+}

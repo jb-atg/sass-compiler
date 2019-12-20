@@ -1,0 +1,89 @@
+.trip-page-hero {
+    .trip-hero-camera {
+        position: absolute;
+        top: 83%;
+        left: 90%;
+        .icon-camera {
+            display: inline-block;
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+            color: $proj-colour-15;
+            border: 1px solid $proj-colour-15;
+            border-radius: 100%;
+            transition: transform .2s ease-in;
+        }
+        .trip-hero-popover {
+            background: $proj-colour-15;
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            width: 300px;
+            bottom: 20px;
+            right: -58px;
+            padding: 10px;
+            text-align: center;
+            transition: visibiliy .3s ease-in, opacity .3s ease-in;
+            border-bottom: 10px solid $proj-colour-06;
+            #{$kwa-page-selector} & {
+                border-bottom-color: $proj-colour-kwa-03;
+            }
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                border-top: 15px solid $proj-colour-06;
+                border-right: 15px solid transparent;
+                border-left: 15px solid transparent;
+                bottom: -25px;
+                left: 90%;
+                margin-left: -20px;
+                #{$kwa-page-selector} & {
+                    border-top-color: $proj-colour-kwa-03;
+                }
+            }
+            &__title {
+                color: $proj-colour-05;
+                font-family: $font-family-secondary;
+                margin-top: .8rem;
+                margin-bottom: .5rem;
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-03;
+                }
+            }
+            &__description {
+                color: $proj-colour-05;
+                margin-top: 0;
+                margin-bottom: .6rem;
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-03;
+                }
+            }
+        }
+        &.is-active {
+            .icon-camera {
+                transform: scale(1.08);
+                background: $proj-colour-14;
+                color: $proj-colour-06;
+
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-03;
+                }
+            }
+            .trip-hero-popover {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        @include breakpoint(xs-max) {
+            left: 80%;
+            top: 80%;
+        }
+        @include breakpoint(xs-landscape) {
+            top: 70%;
+        }
+    }
+}

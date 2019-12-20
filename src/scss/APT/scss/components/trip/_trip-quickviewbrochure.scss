@@ -1,0 +1,47 @@
+﻿.btn-quick-view-brochure {
+    display: block;
+    position: fixed;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    right: 34px;
+    bottom: 116px;
+    width: 65px;
+    height: 69px;
+    @include breakpoint(xs-max) {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    transition: opacity .3s ease-in-out;
+
+    [class^='icon-'] {
+        display: block;
+        position: absolute;
+        background: $proj-colour-06;
+        color: #fff;
+        opacity: .85;
+        border-radius: 5px;
+        left: 0;
+        transition: all .3s ease-in-out;
+        font-size: 48px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        top: 0;
+        margin: 0;
+        line-height: 76px;
+        
+        html.no-touchevents &:hover,
+        html.touchevents &:active,
+        html.touchevents &:focus {
+            opacity: .7;
+        }
+    }
+}
+
+.show .btn-quick-view-brochure {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s ease-in-out, height 1s;
+}

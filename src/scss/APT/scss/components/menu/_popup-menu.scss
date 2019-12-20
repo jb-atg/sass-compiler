@@ -1,0 +1,72 @@
+﻿.popup-menu {
+    position: absolute;
+    ul {
+        &:before {
+            content: '';
+            border-style: solid;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -9px;
+            right: auto;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid $proj-colour-15;
+            border-top: 0;
+        }
+
+        box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, .5);
+        top: 65px;
+        right: -145px;
+        left: auto;
+        width: 312px;
+        padding: 15px 0;
+        border-radius: 5px;
+        list-style: none;
+        background-color: $proj-colour-15;
+
+        > li {
+            text-transform: none;
+            min-height: 24px;
+            line-height: 24px;
+            text-shadow: none;
+            font-size: 16px;
+            color: $proj-colour-06;
+            padding: 0;
+            padding-left: 17px;
+            display: block;
+            text-align: left;
+            border-left: 3px solid transparent;
+
+            + li {
+                margin-top: 8px;
+            }
+
+            &.nl-dd-checked {
+                color: $proj-colour-02;
+                border-left: 3px solid $proj-colour-02;
+            }
+
+            &.no-hover {
+                font-family: $font-family-secondary;
+                color: $proj-colour-05;
+            }
+
+            &:hover:not(.no-hover),
+            &.active {
+                cursor: pointer;
+                color: $proj-colour-02;
+                border-left: 3px solid $proj-colour-02;
+            }
+
+            > a {
+                color: inherit;
+                &:hover {
+                    color: inherit;
+                    text-decoration: none;
+                    font-family: $font-family-secondary;
+                }
+            }
+        }
+    }
+}

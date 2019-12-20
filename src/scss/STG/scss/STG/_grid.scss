@@ -1,0 +1,54 @@
+
+@mixin stg-column-placeholder($infix) {
+    @for $i from 1 through $grid-columns {
+        .col-#{$infix}-#{$i}::after {
+            content: '#{$infix}-#{$i}';
+        }
+    } 
+}
+
+
+.style-guide__grid {
+    [class*='col-']::after {
+        display: block;
+        text-align: center;
+        content: '';
+        background-color: #f4f0e8;
+        font-size: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-bottom: .5rem;
+    }
+
+    @include stg-column-placeholder(xs);
+
+    @include breakpoint(sm) {
+        @include stg-column-placeholder(sm);  
+    }
+    @include breakpoint(md) {
+        @include stg-column-placeholder(md); 
+    }
+    @include breakpoint(lg) {
+        @include stg-column-placeholder(lg);
+    }
+    @include breakpoint(xl) {
+        @include stg-column-placeholder(xl);
+    }
+
+    &-border {
+        border: 5px solid #f4f0e8;
+
+        @include breakpoint(md) {
+            height: 200px;
+        }
+    }
+
+    &__content {
+        text-align: center;
+        background-color: #f4f0e8;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 15px;
+        display: block;
+    }
+}

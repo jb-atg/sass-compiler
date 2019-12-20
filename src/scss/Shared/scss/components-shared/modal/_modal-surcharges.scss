@@ -1,0 +1,22 @@
+﻿.modal-surcharges {
+    &__table-container {
+        margin-left: .625rem;
+        margin-right: .625rem;
+
+        table {
+            margin-top: 3.625rem;
+
+            tr {
+                &:last-child {
+                    border-bottom: 0;
+                }
+
+                td {
+                    &:first-child {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

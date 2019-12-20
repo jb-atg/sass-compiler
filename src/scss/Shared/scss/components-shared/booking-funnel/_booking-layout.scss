@@ -1,0 +1,24 @@
+﻿
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    height: auto !important; //override site-container
+    min-height: 100%;
+
+    &__header {
+        flex-shrink: 0;
+    }
+
+    &__body {
+        flex-grow: 1;
+
+        &__copy {
+            margin: -1.25rem auto 2rem;
+            max-width: 30rem;
+        }
+    }
+
+    .trip-priceandbooking__book__action-panel__cta {
+        display: none;
+    }
+}

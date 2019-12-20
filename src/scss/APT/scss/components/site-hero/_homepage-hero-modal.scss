@@ -1,0 +1,178 @@
+﻿body.hero-modal-open {
+    @include breakpoint(sm) {
+        overflow: auto !important;
+        padding-right: 0 !important;
+    }
+}
+.homepage-hero-modal {
+
+    @include breakpoint(sm) {
+        display: none;
+        z-index: -9999;
+    }
+
+    .modal-header {
+        border-radius: 5px 5px 0 0;
+        height: 90px;
+        padding: 0;
+        position: relative;
+        border: 0;
+        background-color: $proj-colour-23;
+    }
+
+    .modal-button {
+        position: absolute;
+        top: 15px;
+        left: 17px;
+        margin: 0;
+        line-height: normal;
+        font-size: 12px;
+        color: $proj-colour-15;
+        background-color: $proj-colour-02;
+        border: 0;
+        border-radius: 5px;
+        padding: 10px 8px;
+        outline: none;
+        &:before {
+            content: '< ';
+        }
+    }
+
+
+    .modal-close {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        top: 13px;
+        right: 10px;
+
+        &:hover {
+            color: inherit;
+            font-family: inherit;
+            text-decoration: none;
+        }
+    }
+
+    .modal-close-icon {
+        &:after {
+            @include icon(icon-cross);
+            font-size: 25px;
+            color: $proj-colour-02;
+        }
+    }
+
+    .modal-close-text {
+        text-align: center;
+        font-size: 8px;
+        text-transform: uppercase;
+        color: $proj-colour-02;
+        line-height: normal;
+    }
+
+    .modal-title {
+        content: ' ';
+        display: block;
+        background-color: $proj-colour-06;
+        color: $proj-colour-15;
+        text-align: center;
+        font-size: 14px;
+        line-height: 27px;
+        height: 27px;
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+    }
+
+    .modal-dialog {
+        margin: 0;
+        padding: 10px 10px 0;
+        height: 100%;
+    }
+
+    .modal-content {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .modal-body {
+        position: relative;
+        height: calc(100% - 90px);
+        padding: 0;
+
+        &:before {
+            pointer-events: none;
+            z-index: 1000;
+            content: ' ';
+            top: 0;
+            height: 45px;
+            width: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            position: absolute;
+        }
+
+        &:after {
+            pointer-events: none;
+            z-index: 1000;
+            content: ' ';
+            height: 45px;
+            width: 100%;
+            bottom: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            position: absolute;
+        }
+
+        .slide {
+            overflow-y: scroll;
+            position: relative;
+            top: 0;
+            width: 100%;
+            white-space: nowrap;
+            transition: visibility 0s, opacity 300ms ease;
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+                height: 100%;
+            }
+
+            &:not(.active) {
+                opacity: 0;
+                visibility: hidden;
+                height: 0;
+            }
+        }
+    }
+
+    .nav-list {
+        margin: 0;
+    }
+
+    .nav-title {
+        text-transform: capitalize;
+
+        .nav-title-link,
+        .nav-title-link:focus {
+            cursor: pointer;
+            color: $proj-colour-06 !important;
+            white-space: normal;
+
+            &.active {
+                color: $proj-colour-02 !important;
+                border-left: 5px solid $proj-colour-02;
+                position: relative;
+                content: ' ';
+                top: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            &:hover {
+                opacity: .85;
+            }
+        }
+    }
+
+    .no-gradient {
+        z-index: 9999;
+    }
+}

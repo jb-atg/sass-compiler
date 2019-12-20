@@ -1,0 +1,18 @@
+// Usage
+// .navigation {
+//      @include z-index(navigation);
+// }
+
+$z-index: (
+    above-chat: 99999999,
+    above-container: 1000,
+    fixed-elements: 999
+);
+
+@function z-index($key) {
+    @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+    z-index: z-index($key);
+}

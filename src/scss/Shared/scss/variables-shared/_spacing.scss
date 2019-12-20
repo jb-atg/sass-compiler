@@ -1,0 +1,56 @@
+﻿// this would include variables for the grid such as padding, margin
+
+// spacing sizes
+$spacing-xxs: 1rem !default;
+$spacing-xs: 1.5rem !default;
+$spacing-sm: 2rem !default;
+$spacing-md: 2.5rem !default;
+$spacing-lg: 3rem !default;
+$spacing-xlg: 3.5rem !default;
+$spacing-xxlg: 4rem !default;
+
+//===================
+// Padding and Margin
+//===================
+
+// mobile 14px
+// tablet and desktop 16px
+// large desktop 18px
+$padding-xxs: $spacing-xxs !default;
+$margin-xxs: $spacing-xxs !default;
+
+// mobile 21px
+// tablet and desktop 24px
+// large desktop 27px
+$padding-xs: $spacing-xs !default;
+$margin-xs: $spacing-xs !default;
+
+// mobile 28px
+// tablet and desktop 32px
+// large desktop 36px
+$padding-sm: $spacing-sm !default;
+$margin-sm: $spacing-sm !default;
+
+// mobile 35px
+// tablet and desktop 40px
+// large desktop 45px
+$padding-md: $spacing-md !default;
+$margin-md: $spacing-md !default;
+
+// mobile 42px
+// tablet and desktop 48px
+// large desktop 54px
+$padding-lg: $spacing-lg !default;
+$margin-lg: $spacing-lg !default;
+
+// mobile 49px
+// tablet and desktop 56px
+// large desktop 63px
+$padding-xlg: $spacing-xlg !default;
+$margin-xlg: $spacing-xlg !default;
+
+// mobile 56px
+// tablet and desktop 64px
+// large desktop 72px
+$padding-xxlg: $spacing-xxlg !default;
+$margin-xxlg: $spacing-xxlg !default;

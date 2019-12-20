@@ -1,0 +1,161 @@
+﻿//
+// Tile Checkboxes and Radios
+// --------------------------------------------------
+
+.tile-input {
+    & + & {
+        margin-top: 2rem;
+    }
+
+    &__main-label,
+    .form-group &__main-label {
+        display: block;
+        color: $tile-input-main-label-color;
+        font-family: $tile-input-main-label-family;
+        font-weight: $tile-input-main-label-weight;
+        margin-bottom: 1.25rem;
+    }
+
+    &__input {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        opacity: 0;
+    }
+
+    &__input:checked + &__label {
+        color: $tile-input-active-color;
+        border-color: currentColor;
+    }
+
+    &__input:checked + &__label &__tick:before {
+        opacity: 1;
+    }
+
+    &__input:checked + &__label &__tick:after {
+        opacity: 0;
+    }
+
+    &__label,
+    .form-group &__label {
+        @include card();
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        border: 2px solid $tile-input-label-border-color;
+        border-radius: 7px;
+        color: $tile-input-label-color;
+        cursor: pointer;
+        transition: color .3s, border-color .3s;
+
+        @include breakpoint(md) {
+            padding: 1.25rem;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: $tile-input-active-color;
+        }
+    }
+
+    &__tick {
+        position: relative;
+        display: inline-block;
+        line-height: 0;
+        width: 3.75rem;
+        height: 3.75rem;
+        flex-shrink: 0;
+        color: currentColor;
+        margin-right: 1.25rem;
+        top: 0;
+
+        @include breakpoint(md) {
+            margin-right: 2rem;
+        }
+
+        &:before,
+        &:after {
+            transition: opacity .3s;
+        }
+
+        &:before {
+            @include icon($tile-input-icon);
+            font-size: 3.75rem;
+            opacity: 0;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 3.1875rem;
+            height: 3.1875rem;
+            border-radius: 50%;
+            border: 1px solid currentColor;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    }
+
+    &__text {
+        flex-grow: 1;
+    }
+}
+
+//
+// CTA Checkboxes and Radios
+// --------------------------------------------------
+
+.cta-input {
+    display: inline-block;
+
+    & + & {
+        margin-left: 1rem;
+    }
+
+    &__main-label,
+    .form-group &__main-label {
+        display: block;
+        color: $cta-input-main-label-color;
+        font-family: $cta-input-main-label-family;
+        font-weight: $cta-input-main-label-weight;
+        font-size: $cta-input-main-label-size;
+        margin-bottom: 1.25rem;
+    }
+
+    &__input {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        opacity: 0;
+    }
+
+    &__input:checked + &__label {
+        color: $cta-input-checked-color;
+        background: $cta-input-checked-background;
+
+        .no-touchevents &:hover,
+        &:focus,
+        &:active {
+            color: $cta-input-checked-hover-color !important; // required due to extend
+            background: $cta-input-checked-hover-background;
+        }
+    }
+
+    &__label,
+    .form-group &__label {
+        @extend %btn;
+        cursor: pointer;
+        color: $cta-input-color;
+        background: $cta-input-background;
+
+        .no-touchevents &:hover,
+        &:focus,
+        &:active {
+            color: $cta-input-hover-color !important; // required due to extend
+            background: $cta-input-hover-background;
+        }
+    }
+}

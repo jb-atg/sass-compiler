@@ -1,0 +1,15 @@
+.contact-form {
+    padding-top: $spacing-md;
+
+    .title-wrapper {
+        display: none;
+    }
+    .signup-subtitle {
+        display: none;
+    }
+
+    .field-set {
+        @extend %clearfix;
+    }
+
+}

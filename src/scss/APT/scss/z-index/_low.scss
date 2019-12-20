@@ -1,0 +1,88 @@
+// Low priority z-index (<100)
+
+.panel-heading-image-container__controls {
+    z-index: 40;
+}
+
+.trip-itinerary,
+.apt-accordion {
+    .panel-heading {
+        z-index: 60;
+    }
+}
+
+.trip-itinerary-panel {
+    &.contains-media {
+        .panel-heading {
+            .panel-heading-tile {
+                z-index: 50;
+            }
+            .panel-heading-detail {
+                z-index: 50;
+            }
+            &:after {
+                z-index: 50;
+            }
+        }
+    }
+}
+
+.video-player-link {
+    z-index: 50;
+}
+
+.apt-panel {
+    &.contains-media {
+        .panel-heading {
+            .panel-heading-tile {
+                z-index: 50;
+            }
+            .panel-heading-detail {
+                z-index: 50;
+            }
+            &:after {
+                z-index: 50;
+            }
+        }
+    }
+}
+
+.trip-intro {
+    &__badge {
+        z-index: 10;
+    }
+}
+
+.search-page__filters__options,
+.search-page__filters__tab {
+    z-index: 50;
+}
+
+.search-page__filters__options.is-active {
+    &:after {
+        z-index: 5;
+    }
+}
+
+.trip-finder-hero__search-results,
+.site-search__hero__search-results {
+    z-index: 1;
+}
+
+.trip-finder-hero__sort-options {
+    z-index: 10;
+}
+
+
+.site-search__hero {
+    .-search-open {
+        z-index: 50 !important;
+    }
+}
+
+.booking-carousel,
+.trip-priceandbooking {
+    &__snackbar {
+        z-index: 1;
+    }
+}

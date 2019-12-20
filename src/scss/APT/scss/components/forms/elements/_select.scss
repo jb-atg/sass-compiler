@@ -1,0 +1,7 @@
+﻿.form-field {
+    .col-xs-12 + .col-xs-12 {
+        @include breakpoint(xs-max) {
+            margin-top: 19px;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+﻿.logo-area {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    overflow: visible;
+
+    .logo-area-logo {
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .logo-area-link__base {
+        text-align: center;
+        display: block;
+        position: relative;
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 1;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    .logo-area-link {
+        @extend .logo-area-link__base;
+
+        @include breakpoint(xs-max) {
+            width: $logo-area-width-xs;
+            height: $logo-area-height-xs;
+        }
+
+        @include breakpoint(xxs-max) {
+            width: $logo-area-width-iphone5;
+            height: $logo-area-height-iphone5;
+        }
+
+        @include breakpoint(sm) {
+            width: $logo-area-width-sm;
+            height: $logo-area-height-sm;
+        }
+
+        @include breakpoint(xs-landscape) {
+            height: $logo-area-height-xs-landscape;
+        }
+
+        &:after {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('/assets/images/Phoenix/APT/logo-hover.png') no-repeat;
+            background-size: contain;
+            transition: opacity 500ms;
+            opacity: 0;
+            content: ' ';
+        }
+    }
+
+    .logo-area-link-luxury-travel {
+        @extend .logo-area-link__base;
+
+        @include breakpoint(xs-max) {
+            width: $lt-logo-area-width-xs;
+            height: $lt-logo-area-height-xs;
+        }
+
+        @include breakpoint(xxs-max) {
+            width: $lt-logo-area-width-iphone5;
+            height: $lt-logo-area-height-iphone5;
+        }
+
+        @include breakpoint(sm) {
+            width: $lt-logo-area-width-sm;
+            height: $lt-logo-area-height-sm;
+        }
+
+        @include breakpoint(xs-landscape) {
+            height: $lt-logo-area-height-xs-landscape;
+        }
+
+        /*&:after {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('/assets/images/Phoenix/APT/luxurylogo-hover.png') no-repeat;
+            background-size: contain;
+            transition: opacity 500ms;
+            opacity: 0;
+            content: ' ';
+        }*/
+    }
+
+    .logo-area-logo {
+        display: block;
+        margin: 0 auto;
+    }
+}

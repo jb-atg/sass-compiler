@@ -1,0 +1,413 @@
+%btn {
+    display: inline-block;
+    padding: 16px 25px;
+    outline: none;
+    border: 0;
+    font-family: $font-family-secondary;
+    color: $button-text-primary;
+    font-size: 18px;
+    line-height: 18px;
+    border-radius: 7px;
+    text-transform: uppercase;
+    white-space: normal;
+    box-shadow: 0 5px 10px -3px rgba(0, 0, 0, .28);
+    transition: all .3s ease-in-out;
+    text-align: center;
+
+    &:focus,
+    &:active,
+    &:hover,
+    &.active {
+        outline: none;
+        text-decoration: none;
+    }
+
+    .no-touchevents &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        font-family: $font-family-secondary;
+        color: $button-text-primary;
+    }
+}
+
+.btn {
+    @extend %btn;
+
+    &.btn--primary {
+        color: $button-text-primary;
+        background: $button-bg-primary;
+
+        .no-touchevents &:hover,
+        .touchevents &:focus,
+        .touchevents &:active {
+            background: $button-bg-primary--hover;
+        }
+    }
+
+    &.btn--secondary {
+        color: $button-text-primary;
+        background: $button-bg-secondary;
+
+        .no-touchevents &:hover,
+        .touchevents &:focus,
+        .touchevents &:active {
+            background: $button-bg-secondary--hover;
+        }
+
+        #{$kwa-page-selector} & {
+            background-color: $proj-colour-kwa-01;
+        }
+
+        .no-touchevents #{$kwa-page-selector} &:hover,
+        .touchevents #{$kwa-page-selector} &:focus,
+        .touchevents #{$kwa-page-selector} &:active {
+            background-color: $proj-colour-kwa-05;
+        }
+    }
+
+    &.btn--tertiary {
+        color: $button-text-secondary;
+        background: $button-bg-tertiary;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        .touchevents &:focus {
+            background: $button-bg-primary--hover;
+            color: $button-text-primary;
+        }
+    }
+
+    &.btn--quaternary {
+        color: $button-text-primary;
+        background: transparent;
+        border: 1px solid $proj-colour-15;
+
+        .no-touchevents &:hover,
+        .touchevents &:focus {
+            background: $button-bg-primary;
+            border: 1px solid $proj-colour-02;
+        }
+
+        .touchevents &:active,
+        &.active {
+            background: $button-bg-primary;
+            border: 1px solid $proj-colour-02;
+        }
+    }
+
+    &.btn--quinary {
+        color: $button-text-tertiary;
+        background: $button-bg-quaternary;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        .touchevents &:focus {
+            color: $button-text-primary;
+            background: $button-bg-secondary--hover;
+        }
+    }
+
+    &.btn--senary { // Gray button
+        color: $button-text-primary;
+        background: $button-bg-senary;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        .touchevents &:focus {
+            background: $button-bg-senary--hover;
+        }
+    }
+
+    &.btn--loading {
+        position: relative;
+        color: transparent !important;
+
+        &:before {
+            @include icon(icon-apt-logo);
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: $proj-colour-15;
+            font-size: 30px;
+        }
+
+        &:after {
+            @include icon(icon-loading-spin);
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            color: $proj-colour-15;
+            font-size: 30px;
+            animation: animateRotate linear 1s;
+            transform-origin: 50% 50%;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    &.btn--clear {
+        position: relative;
+        width: 100%;
+        color: inherit;
+        border: 0;
+        background: none;
+        outline: none;
+        box-shadow: none;
+
+        > * {
+            color: inherit;
+        }
+
+        > span,
+        i {
+            margin-left: 5px;
+            font-size: 16px;
+            position: absolute;
+            top: 18px;
+        }
+
+        .no-touchevents &:hover {
+            color: inherit;
+        }
+
+        &--secondary {
+            color: $proj-colour-15;
+        }
+    }
+
+    &.btn--rounded {
+        font-size: 14px;
+        text-transform: none;
+        width: 100%;
+        height: 48px;
+        border-radius: 7px;
+        padding: 0 5px;
+        line-height: normal;
+    }
+
+    &.btn--small,
+    &.btn-small { // used in sitecore
+        background: $proj-colour-15;
+        color: $button-text-secondary;
+        font-size: 16px;
+        padding: 8px 0;
+        line-height: 16px;
+        border: 1px solid $proj-colour-01;
+        width: 280px;
+        border-radius: 5px;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        .touchevents &:focus {
+            background: $button-bg-primary;
+            color: $button-text-primary;
+        }
+    }
+
+    &.btn--small--secondary,
+    &.btn-small2 { // used in sitecore
+        background: $button-bg-primary;
+        color: $button-text-primary;
+        border-radius: 5px;
+        white-space: pre;
+
+        .no-touchevents &:hover,
+        .touchevents &:focus,
+        .touchevents &:active {
+            background: $button-bg-primary--hover;
+        }
+
+        #{$kwa-page-selector} & {
+            background: $proj-colour-kwa-01;
+        }
+
+        .no-touchevents #{$kwa-page-selector} &:hover,
+        .touchevents #{$kwa-page-selector} &:focus,
+        .touchevents #{$kwa-page-selector} &:active {
+            background: $proj-colour-kwa-05;
+        }
+
+        @include breakpoint(xs-max) {
+            font-size: 12px;
+            line-height: 12px;
+            padding: 8px 30px;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: 16px;
+            padding: 8px 35px;
+        }
+    }
+
+    &.btn--small--tertiary,
+    &.btn-small3 { // used in sitecore
+        background: $button-bg-quinary;
+        color: $button-text-quaternary;
+        font-size: 16px;
+        padding: 8px 0;
+        line-height: 16px;
+        border: 1px solid $button-text-quaternary;
+        width: 280px;
+        border-radius: 5px;
+        box-shadow: none;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        .touchevents &:focus {
+            background: $button-bg-quinary--hover;
+            color: $button-bg-quinary;
+        }
+    }
+
+    &.btn--small--quaternary,
+    &.btn-small4 { // used in sitecore
+        background: $button-bg-senary;
+        color: $button-text-primary;
+        border-radius: 5px;
+        white-space: pre;
+
+        .no-touchevents &:hover,
+        .touchevents &:focus,
+        .touchevents &:active {
+            background: $button-bg-senary--hover;
+        }
+
+        @include breakpoint(xs-max) {
+            font-size: 12px;
+            line-height: 12px;
+            padding: 8px 30px;
+
+            &.btn--loading::after {
+                top: 0;
+            }
+        }
+
+        @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: 16px;
+            padding: 8px 35px;
+
+            &.btn--loading::after {
+                top: 0;
+            }
+        }
+    }
+
+    &.btn--large {
+        @include breakpoint(xs-max) {
+            font-size: 17px;
+            line-height: 17px;
+            padding: 13px 25px;
+            text-align: center;
+            box-shadow: none;
+            border-radius: 10px;
+            max-width: 320px;
+            min-width: 250px;
+
+            &.btn--loading::after {
+                top: 7px;
+            }
+        }
+
+        @include breakpoint(sm) {
+            font-size: 22px;
+            line-height: 18px;
+            padding: 20px 32px;
+            border-radius: 7px;
+
+            &.btn--loading::after {
+                top: 18px;
+            }
+        }
+    }
+
+    &.btn--block {
+        width: 100%;
+        display: block;
+    }
+
+    &.btn--snackbar {
+        width: 3.25rem;
+        height: 1.875rem;
+        padding: 0;
+        font-size: inherit;
+        line-height: 0;
+    }
+}
+
+.btn--trip {
+    white-space: nowrap;
+    padding: 8px 15px;
+
+    &:hover {
+        * {
+            font-family: $font-family-secondary;
+        }
+    }
+
+    &__date {
+        white-space: nowrap;
+        color: $proj-colour-15;
+        border-right: 1px solid $proj-colour-15;
+        padding-right: 5px;
+        margin-right: 5px;
+        text-transform: capitalize;
+
+        @include breakpoint(xs-max) {
+            font-size: 12px;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 13px;
+        }
+
+        @include breakpoint(md) {
+            font-size: 15px;
+        }
+    }
+
+    &__subtext {
+        font-size: 10px;
+        color: $proj-colour-15;
+        text-transform: capitalize;
+    }
+
+    &__price {
+        color: $proj-colour-15;
+        white-space: nowrap;
+
+        @include breakpoint(xs-max) {
+            font-size: 12px;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 13px;
+        }
+
+        @include breakpoint(md) {
+            font-size: 15px;
+        }
+    }
+
+    &__perperson {
+        text-transform: none;
+
+        @include breakpoint(xs-max) {
+            font-size: 10px;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 10px;
+        }
+
+        @include breakpoint(md) {
+            font-size: 10px;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+header {
+    z-index: 200;
+    &.home-page {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    &.content-page {
+        background-color: $proj-colour-06;
+    }
+
+    &.scrollable {
+        @include breakpoint(sm) {
+            height: 100%;
+            overflow-y: scroll;
+        }
+
+        .navbar-dropdown-menu {
+            padding-bottom: 1.875rem;
+        }
+    }
+}
+
+.partner-top-bar {
+    background-color: $proj-colour-14;
+
+    &-link {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        min-height: 5.625rem;
+        text-decoration: none;
+
+        @include breakpoint(sm) {
+            min-height: 4.5rem;
+        }
+
+        &.disabled {
+            &:hover, &:focus, &:active, &:visited {
+                text-decoration: none;
+                cursor: default;
+            }
+        }
+    }
+
+    &-logo {
+        height: 3.625rem;
+        margin: 0 0.75rem;
+    }
+
+    &-text {
+        margin: 0;
+        color: $proj-colour-05;
+        font-size: 1rem;
+        line-height: 1.6rem;
+        font-weight: normal;
+        padding-right: 0.75rem;
+    }
+}

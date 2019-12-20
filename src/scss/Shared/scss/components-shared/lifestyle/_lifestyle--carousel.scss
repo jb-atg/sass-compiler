@@ -1,0 +1,68 @@
+﻿
+.lifestyle--carousel  {
+    .lazyload {
+        height: 0;
+        padding-top: 75%; // avoid unloaded to image to take too much space when carousel initialises
+    }        
+
+    .owl-nav,
+    .owl-dots {
+        margin-left: 0;
+        margin-right: 0;
+
+        @include breakpoint(sm) {
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    .owl-nav {
+        @include breakpoint(sm) {
+            // nb of column + column padding + offset due to the max-width of __content-inner
+            left: calc((100% / 12) * 6 + (#{$grid-gutter-width} / 2) + 4.5%);
+        }
+        @include breakpoint(md) {
+            left: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 4%);
+        }
+        @include breakpoint(lg) {
+            left: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 8%);
+        }
+    }
+
+    .owl-dots {
+        @include breakpoint(sm) {
+            right: calc(100% / 12);
+        }
+    }
+
+    &.lifestyle--reverse-layout {
+        .owl-nav {
+            left: auto;
+
+            @include breakpoint(sm) {
+                // nb of column + column padding + offset due to the max-width of __content-inner
+                right: calc((100% / 12) * 6 + (#{$grid-gutter-width} / 2) + 4.5%);
+            }
+            @include breakpoint(md) {
+                right: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 4%);
+            }
+            @include breakpoint(lg) {
+                right: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 8%);
+            }
+        }
+
+        .owl-dots {
+            right: auto;
+
+            @include breakpoint(sm) {
+                left: calc(100% / 12);
+            }
+        }
+    }
+
+    .lifestyle__content {
+        @include breakpoint(sm) {
+            padding-bottom: 5rem;
+        }
+    }
+}

@@ -1,0 +1,165 @@
+﻿.modal-global {
+
+    .modal-close {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        text-decoration: none;
+    }
+
+    .modal-close-icon {
+        &:after {
+            @include icon(icon-cross);
+            font-size: 25px;
+            color: $proj-colour-02;
+        }
+    }
+
+    .modal-close-text {
+        text-align: center;
+        font-size: 8px;
+        text-transform: uppercase;
+        color: $proj-colour-05;
+        line-height: normal;
+    }
+
+    .modal-header {
+        border-radius: 5px 5px 0 0;
+        padding-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 0;
+        position: relative;
+        border: 0;
+        text-align: left;
+    }
+
+    .modal-body {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+    }
+
+    .modal-title {
+        padding-bottom: 15px;
+        padding-right: 40px;
+        border-bottom: 1px solid $proj-colour-30;
+        width: 100%;
+        line-height: normal;
+        margin-top: 20px;
+
+        &.-large {
+            padding-bottom: 1.25rem;
+            margin-bottom: .75rem;
+        }
+    }
+
+    .title-wrapper {
+        display: none;
+    }
+
+    .signup-subtitle {
+        font-size: 16px;
+        line-height: 32px;
+        font-family: $font-family-primary;
+        color: $proj-colour-12;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-transform: none;
+    }
+
+    .trip-name {
+        font-family: $font-family-secondary;
+        color: $proj-colour-05;
+    }
+
+    .form-section {
+        max-width: 380px;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    input[type=text],
+    input[type=email],
+    select,
+    textarea {
+        width: 100%;
+
+        &:not(textarea) {
+            height: 50px;
+        }
+
+        border: solid 1px $proj-colour-30;
+    }
+
+    ul {
+        padding-left: 20px;
+
+        li {
+            margin: 10px 0;
+            text-align: left;
+        }
+    }
+
+    .selectize-control {
+        width: 100%;
+    }
+
+
+    [type=submit] {
+        width: 100%;
+        @extend .btn;
+        @extend .btn--secondary;
+    }
+
+    textarea {
+        height: 140px;
+    }
+
+    .form-group {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .radio,
+    .form-field.checkbox {
+
+        label {
+            &::before {
+                border: 1px solid $proj-colour-30;
+            }
+        }
+    }
+
+    .form-field.checkbox {
+        margin-left: 20px;
+
+        label {
+            padding-left: 20px;
+
+            &::before {
+                margin-right: 10px;
+                vertical-align: bottom;
+            }
+        }
+    }
+
+    .success-content > h2 {
+        color: $proj-colour-12;
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        font-family: $font-family-primary;
+        line-height: normal;
+        text-transform: none;
+    }
+
+    .form-field {
+        margin-top: 0;
+    }
+}

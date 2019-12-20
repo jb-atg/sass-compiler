@@ -1,0 +1,12 @@
+﻿.trip-card-listing {
+    padding-top: 20px;
+    padding-bottom: $padding-lg;
+
+    @include breakpoint(sm) {
+        padding-top: 50px;
+    }
+
+    &__cell {
+        margin-bottom: 35px;
+    }
+}

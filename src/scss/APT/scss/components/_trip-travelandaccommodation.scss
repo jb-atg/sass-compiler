@@ -1,0 +1,5 @@
+﻿.trip-travelandaccommodation {
+    @include breakpoint(sm) {
+        background-color: $proj-colour-14;
+    }
+}

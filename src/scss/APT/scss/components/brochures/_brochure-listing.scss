@@ -1,0 +1,62 @@
+.brochure-listing {
+    padding-top: 2rem;
+    .brochure-card {
+        position: relative;
+        background: $proj-colour-15;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3rem;
+
+        &--empty {
+            height: 0;
+            max-height: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        &__badge {
+            position: absolute;
+            top: -10px;
+            text-align: center;
+        }
+        &__image {
+            display: block;
+            height: auto;
+            max-width: 12.5rem;
+            box-shadow: $brochure-image-sm-drop-shadow;
+        }
+        &__title {
+            text-transform: none;
+            text-align: center;
+        }
+        &__title-link {
+            display: block;
+            margin-bottom: 1.5rem;
+            flex: 1;
+            flex-basis: auto;
+            width: 100%;
+
+            &:hover {
+                text-decoration: none;
+                * {
+                    opacity: .85;
+                }
+            }
+        }
+        &__cta {
+            margin-bottom: 1rem !important;
+            &:last-of-type {
+                margin-bottom: 0 !important;
+            }
+            text-transform: uppercase;
+        }
+        @include breakpoint(xs-max) {
+            width: 100%;
+        }
+        @include breakpoint(sm) {
+            width: 31.5%;
+        }
+    }
+}

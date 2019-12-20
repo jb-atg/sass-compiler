@@ -1,0 +1,201 @@
+﻿@media print {
+
+    .trip-page {
+        .geo-location-debug-header,
+        .navbar-mobile,
+        .navbar-desktop,
+        .trip-page-hero,
+        .testimonial-container,
+        .trip-priceandbooking,
+        .featured-trips,
+        .newsletter-subscription,
+        .trip-tabs-wrapper,
+        .modal,
+        .nav-menu,
+        footer,
+        .global-nav,
+        .footer-bar,
+        .btn-back-to-top,
+        .trip-card__cta,
+        .video-player-link,
+        .btn-quick-view-brochure,
+        .notification {
+            display: none !important;
+        }
+
+        .trip-intro__detail {
+            border: 0 !important;
+            padding: 0 !important;
+
+            &:after {
+                display: none !important;
+            }
+        }
+
+        .trip-intro__years {
+            .active {
+                border: 2px solid #000 !important;
+            }
+        }
+
+        .trip-card {
+            height: 550px !important;
+        }
+
+        .trip-card-xs-stacked {
+            width: calc(100% / 3) !important;
+            position: relative;
+            min-height: 1px !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+
+            .trip-card__content {
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .trip-card,
+            &.trip-card {
+                @include trip-card-small();
+                margin: 0 !important;
+            }
+        }
+
+        .panel-collapse {
+            display: block;
+        }
+
+        .trip-intro {
+            padding-top: 10rem !important;
+        }
+
+        .trip-map-journey-container {
+            margin: 0 !important;
+        }
+
+        .trip-map-journey {
+            display: block !important;
+        }
+
+        .trip-map-journey a,
+        .trip-map-journey__reverse-content {
+            display: none !important;
+        }
+
+        .trip-map-journey__title {
+            width: 100% !important;
+
+            &--current-trip {
+                text-align: center !important;
+            }
+        }
+
+        .trip-itinerary__moredays {
+            display: none !important;
+        }
+
+        .trip-itinerary-panel {
+            &.force-hide {
+                display: block !important;
+            }
+        }
+
+        // hides href postfixes
+        .panel-heading:after,
+        a[href]:after {
+            display: none !important;
+            content: none !important;
+        }
+
+        .panel-heading-image-container {
+            display: none !important;
+        }
+
+        .legend-title,
+        .trip-day-content__caption {
+            padding: 0 !important;
+        }
+
+        .trip-day-content.legend-content {
+            padding-left: 30px !important;
+        }
+
+        .panel-heading-tile--legend {
+            display: none !important;
+        }
+
+        .icon,
+        [class*='icon-'] {
+            display: none !important;
+        }
+
+        .trip-intro {
+            padding-bottom: 2rem !important;
+
+            &__date {
+                border-color: #000;
+            }
+        }
+
+        .trip-notes__cta,
+        .print-pdf__cta {
+            display: none !important;
+        }
+
+        #trip-notes-modal { // sass-lint:disable-line no-ids
+            padding: 0 !important;
+            display: block !important;
+            position: static !important;
+            opacity: 1 !important;
+            text-align: left !important;
+
+            .modal-title {
+                margin: 0 !important;
+            }
+
+            .modal-dialog {
+                width: 100% !important;
+                margin: 0 !important;
+                transform: none !important;
+            }
+
+            .modal-content {
+                border: 0 !important;
+            }
+
+            .modal-close {
+                display: none !important;
+            }
+        }
+
+        // Page breaks
+        .trip-highlights,
+        .trip-map,
+        .trip-travelandaccommodation,
+        .trip-inclusions {
+            margin-top: 3rem !important;
+            page-break-before: always !important;
+        }
+
+        // Images
+        .trip-card {
+            .image-container {
+                height: auto !important;
+            }
+
+            &__medialink {
+                height: auto !important;
+            }
+
+            &__media {
+                position: relative !important;
+                max-height: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                width: auto !important;
+                object-fit: initial !important;
+                font-family: initial !important;
+            }
+        }
+    }
+}

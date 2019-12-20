@@ -1,0 +1,355 @@
+//=================
+// Overrides for owl carousel
+// Individual slider styles should be done in components for mobile carousels etc
+//=================
+
+.owl-carousel {
+    position: relative;
+}
+
+// fix for overlapping items on window resize - notably on native android browsers
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+// global styles for navigation dots and chevrons
+// for custom carousel styling, make the changes to individual carousel classes
+// new note 2018: we need a better way to namespace these carousel to keep styling separated...
+
+// - Specify containers that require this owl-carousel styling
+//   Breaks or precedes all other carousels making it difficult to create new style types
+//   This should be used as:
+//   .my-unique-parent .theme
+//      .owl-carousel 
+//          .owl-nav
+//          other generic owl classes
+// Note: Waay less work to change 1 parent class than all child classes.... then rebind in the js
+
+.owl-carousel {
+    &--has-nav:not([data-lifestyle-carousel]) {
+        .owl-dots {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: -5px;
+            height: auto;
+            
+            .owl-dot {
+                height: 10px;
+                width: 10px;
+                color: $proj-colour-02;
+                border-radius: 100px;
+                border: 1px solid $proj-colour-02;
+                display: inline-block;
+                text-align: center;
+                margin: 10px;
+                &.active {
+                    background: $proj-colour-02;
+                }
+            }
+        }
+
+        .owl-nav {
+            .owl-next,
+            .owl-prev {
+                background: $proj-colour-15;
+                box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .2);
+                width: 35px;
+                height: 70px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                &:before {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: $proj-colour-02;
+                    font-size: 30px;
+                }
+                &:active {
+                    background: $proj-colour-28;
+                }
+            }
+
+            .owl-prev {
+                border-radius: 0 50px 50px 0;
+                box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .2);
+                left: 0;
+                &:before {
+                    @include icon(icon-leftarrow);
+                    right: 5px;
+                }
+            }
+            .owl-next {
+                border-radius: 50px 0 0 50px;
+                box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, .2);
+                right: 0;
+                &:before {
+                    @include icon(icon-rightarrow);
+                    left: 5px;
+                }
+            }
+        }
+    }
+    &--has-nav-variant:not([data-lifestyle-carousel]) {
+        .owl-dots {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 0;
+            height: auto;
+
+            .owl-dot {
+                height: 10px;
+                width: 10px;
+                color: $proj-colour-15;
+                border-radius: 100px;
+                border: 1px solid $proj-colour-15;
+                display: inline-block;
+                text-align: center;
+                margin: 10px;
+                &.active {
+                    background: $proj-colour-15;
+                }
+            }
+        }
+
+        .owl-nav {
+            .owl-next,
+            .owl-prev {
+                background: $proj-colour-15;
+                box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .2);
+                width: 65px;
+                height: 65px;
+                border-radius: 100%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+
+                &:before {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: $proj-colour-02;
+                    font-size: 25px;
+                }
+
+                &:active {
+                    background: $proj-colour-28;
+                }
+
+                @include breakpoint(xs-max) {
+                    background: $proj-colour-15;
+                    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .2);
+                    width: 35px;
+                    height: 70px;
+                }
+            }
+            .owl-prev {
+                left: 30px;
+
+                &:before {
+                    @include icon(icon-leftarrow);
+                    right: 21px;
+                }
+
+                @include breakpoint(xs-max) {
+                    left: 0;
+                    border-radius: 0 50px 50px 0;
+                    &:before {
+                        right: 10px;
+                    }
+                }
+            }
+            .owl-next {
+                right: 30px;
+
+                &:before {
+                    @include icon(icon-rightarrow);
+                    left: 21px;
+                }
+
+                @include breakpoint(xs-max) {
+                    right: 0;
+                    border-radius: 50px 0 0 50px;
+                    &:before {
+                        left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.lifestyle--carousel {
+    // GRABBED DIRECT FROM CC
+    &.grid-component {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        @include breakpoint(sm) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        &--no-padding-top {
+            padding-top: 0 !important;
+        }
+        &--no-padding-bottom {
+            padding-bottom: 0 !important;
+        }
+
+        &.lifestyle--reverse-layout {
+            .owl-nav {
+                left: auto;
+                @include breakpoint(sm) {
+                    // nb of column + column padding + offset due to the max-width of __content-inner
+                    right: calc((100% / 12) * 6 + (#{$grid-gutter-width} / 2) + 4.5%);
+                }
+                @include breakpoint(md) {
+                    right: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 4%);
+                }
+                @include breakpoint(lg) {
+                    right: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 4%);
+                }
+            }
+        }
+    }
+
+    .grid-component__carousel {
+        [class^='col-'],
+        [class*=' col-'] {
+            padding-left: $grid-gutter-width/2;
+            padding-right: $grid-gutter-width/2;
+            >div {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+        .owl-dots {
+            float: right;
+            margin-top: 3rem;
+            margin-right: $grid-gutter-width/2;
+        }
+        .owl-dot {
+            display: inline-block;
+            width: .625rem;
+            height: .625rem;
+            margin: .625rem;
+            border-radius: 50%;
+            color: $proj-colour-02;
+            border: 1px solid $proj-colour-02;
+            &.active {
+                background: $proj-colour-02;
+            }
+        }
+        .owl-nav {
+            float: left;
+            // margin-left: $grid-gutter-width/2;
+            margin-top: 3rem;
+            .owl-prev {
+                margin-right: rem(16px);
+                @include icon(icon-leftarrow);
+                &:before {
+                    content: '\e903';
+                    margin-right: rem(2px);
+                }
+            }
+            .owl-next {
+                border-left: 0;
+                @include icon(icon-rightarrow);
+                &:before {
+                    content: '\e906';
+                    margin-left: rem(2px);
+                }
+            }
+
+            @include breakpoint(sm) {
+                // nb of column + column padding + offset due to the max-width of __content-inner
+                left: calc((100% / 12) * 6 + (#{$grid-gutter-width} / 2) + 4.5%);
+            }
+            @include breakpoint(md) {
+                left: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 4%);
+            }
+            @include breakpoint(lg) {
+                left: calc((100% / 12) * 7 + (#{$grid-gutter-width} / 2) + 4%);
+            }
+        }
+        
+        .owl-next,
+        .owl-prev {
+            // APT/KWA Theme Req.
+            border-radius: 50%; // themed element
+            border: 0;
+            box-shadow: rem(0 3px 5px 0) rgba(0, 0, 0, .2);
+            background-color: $color-white;
+            #{$kwa-page-selector} & {
+                background: $proj-colour-kwa-01;
+            }
+            float: left;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .2s ease-in-out;
+            &:before {
+                font-size: 1.1rem;
+                color: $proj-colour-04;
+                #{$kwa-page-selector} & {
+                    color: $color-white;
+                }
+            }
+            .no-touchevents &:hover,
+            &:active {
+                background: $proj-colour-02;
+                &::before {
+                    color: $color-white;
+                }
+            }
+            .no-touchevents #{$kwa-page-selector} &:hover,
+            #{$kwa-page-selector} &:active {
+                    background: $proj-colour-kwa-05;
+            }
+        }
+        &--no-margins {
+            @include breakpoint(sm) {
+                .owl-nav {
+                    margin-left: 0;
+                }
+                .owl-dots {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    // Style lifestyle__content-inner
+    .lifestyle {
+        &__content-inner {
+            @include breakpoint(sm) {
+                max-width: 90%;
+            }
+            @include breakpoint(lg) {
+                max-width: 80%;
+            }
+        }
+        &__item {
+            &--title,
+            &--title a {
+                font-size: rem(21px);
+                line-height: 1.52;
+                text-transform: unset;
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-02;
+                }
+            }
+            &:last-child {
+                margin-top: 2rem;
+            }
+            .btn--tertiary {
+                @extend .btn--secondary;
+            }
+        }
+    }
+}

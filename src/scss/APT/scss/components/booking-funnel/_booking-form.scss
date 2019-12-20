@@ -1,0 +1,131 @@
+﻿%bookingFormTitle {
+    font-family: $font-family-secondary;
+    color: $proj-colour-02;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+%bookingFormTitleWithBorder {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $proj-colour-13;
+}
+
+%bookingFormCTA {
+    margin-top: 1.5rem;
+    width: 100%;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding: 1.25rem .625rem !important;
+}
+
+.booking-form {
+    &__details {
+        form {
+            border-top-color: $proj-colour-13;
+        }
+
+        label {
+            font-family: $font-family-secondary;
+        }
+
+        &__title {
+            @extend %bookingFormTitle;
+
+            &.form-summary {
+                @extend %bookingFormTitleWithBorder;
+            }
+        }
+
+        &__subtitle {
+            text-transform: none;
+            font-family: $font-family-primary;
+        }
+
+        &__submit {
+            @extend %bookingFormCTA;
+        }
+
+        &__form__is-club-member-1,
+        &__form__is-club-member-2 {
+            label {
+                color: $proj-colour-05;
+            }
+        }
+    }
+
+    &__summary {
+
+        &__title {
+            @extend %bookingFormTitle;
+            @extend %bookingFormTitleWithBorder;
+        }
+
+        &__subtitle {
+            color: $proj-colour-05;
+        }
+
+        &__block {
+            background-color: $proj-colour-15;
+        }
+
+        &__block-item__label {
+            font-size: .875rem;
+        }
+
+        &__block-item__detail {
+            font-size: 1rem;
+        }
+
+        &__table__item-detail {
+            font-size: .9375rem;
+        }
+
+        &__next {
+            @extend %bookingFormCTA;
+        }
+    }
+
+    &__payment {
+        &__title {
+            @extend %bookingFormTitle;
+            @extend %bookingFormTitleWithBorder;
+        }
+
+        &__process {
+            @extend %bookingFormCTA;
+        }
+
+        &__select-amount__label__title {
+            font-family: $font-family-secondary;
+            font-weight: 500;
+        }
+
+        &__title-section {
+            &__link {
+                // Aligns the link with the title section
+                margin-top: 2.5rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+
+    &__success {
+        &__section {
+            & + & {
+                border-color: $proj-colour-13;
+            }
+
+            &--bottom {
+                color: $proj-colour-15;
+            }
+        }
+
+        &__reference {
+            font-size: 2rem;
+        }
+
+        &__amount-info {
+            color: $proj-colour-06;
+        }
+    }
+}

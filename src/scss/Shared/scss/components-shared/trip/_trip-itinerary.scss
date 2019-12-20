@@ -1,0 +1,432 @@
+$panel-space: 100px;
+$panel-space-xs: 75px;
+$trip-itinerary-day-options-left-margin: 1rem;
+$trip-itinerary-day-options-left-margin-desktop: 3rem;
+
+.trip-itinerary {
+    margin: 15px 0;
+
+    &__experience-title {
+        text-transform: uppercase;
+    }
+
+    .trip-itinerary-panel {
+        border: 0;
+        position: relative;
+
+        .panel-heading {
+            display: table;
+            cursor: pointer;
+            width: 100%;
+            height: auto;
+            line-height: initial;
+            padding: 0;
+            background: transparent;
+            transition: background .3s ease-in-out;
+
+            .panel-heading-tile {
+                position: relative;
+                display: table-cell;
+                vertical-align: middle;
+                color: $proj-colour-15;
+                border-bottom: $trip-itinerary-border;
+                text-align: center;
+                padding-top: 17px;
+                padding-bottom: 17px;
+                width: $panel-space;
+
+                &__day {
+                    display: block;
+                    color: $proj-colour-15;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                }
+
+                &__number {
+                    display: block;
+                    color: $proj-colour-15;
+                    font-family: $trip-itinerary-font;
+                    font-size: 40px;
+                }
+
+                &__icon {
+                    color: $proj-colour-15;
+                    font-size: 35px;
+                    margin-right: 0;
+                }
+
+                @include breakpoint(xs-max) {
+                    width: $panel-space-xs;
+                }
+                // styles for the legend tile at the top of trip itinerary
+                &--legend {
+                    background: $trip-itinerary-color--legend !important;
+                    padding-top: 27px;
+                    padding-bottom: 27px;
+
+                    .icon-signature-experience {
+                        &:before {
+                            @include icon($trip-itinerary-icon--experience);
+                        }
+                    }
+
+                    [class*='icon-'] {
+                        top: 2px;
+                    }
+                }
+            }
+
+            .panel-heading-detail {
+                display: table-cell;
+                position: relative;
+                padding-left: 30px;
+                padding-right: 50px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                vertical-align: middle;
+
+                @include breakpoint(xs-max) {
+                    padding-left: 20px;
+                }
+            }
+
+            &__title {
+                display: inline-block;
+                color: $proj-colour-06;
+                font-family: $trip-itinerary-font--secondary;
+                text-transform: capitalize;
+                margin-right: 10px;
+
+                @if $kwa-page-selector {
+                    #{$kwa-page-selector} & {
+                        color: $proj-colour-kwa-02;
+                    }
+                }
+
+                @include breakpoint(xs-max) {
+                    font-size: 18px;
+                    margin-top: .5rem;
+                    margin-bottom: .5rem;
+                }
+
+                @include breakpoint(sm) {
+                    margin-top: 1rem;
+                }
+
+                &--legend {
+                    color: $proj-colour-02;
+                }
+            }
+
+            &__icon {
+                top: 3px;
+                font-size: 24px;
+
+                &.color-primary {
+                    color: $proj-colour-02;
+                }
+
+                &.color-secondary {
+                    color: $proj-colour-05;
+                }
+            }
+
+            &:after {
+                @include icon($trip-itinerary-icon--chevron);
+                position: absolute;
+                color: $proj-colour-05;
+                right: 15px;
+                font-size: 30px;
+                transition: transform .3s ease-in;
+
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-02;
+                }
+
+                @include breakpoint(xs-max) {
+                    font-size: 24px;
+                    top: 2.85rem;
+                }
+
+                @include breakpoint(sm) {
+                    top: 2.25rem;
+                }
+            }
+
+            &.collapsed {
+                &:after {
+                    transform: rotate(0deg);
+                }
+            }
+
+            &:not(.collapsed) {
+                &:after {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &--legend {
+                &:after {
+                    color: $proj-colour-02;
+                }
+            }
+        }
+
+        .panel-body {
+            padding: 0;
+
+            .trip-day-content {
+                padding-left: 130px;
+                padding-right: 50px;
+                padding-bottom: 20px;
+                padding-top: 20px;
+
+                &__caption {
+                    position: relative;
+                    display: block;
+                    font-family: $trip-itinerary-font--secondary;
+                    padding-left: 35px;
+                    text-transform: none;
+
+                    [class*='icon-'] {
+                        color: inherit;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-size: $trip-itinerary-icon-font-size;
+
+                        @include breakpoint(xs-max) {
+                            font-size: $trip-itinerary-mobile-icon-font-size;
+                        }
+                    }
+                }
+
+                &__options {
+                    padding-left: $trip-itinerary-day-options-left-margin;
+
+                    @include breakpoint(sm) {
+                        padding-left: $trip-itinerary-day-options-left-margin-desktop;
+                    }
+                }
+
+                &__stay {
+                    font-weight: bold;
+                    margin-bottom: 1.15rem;
+                }
+
+                &__meal-options {
+                    padding: 0;
+
+                    li {
+                        display: inline-block;
+                        position: relative;
+                        margin-left: 30px;
+
+                        &:before {
+                            @include icon($trip-itinerary-icon--dot);
+                            position: absolute;
+                            top: 7px;
+                            left: 10px;
+                            font-size: 8px;
+                            margin-left: -25px;
+                            color: $proj-colour-12;
+                        }
+                    }
+                }
+
+                .legend-subheading {
+                    margin-bottom: 20px;
+                    color: $trip-itinerary-color--text;
+                }
+
+                .legend-title {
+                    position: relative;
+                    display: block;
+                    margin-bottom: 10px;
+                    padding-left: 35px;
+                    color: $trip-itinerary-color--legend;
+                    font-family: $trip-itinerary-font--secondary;
+
+                    [class*='icon-'] {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+
+                @include breakpoint(xs-max) {
+                    padding: 20px;
+                }
+            }
+        }
+
+        &:nth-child(odd) .panel-heading {
+            .panel-heading-tile {
+                background-color: $trip-itinerary-bg-tile--odd;
+
+                @if $kwa-page-selector {
+                    #{$kwa-page-selector} & {
+                        background-color: $trip-itinerary-bg-tile-kwa--odd;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(even) .panel-heading {
+            .panel-heading-tile {
+                background-color: $trip-itinerary-bg-tile--even;
+
+                @if $kwa-page-selector {
+                    #{$kwa-page-selector} & {
+                        background-color: $trip-itinerary-bg-tile-kwa--even;
+                    }
+                }
+            }
+        }
+
+        &:nth-of-type(odd) {
+            background: $trip-itinerary-bg--odd;
+        }
+
+        &:nth-of-type(even) {
+            background: $trip-itinerary-bg--even;
+        }
+        // if trip itinerary panel has a media item, we make the panel heading translucent to show a small portion of the image
+        &.contains-media {
+            .panel-heading {
+                position: absolute;
+
+                &__image {
+                    position: absolute;
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    @extend %object-fit;
+                }
+            }
+
+            .panel-heading-tile {
+                border-bottom: 0;
+            }
+
+            .panel-heading-image-container {
+                position: relative;
+                display: block;
+                min-height: 200px;
+
+                &__controls {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+
+                    .video-player__cta {
+                        transform: translate(-50%, 6rem);
+                    }
+                }
+            }
+
+            .panel-body {
+                .trip-day-content {
+                    margin-top: $panel-space;
+
+                    @include breakpoint(xs-max) {
+                        margin-top: 120px;
+                    }
+                }
+            }
+
+            &:nth-child(odd) .panel-heading {
+                .panel-heading-detail {
+                    background: transparentize($trip-itinerary-bg--odd, .3);
+
+                    @include breakpoint(xs-max) {
+                        background: rgba(244, 244, 244, .8);
+                    }
+                }
+
+                .panel-heading-tile {
+                    background: transparentize($trip-itinerary-bg-tile--odd, .3);
+
+                    @include breakpoint(xs-max) {
+                        background: rgba(8, 28, 66, .8);
+                    }
+
+                    @if $kwa-page-selector {
+                        #{$kwa-page-selector} & {
+                            background-color: rgba($trip-itinerary-bg-tile-kwa--odd, .7);
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(even) .panel-heading {
+                .panel-heading-detail {
+                    background: transparentize($trip-itinerary-bg--even, .3);
+                }
+
+                .panel-heading-tile {
+                    background: transparentize($trip-itinerary-bg-tile--even, .3);
+
+                    @if $kwa-page-selector {
+                        #{$kwa-page-selector} & {
+                            background-color: rgba($trip-itinerary-bg-tile-kwa--even, .7);
+                        }
+                    }
+                }
+            }
+        }
+        // styles for the legend panel at the top of trip itinerary
+        &--legend {
+            background: $proj-colour-14 !important;
+        }
+    }
+
+    &__moredays {
+        background: $proj-colour-06;
+        color: $proj-colour-15;
+        text-align: center;
+        position: relative;
+        outline: none;
+
+        &--tm {
+            text-transform: inherit;
+            border: 0;
+        }
+
+        &--apt {
+            text-transform: uppercase;
+            border: 5px;
+        }
+    }
+
+    &__expand-itinerary {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        padding-right: 3rem !important;
+
+        &:after {
+            @include icon($trip-itinerary-icon--chevron);
+            position: absolute;
+            top: 10px;
+            right: .75rem;
+            font-size: 1.7rem;
+        }
+
+        &.-expanded {
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    @include breakpoint(sm) {
+        padding-bottom: 40px;
+    }
+}

@@ -1,0 +1,72 @@
+.brochure-request {
+
+    &__container {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .brochure-summary {
+        text-align: center;
+        &__image {
+            display: block;
+            height: 320px;
+            width: auto;
+            margin: 0 auto;
+            box-shadow: $brochure-image-lg-drop-shadow;
+        }
+        &__badge {
+            display: inline-block;
+            margin-top: 2rem;
+        }
+        &__title {
+            color: $proj-colour-06;
+            text-transform: none;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .brochure-offer {
+        background-color: $proj-colour-14;
+        border-radius: 10px;
+        padding: 1rem;
+        &__title {
+            text-transform: capitalize;
+        }
+    }
+
+    .brochure-form {
+        .form-control {
+            width: 100%;
+        }
+        .title-wrapper {
+            display: none;
+        }
+        [type=submit] {
+            visibility: hidden;
+        }
+    }
+
+    &__seperator {
+
+        @include breakpoint(xs-max) {
+            margin: 2rem 0;
+        }
+        @include breakpoint(sm) {
+            margin: 2rem 0;
+        }
+    }
+
+    &__newsletter {
+        text-align: center;
+
+        &-title {
+            text-transform: none;
+        }
+    }
+
+    &__submit {
+        margin-top: 1rem;
+        min-width: 300px !important;
+    }
+
+}

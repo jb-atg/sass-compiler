@@ -1,0 +1,62 @@
+﻿.style-guide {
+    &__sidebar {
+        position: relative;
+        max-width: inherit;
+        width: 100%;
+        height: 100%;
+        background-color: $proj-colour-14;
+        margin: 0 -15px;
+        overflow-y: auto;
+
+        @include breakpoint(sm) {
+            position: fixed;
+        }
+    }
+
+    &__sidebar-section {
+        width: 100%;
+        border-bottom: 1px solid rgba($proj-colour-18, .4);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 0 !important; // Override a margin-bottom originating else where in the projects stylesheet/s
+    }
+
+    &__sidebar-logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 66px;
+        > img {
+            width: 66px;
+        }
+    }
+
+    &__sidebar-nav {
+        padding: 0;
+        margin: 0 auto;
+        list-style: none;
+        text-align: center;
+
+        li {
+            margin: .375rem 0;
+            padding-top: 2px;
+            
+            > a {
+                display: inline-block;
+                border-bottom: 1px solid rgba($proj-colour-18, 0);
+                transition: border-bottom .3s ease-in-out;                
+            }
+
+            &.active a {
+                border-bottom: 1px solid rgba($proj-colour-18, .6);
+                transition: border-bottom .3s ease-in-out;
+            }
+        }
+    }
+
+    .style-guide-toggle {
+        margin: 0 auto;
+        max-width: 269px; // PX width originates from the projects form select component
+        width: 100%;
+        margin-bottom: 1.4rem;
+    }
+}

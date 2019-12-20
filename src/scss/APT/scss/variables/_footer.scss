@@ -1,0 +1,34 @@
+﻿// Desktop Footer
+$footer-divider: 1px solid $proj-colour-33;
+$footer-nav-desktop-listitem-colour: $proj-colour-12;
+$footer-nav-desktop-listitem-colour-hover: $proj-colour-06;
+$footer-nav-desktop-header-colour: inherit;
+$footer-nav-desktop-header-font-family: $font-family-primary;
+$footer-nav-desktop-listitem-font-family: $font-family-primary;
+$footer-nav-desktop-listitem-font-size: 16px;
+$footer-nav-desktop-listitem-line-height: 32px;
+$footer-nav-header-primary-font-size: inherit;
+$footer-nav-header-secondary-font-size: inherit;
+$footer-nav-menu-row-padding: 36px;
+$footer-cta-hover-colour: $proj-colour-22;
+$footer-cta-icon-phone-margin-right: 8px;
+$footer-cta-icon-email-margin-right: 12px;
+$footer-nav-desktop-margin-top: 50px;
+
+// Mobile Footer
+$footer-nav-mobile-listitem-font-size: 18px;
+$footer-nav-mobile-listitem-height: 60px;
+$footer-nav-mobile-border: 1px solid $proj-colour-33;
+$footer-nav-mobile-border--secondary: 1px solid $proj-colour-33;;
+$footer-nav-mobile-bg: $proj-colour-15;
+$footer-nav-mobile-bg--secondary: $proj-colour-23;
+$footer-nav-mobile-bg--secondary-active: $proj-colour-07;
+$footer-nav-mobile-link-color: $proj-colour-27;
+$footer-nav-mobile-link-color--active: $proj-colour-02;
+$footer-nav-mobile-font: $font-family-secondary;
+$footer-nav-mobile-font-color: $proj-colour-15;
+$footer-nav-mobile-icon-color: $proj-colour-15;
+$footer-nav-mobile-search-text-colour: $proj-colour-06;
+$footer-nav-mobile-icon--chevron: 'icon-downarrow-small';
+$footer-nav-mobile-icon--close: 'icon-cross-dark';
+$footer-nav-mobile-icon--search: 'icon-zoom';

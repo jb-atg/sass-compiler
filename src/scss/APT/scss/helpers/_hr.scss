@@ -1,0 +1,23 @@
+@mixin kwa-brand-background {
+    background-image: linear-gradient(to left, $proj-colour-kwa-01, $proj-colour-kwa-04 51%, $proj-colour-kwa-01);
+}
+
+.vertical-divider-line {
+    @include breakpoint(sm) {
+        [class*='col-'] + [class*='col-'] {
+            border-left: 1px solid $proj-colour-13;
+        }
+    }
+}
+
+.brand-bar {
+    display: none;
+
+    #{$kwa-page-selector} & {
+        @include kwa-brand-background;
+
+        display: block;
+        width: 100%;
+        height: 1.5rem;
+    }
+}

@@ -1,0 +1,37 @@
+﻿.browser-warning {
+    width: 100%;
+    background-color: $proj-colour-31;
+    color: $proj-colour-15;
+    font-size: 14px;
+    line-height: 20px;
+
+    .browser-warning-content {
+        max-width: 750px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px 0 20px;
+
+        div + div {
+            margin-top: 10px;
+        }
+    }
+
+    .btn {
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 0;
+        width: auto;
+        display: inline-block;
+        color: $proj-colour-31 !important;
+        background-color: $proj-colour-15;
+
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        .touchevents &:focus {
+            opacity: .85;
+            background-color: $proj-colour-15;
+        }
+        
+        box-shadow: none !important;
+    }
+}

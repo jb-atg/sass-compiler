@@ -1,0 +1,29 @@
+.event-form {
+
+    .title-wrapper {
+        display: none;
+    }
+
+    .subtitle-wrapper {
+        display: none;
+    }
+
+    &__event-title {
+        text-transform: none;
+        color: $proj-colour-02;
+        margin-bottom: 2rem;
+
+        &__date,
+        &__location {
+            display: block;
+        }
+    }
+
+    [type=submit] {
+        visibility: hidden;
+    }
+
+    .field-set {
+        @extend %clearfix;
+    }
+}

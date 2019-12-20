@@ -1,0 +1,231 @@
+$panel-space: 100px;
+$panel-space-xs: 75px;
+
+.apt-accordion {
+    .apt-panel {
+        border: 0;
+        position: relative;
+        .panel-heading {
+            display: table;
+            cursor: pointer;
+            width: 100%;
+            height: auto;
+            line-height: initial;
+            padding: 0;
+            background: transparent;
+            transition: background .3s ease-in-out;
+            .panel-heading-detail {
+                position: relative;
+                padding-left: $padding-sm;
+                padding-right: $padding-sm;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                vertical-align: middle;
+                @include breakpoint(xs-max) {
+                    padding-left: 20px;
+                }
+            }
+            &__title {
+                display: inline-block;
+                color: $proj-colour-06;
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-02;
+                }
+                text-transform: capitalize;
+                @include breakpoint(xs-max) {
+                    font-size: 18px;
+                }
+            }
+            &:after {
+                @include icon(icon-downarrow);
+                position: absolute;
+                color: $proj-colour-05;
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-02;
+                }
+                top: 30px;
+                right: 15px;
+                font-size: 30px;
+                transition: transform .3s ease-in;
+                @include breakpoint(xs-max) {
+                    font-size: 24px;
+                }
+            }
+            &.collapsed {
+                &:after {
+                    transform: rotate(0deg);
+                }
+            }
+            &:not(.collapsed) {
+                &:after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .panel-body {
+            padding: 0;
+            .trip-day-content {
+                padding-left: 2rem;
+                padding-right: 3rem;
+                padding-bottom: 2rem;
+                @include breakpoint(xs-max) {
+                    padding: 1.5rem;
+                }
+                &__description {
+                    font-family: $font-family-primary;
+                    font-size: 1.15rem;
+                    margin-bottom: 1.15rem;
+                    strong,
+                    b {
+                        color: $proj-colour-12;
+                    }
+                }
+                &__cta {
+                    margin-right: 1rem;
+                    margin-left: -5px;
+                    &:last-of-type {
+                        margin-right: 0;
+                        margin-left: 0;
+                    }
+                    @include breakpoint(xs-max) {
+                        margin-left: 0;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+        &:nth-child(odd) .panel-heading {
+            .panel-heading-tile {
+                background: $proj-colour-05;
+                #{$kwa-page-selector} & {
+                    background: $proj-colour-kwa-02;
+                }
+            }
+        }
+        &:nth-child(even) .panel-heading {
+            .panel-heading-tile {
+                background: $proj-colour-06;
+                #{$kwa-page-selector} & {
+                    background: $proj-colour-kwa-02;
+                }
+            }
+        }
+        &:nth-of-type(odd) {
+            background: $proj-colour-14;
+        }
+        &:nth-of-type(even) {
+            background: $proj-colour-15;
+        }
+        // if trip itinerary panel has a media item, we make the panel heading translucent to show a small portion of the image
+        &.contains-media {
+            .panel-heading {
+                position: absolute;
+                &__image {
+                    position: absolute;
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            .panel-heading-image-container {
+                position: relative;
+                display: block;
+                min-height: 200px;
+
+                &__controls {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    object-fit: cover;
+                    font-family: 'object-fit: cover;';
+                }
+            }
+
+            .panel-body {
+                .trip-day-content {
+                    margin-top: 85px;
+                    @include breakpoint(xs-max) {
+                        margin-top: 60px;
+                    }
+                }
+            }
+            &:nth-child(odd) .panel-heading {
+                .panel-heading-detail {
+                    background: rgba(244, 244, 244, .7);
+                    @include breakpoint(xs-max) {
+                        background: rgba(244, 244, 244, .8);
+                    }
+                }
+                .panel-heading-tile {
+                    background: rgba(8, 28, 66, .7);
+                    @include breakpoint(xs-max) {
+                        background: rgba(8, 28, 66, .8);
+                    }
+                }
+            }
+            &:nth-child(even) .panel-heading {
+                .panel-heading-detail {
+                    background: rgba(255, 255, 255, .7);
+                }
+                .panel-heading-tile {
+                    background: rgba(16, 57, 115, .7);
+                }
+            }
+        }
+    }
+    @include breakpoint(sm) {
+        padding-bottom: 40px;
+    }
+}
+
+.panel-body {
+    table {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+
+        @include breakpoint(xs-max) {
+            font-size: 1rem;
+            word-break: break-word;
+        }
+
+        tr:first-of-type {
+            background-color: $proj-colour-06;
+            color: $proj-colour-15;
+            font-family: $font-family-secondary;
+        }
+
+        td {
+            padding: .7rem 1.2rem;
+            border: 1px solid $proj-colour-13;
+
+            @include breakpoint(xs-max) {
+                padding: .3rem .6rem;
+            }
+        }
+    }
+}
+
+.panel-group {
+    .panel {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .07);
+    }
+    &.accordion__panel-group {
+        @include breakpoint(sm) {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2rem;
+
+            img + & {
+                margin-top: 4rem;
+            }
+        }
+    }
+}

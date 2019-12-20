@@ -1,0 +1,20 @@
+// base
+@mixin card() {
+    box-shadow: $card-box-shadow;
+    background-color: $card-background;
+    border-radius: $card-radius;
+}
+
+// modifier
+@mixin card-transparent() {
+    background-color: transparent;
+    border: $card-border;
+}
+
+@mixin card-padding() {
+    padding: $card-padding;
+}
+
+@mixin card-padding-thin() {
+    padding: $card-padding-thin;
+}

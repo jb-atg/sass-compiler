@@ -1,0 +1,41 @@
+.badge {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $badge-font-size;
+    white-space: nowrap;
+    color: $proj-colour-15;
+    background: $proj-colour-06;
+    padding: $badge-padding;
+
+    &.red {
+        background: $proj-colour-09;
+    }
+
+    &.blue {
+        background: $proj-colour-06;
+    }
+
+    &-primary {
+        background: $badge-primary-background;
+    }
+
+    &-secondary {
+        background: $proj-colour-09;
+    }
+
+    &-tertiary {
+        background: $proj-colour-13;
+        text-transform: none;
+        font-family: $font-family-secondary;
+    }
+
+    &-quaterny {
+        background: $proj-colour-24;
+    }
+
+    &--large {
+        font-size: $badge-large-font-size;
+        padding: $badge-large-padding;
+    }
+}

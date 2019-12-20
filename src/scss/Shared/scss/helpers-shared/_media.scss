@@ -1,0 +1,22 @@
+﻿// global hover style for images that are anchor links
+a > img {
+    transform: translateZ(0);
+    transition: all .3s ease;
+
+    &:active,
+    &:focus,
+    .no-touchevents &:hover {
+        opacity: .7;
+    }
+}
+
+// Lazyload - fade image in after load
+.lazyload,
+.lazyloading {
+    opacity: 0;
+}
+
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 1s;
+}

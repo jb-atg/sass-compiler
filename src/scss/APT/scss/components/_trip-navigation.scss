@@ -1,0 +1,9 @@
+﻿.trip-navigation {
+    @include breakpoint(sm) {
+        background-color: $proj-colour-14;
+    }
+
+    height: 80px;
+    background-color: #808080 !important;
+    color: #fff;
+}

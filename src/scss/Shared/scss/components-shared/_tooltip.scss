@@ -1,0 +1,67 @@
+﻿.tooltip-activator {
+    .tooltip-container {
+        background: $proj-colour-15;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        border-radius: 2px;
+        padding: 1rem;
+        text-align: center;
+        transition: visibiliy .3s ease-in, opacity .3s ease-in;
+        box-shadow: 0 2px 8px 0px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        transform: translate(-50%, calc(-100% - 3.5rem));
+        left: 50%;
+        margin-top: -.25rem;
+        font-size: 1rem;
+        text-align: left;
+        color: $proj-colour-11;
+
+        @include browser-ie11 {
+            margin-top: -11rem;
+            margin-left: -7.8125rem;
+            left: auto;
+        }
+
+        @include breakpoint(sm) {
+            width: 15.625rem;
+            left: initial;
+            font-size: .75rem;
+        }
+
+        &__arrow {
+            content: '';
+            display: block;
+            position: absolute;
+            border-top: 20px solid $proj-colour-15;
+            border-right: 20px solid transparent;
+            border-left: 20px solid transparent;
+            bottom: -18px;
+            opacity: 1;
+            margin-left: -.125rem;
+
+            @include breakpoint(xs-exclude-tablet) {
+                opacity: 1;
+            }
+
+            @include breakpoint(sm) {
+                margin-left: 0;
+            }
+
+            @include browser-ie11 {
+                margin-left: 7.8125rem;
+            }
+        }
+    }
+
+    &.is-active {
+        .tooltip-container {
+            visibility: visible;
+            opacity: 1;
+
+            @include breakpoint(xs-exclude-tablet) {
+                opacity: 1;
+            }
+        }
+    }
+}

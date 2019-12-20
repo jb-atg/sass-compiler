@@ -1,0 +1,21 @@
+﻿// Backgrounds
+
+.bg {
+    &-primary {
+        background: $proj-colour-05 !important;
+    }
+    &-secondary {
+        background: $proj-colour-14 !important;
+    }
+    &-tertiary {
+        background: $proj-colour-02 !important;
+    }
+}
+
+.bg-newsletter {
+    background-image: url('/assets/images/Phoenix/APT/newsletter-background.jpg');
+
+    #{$kwa-page-selector} & {
+        background-image: url('/assets/images/Phoenix/APT/newsletter-background-kwa.jpg');
+    }
+}

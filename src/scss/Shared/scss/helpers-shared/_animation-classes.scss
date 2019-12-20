@@ -1,0 +1,19 @@
+//=====================
+// Animation classes
+//=====================
+
+.icon-apt-loading {
+    @include animated-icon($loading-font-size, $loading-font-spinner-size, $loading-icon, $loading-spinning-icon);
+}
+
+.icon-site-loading-large {
+    @include animated-icon($loading-font-size-large, $loading-font-spinner-size-large, $loading-icon, $loading-spinning-icon);
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: .7s;
+    animation-delay: 1s;
+}

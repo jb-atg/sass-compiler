@@ -1,0 +1,45 @@
+﻿.braintree__card-number {
+    position: relative;
+}
+
+#payment-gateway--card-icon { // sass-lint:disable-line no-ids
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 44px;
+    height: 28px;
+    background-image: url('/assets/images/Phoenix/Shared/icons/card_sprite.png');
+    background-size: 86px 458px;
+    border-radius: 4px;
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+
+    &.visa {
+        background-position: 0 -398px;
+    }
+
+    &.master-card {
+        background-position: 0 -281px;
+    }
+
+    &.american-express {
+        background-position: 0 -370px;
+    }
+
+    &.discover {
+        background-position: 0 -163px;
+    }
+
+    &.maestro {
+        background-position: 0 -251px;
+    }
+
+    &.jcb {
+        background-position: 0 -221px;
+    }
+
+    &.diners-club {
+        background-position: 0 -133px;
+    }
+}

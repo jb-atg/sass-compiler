@@ -1,0 +1,47 @@
+﻿.modal-video {
+
+    .modal-close {
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: none;
+            opacity: .85;
+        }
+
+        &:after {
+            @include icon(icon-cross-dark);
+            font-size: 24px;
+        }
+
+        z-index: 1100;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $proj-colour-15;
+        transform: translateX(50%) translateY(-30%);
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+
+    &:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+        height: 100%;
+    }
+
+    text-align: center;
+
+    .modal-dialog {
+        @include breakpoint(xs-max) {
+            width: 90% !important;
+        }
+
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+}

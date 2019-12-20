@@ -1,0 +1,441 @@
+﻿%bookingFormCTA {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+$booking-colour-error: #dd1215;
+
+.booking-form {
+    &__back {
+        display: block;
+        color: $proj-colour-05;
+        margin-bottom: 1.25rem;
+
+        &:active,
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+
+        + .btn {
+            margin-top: .5rem;
+        }
+    }
+
+    &__back-icon {
+        position: relative;
+        color: inherit !important; //override on [class*=icon]
+        font-size: 1.25rem;
+        top: 3px;
+        margin-right: 0;
+        margin-left: -4px;
+        line-height: 0;
+    }
+
+    &__details {
+        form {
+            border-top-width: 1px;
+            border-top-style: solid;
+            margin-top: 1.5rem;
+            padding-top: 2rem;
+        }
+
+        &__title {
+            margin-top: 2rem;
+            margin-bottom: 0;
+
+            &.form-summary {
+                margin: 3rem $grid-gutter-width/2 2.5rem;
+                float: left;
+                width: calc(100% - #{$grid-gutter-width});
+            }
+        }
+
+        &__subtitle {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__summary {
+        &__title {
+            margin-top: 2rem;
+        }
+
+        &__subtitle {
+            margin-bottom: 1.25rem;
+        }
+
+        &__block {
+            @include card-padding-thin();
+            padding-bottom: $card-padding-thin - 1.25rem;
+            margin-bottom: 2.625rem;
+
+            &--top-border {
+                border-top: $booking-form-summary-top-border-colour;
+            }
+        }
+
+        &__block-item {
+            padding-bottom: 1.25rem;
+
+            &__label,
+            &__detail {
+                display: block;
+                color: $proj-colour-12;
+                word-break: break-all;
+            }
+
+            &__label {
+                font-family: $font-family-secondary;
+                font-weight: 500;
+                color: $proj-colour-12;
+            }
+
+            &__hr {
+                margin-top: 0;
+                border-top: 1px solid $proj-colour-13;
+            }
+        }
+
+        &__table {
+            th {
+                padding-bottom: 2.5rem;
+            }
+
+            th,
+            td {
+                &:first-child {
+                    width: 55%;
+                }
+            }
+
+            &__price {
+                font-size: 1.125rem;
+            }
+
+            &__airDeal {
+                text-align: left;
+            }
+
+            &__item {
+                font-family: $font-family-secondary;
+                font-weight: 500;
+
+                &--valign-top {
+                    vertical-align: top !important;
+                }
+
+                .qantas-logo {
+                    height: 1.5rem;
+                    margin: -.4rem 0 0 .5rem;
+                }
+            }
+
+            &__item-detail {
+                display: block;
+                font-family: $font-family-primary;
+                font-weight: 300;
+            }
+
+            &__item-surcharge {
+                padding-bottom: 0;
+                text-decoration: underline;
+            }
+        }
+
+        &__next {
+            @extend %bookingFormCTA;
+        }
+    }
+
+    &__payment,
+    &__qantas,
+    &__paypal {
+        &__title {
+            margin-top: 2rem;
+        }
+
+        &__title-section {
+            margin-bottom: 2rem;
+            border-bottom: $trip-booking-title-border;
+            display: flex;
+            align-items: center;
+
+            &__title {
+                display: inline-block;
+                flex-grow: 2;
+                margin-bottom: 2rem;
+            }
+
+            &__link {
+                text-decoration: underline;
+            }
+        }
+
+        &__enquiry {
+            &__link {
+                text-decoration: underline;
+            }
+        }
+
+        &__method {
+            margin-bottom: 2rem;
+
+            &__item-wrapper {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 -1*$grid-gutter-width/3;
+            }
+
+            &__item {
+                flex: 1 0 auto;
+                padding: 0 $grid-gutter-width/3;
+                margin-left: 0 !important;
+
+                &--qantas {
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                    padding-top: 0.0625rem;
+
+                    @include breakpoint(lg) {
+                        width: 10rem;
+                    }
+                }
+            }
+
+            &__label {
+                width: 100%;
+                padding-left: 0 !important; // override due to extend
+                padding-right: 0 !important; // override due to extend
+                text-align: center;
+                font-size: 1.125rem;
+            }
+
+            .points-burn-widget > iframe {
+                width: 100%;
+                border: none;
+                height: 48px;
+                outline: none;
+            }
+
+            &__label-container {
+                display: inline-flex;
+            }
+
+            &__info {
+                margin: -.25rem 0 0 .5rem;
+                font-size: 1.5rem;
+                color: $proj-colour-02;
+
+                &:before {
+                    @include icon(icon-information);
+                }
+            }
+        }
+
+        &__card {
+            padding-bottom: 2rem !important; // override pheonix form base style
+            .title-wrapper {
+                display: none;
+            }
+        }
+
+        .form-field.submit {
+            display: none;
+        }
+
+        .booking-form__details {
+            padding-bottom: 0;
+        }
+
+        &__tnc {
+            &.checkbox {
+                padding-left: $grid-gutter-width/2;
+
+                fieldset {
+                    padding-left: 20px !important; // override pheonix from base style
+                }
+            }
+
+            &__link {
+                text-decoration: underline;
+            }
+        }
+
+        &__select-amount {
+            margin-bottom: 2.625rem;
+
+            &__label {
+                font-weight: normal;
+
+                > span {
+                    display: block;
+                }
+
+                &__title {
+                    font-size: 1.125rem;
+                }
+
+
+
+                &__amount {
+                    font-size: 2rem;
+                    font-family: $font-family-secondary;
+                    font-weight: 500;
+
+                    @include breakpoint(xxs-max) {
+                        font-size: 1.5rem;
+                    }
+                }
+
+                &__detail {
+                    font-size: .875rem;
+
+                    &--bold {
+                        font-weight: bold;
+                    }
+                }
+
+                &--bold {
+                    font-weight: bold;
+                    display: inline-block !important;
+                }
+            }
+
+            &__info {
+                display: flex;
+                align-items: center;
+                font-size: 0.875rem;
+                font-weight: normal;
+                color: $proj-colour-12;
+                padding-left: 0;
+
+                @include breakpoint(sm) {
+                    padding-left: inherit;
+
+                    &:before {
+                        border: solid 1px $proj-colour-12;
+                        position: absolute;
+                        content: "";
+                        height: 1.25rem;
+                        left: -0.9375rem;
+                    }
+                }
+
+                &__warning {
+                    &:before {
+                        @include icon(icon-warning);
+                        position: absolute;
+                        margin-left: -1.5rem;
+                        top: 0.3rem;
+                        color: $proj-colour-12;
+
+                        @include breakpoint(sm) {
+                            margin-left: -1.25rem;
+                            top: 0.25rem;
+                        }
+                    }
+                }
+            }
+
+            &__container {
+                align-items: center;
+            }
+
+            &__full-qantas-payment {
+                padding: 0.625rem 0 0.625rem 0;
+
+                &__label {
+                    font-weight: normal;
+                    font-size: 1.125rem;
+                }
+            }
+        }
+    }
+
+    &__success {
+        @include card();
+
+        &__section {
+            @include card-padding-thin();
+
+            & + & {
+                border-top-width: 1px;
+                border-top-style: solid;
+            }
+
+            &--bottom {
+                background-color: $proj-colour-13;
+                padding-top: .625rem;
+                padding-bottom: .625rem;
+            }
+        }
+
+        &__icon[class*='icon'] {
+            font-size: 6.25rem;
+            display: inline-block;
+            line-height: 1;
+            margin-bottom: 1.75rem;
+            margin-right: 0;
+
+            .owl-item.active & {
+                opacity: 0;
+                animation-name: bounceIn;
+                animation-fill-mode: forwards;
+                animation-duration: .75s;
+                animation-delay: .5s;
+            }
+        }
+
+        &__reference-title {
+            font-size: 1rem;
+            margin-bottom: .625rem;
+        }
+
+        &__reference {
+            line-height: 1.2;
+            margin-bottom: 1.75rem;
+        }
+
+        &__what-next-title {
+            font-size: 1.25rem;
+            margin-bottom: .75rem;
+        }
+
+        &__what-next {
+            max-width: 26rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &__amount-title,
+        &__amount,
+        &__amount-info {
+            line-height: 1.2;
+        }
+
+        &__amount-title {
+            font-size: 1rem;
+            margin-bottom: .5rem;
+        }
+
+        &__amount {
+            font-size: 2rem;
+            margin-bottom: .5rem;
+        }
+
+        &__amount-info {
+            font-size: .875rem;
+            margin-bottom: 0;
+        }
+
+        &__note {
+            margin-bottom: 0;
+        }
+    }
+
+    &__error {
+        color: $booking-colour-error;
+    }
+}

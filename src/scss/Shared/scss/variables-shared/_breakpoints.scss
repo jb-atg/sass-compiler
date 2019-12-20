@@ -1,0 +1,22 @@
+﻿// sass map including the default breakpoints values
+// used for min-width media queries
+//
+// This map is mainly used with theb breakpoint mixin and all the grid mixins
+// note: XXS does not have column variation (e.g. col-xxs)
+// note: SM is the beginning of desktop
+$breakpoints: (
+    xxs: 0,
+    xs: 360px,
+    sm: 801px,
+    md: 992px,
+    lg: 1281px,
+    xl: 1401px
+) !default;
+
+// bootstrap variables (deprecated)
+// required for all bootstrap components mainly used in APT
+$screen-xs-min: 800px;
+$screen-sm-min: 801px;
+$screen-md-min: 992px;
+$screen-md-max: 1024px;
+$screen-lg-min: 1281px;

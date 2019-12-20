@@ -1,0 +1,109 @@
+﻿.booking-carousel {
+    @include breakpoint(sm) {
+        margin-left: .9375rem;
+    }
+    // trick owl carousel items outer box model
+    // to keep the box-shadow visible
+    // despite the overflow hidden
+    .owl-carousel {
+        overflow-y: hidden;
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+    .owl-stage-outer {
+        padding-left: .5rem;
+        padding-right: .5rem;
+        margin-left: -.5rem;
+        margin-right: -.5rem;
+    }
+
+    .owl-item {
+        padding-bottom: .5rem;
+
+        & > .booking-carousel__step {
+            opacity: 1;
+            transition: all .3s;
+        }
+
+        &:not(.active) > .booking-carousel__step {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    &__snackbar {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        height: 5.125rem;
+        width: 100%;
+        margin-left: -1.1rem;
+        padding: 0.625rem;
+        background: $proj-colour-02;
+        color: $proj-colour-15;
+        font-family: $font-family-secondary;
+        font-size: .975rem;
+        line-height: 3.875rem;
+
+        @include breakpoint(sm) {
+            height: 3.125rem;
+            margin-left: -19.875rem;
+            line-height: 1.875rem;
+            width: 36rem;
+        }
+
+        span {
+            position: absolute;
+            max-width: 71%;
+            line-height: 1.5rem;
+            top: 50%;
+            margin-top: -1.5rem;
+
+            @include breakpoint(sm) {
+                position: static;
+            }
+        }
+
+        &__btn {
+            position: relative;
+            float: right;
+            margin-left: .625rem;
+            top: 50%;
+            margin-top: -1rem;
+        }
+
+        &__icon {
+            position: relative;
+            vertical-align: middle;
+            line-height: inherit;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+
+            @include breakpoint(sm) {
+                margin-right: 0.25rem;
+            }
+
+            &:before {
+                @include icon(icon-border-tick);
+                color: $proj-colour-15;
+            }
+        }
+    }
+}
+
+.booking-funnel {
+    &__step-3,
+    &__step-4 {
+        .trip-priceandbooking__book__action-panel,
+        .trip-priceandbooking__book__summary__expandable-body + .trip-priceandbooking__book__summary__section {
+            display: none !important;
+        }
+    }
+
+    &__step-3 {
+        .payment-summary {
+            display: block !important;
+        }
+    }
+}

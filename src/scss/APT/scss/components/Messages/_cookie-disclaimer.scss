@@ -1,0 +1,68 @@
+﻿.cookie-disclaimer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 140px;
+    line-height: 27px;
+    padding: 9px 10px;
+    text-align: center;
+    background-color: $proj-colour-05;
+    color: $proj-colour-13;
+    z-index: 9999;
+    transition: visibility 0s, max-height 1000ms ease;
+    visibility: visible;
+    display: block;
+
+    &.hide {
+        display: block !important;
+        visibility: hidden;
+        max-height: 0;
+        transition: max-height 500ms ease, visibility 500s;
+    }
+
+    &__link {
+
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: .8;
+        }
+
+        &--open {
+            cursor: pointer;
+            color: $proj-colour-02;
+            text-decoration: underline;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $proj-colour-02;
+            }
+        }
+
+        &--close {
+            text-decoration: none;
+            margin-left: 1.25rem;
+            color: $proj-colour-15;
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: none;
+                color: $proj-colour-15;
+            }
+        }
+    }
+
+    &__icon {
+        margin-left: .25rem;
+        color: $proj-colour-15;
+
+        &:after {
+            color: inherit;
+            vertical-align: middle;
+            @include icon(icon-cross-small);
+        }
+    }
+}

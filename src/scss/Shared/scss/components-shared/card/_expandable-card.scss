@@ -1,0 +1,48 @@
+﻿
+.expandable-card {
+    @include card();
+}
+
+.expandable-card--transparent {
+    @include card-transparent();
+}
+
+.expandable-card__trigger {
+    display: block;
+    padding-top: $expandable-card-padding-thin;
+    padding-right: $expandable-card-padding + 1.5rem;
+    padding-bottom: $expandable-card-padding-thin;
+    padding-left: $expandable-card-padding;
+    font-size: 1.125rem;
+    transition: color .3s;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @include expanded-arrow() {
+        right: $expandable-card-padding;
+        font-size: $expandable-card-icon-size;
+    }
+}
+
+
+
+.expandable-card__body {
+    padding-left: $expandable-card-padding;
+    padding-right: $expandable-card-padding;
+    padding-bottom: $expandable-card-padding;
+
+    > div:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.expandable-card__body--row {
+    @include clearfix();
+    padding-left: calc(#{$expandable-card-padding} - (#{$grid-gutter-width}/2));
+    padding-right: calc(#{$expandable-card-padding} - (#{$grid-gutter-width}/2));
+}

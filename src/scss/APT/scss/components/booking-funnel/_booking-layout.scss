@@ -1,0 +1,42 @@
+﻿
+.booking-container {
+    &__header {
+        background-color: $proj-colour-23;
+
+        @include breakpoint(xs-max) {
+            height: $logo-area-height-xs;
+        }
+
+        @include breakpoint(xxs-max) {
+            height: $logo-area-height-iphone5;
+        }
+
+        @include breakpoint(sm) {
+            height: $logo-area-height-sm;
+        }
+
+        @include breakpoint(xs-landscape) {
+            height: $logo-area-height-xs-landscape;
+        }
+    }
+
+    &__body {
+        background-color: $proj-colour-23;
+
+        &__title {
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: $font-family-primary;
+            margin-top: 1rem;
+
+            @include breakpoint(sm) {
+                margin-top: 2.1875rem;
+                margin-bottom: 3.125rem;
+            }
+        }
+
+        &__hr {
+            display: none;
+        }
+    }
+}

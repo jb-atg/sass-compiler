@@ -1,0 +1,460 @@
+$trip-card-block-height: 50px;
+
+@mixin trip-card-shared() {
+    position: relative;
+    width: 100%;
+    background: $proj-colour-15;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .2);
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+
+    .trip-card {
+        &__medialink {
+            width: 100%;
+            height: 200px;
+            display: block;
+            overflow: hidden;
+            position: relative;
+        }
+        &__media {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            font-family: 'object-fit: cover;'; // fix to allow object-fit to work on all browsers
+        }
+        &__badge {
+            display: block;
+            position: absolute;
+            margin-top: -23px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 15px;
+            padding: 2px 15px;
+            white-space: nowrap;
+            color: $proj-colour-15;
+            transition: opacity .3s ease-in-out;
+            &.red {
+                background: $proj-colour-09;
+            }
+            &.blue {
+                background: $proj-colour-06;
+            }
+            &.has-terms {
+                cursor: pointer;
+                html.no-touchevents &:hover {
+                    opacity: .85;
+                }
+            }
+        }
+        &__content {
+            text-align: center;
+            padding: 10px;
+        }
+        &__link {
+            display: block;
+            &:hover {
+                text-decoration: none;
+
+                * {
+                    opacity: .85;
+                }
+            }
+        }
+        &__info {
+            white-space: nowrap;
+            padding: 8px 15px;
+            &:hover {
+                * {
+                    font-family: $font-family-secondary;
+                }
+            }
+            @include breakpoint(sm) {
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translate(-50%, 50%);
+            }
+        }
+        &__title {
+            text-transform: capitalize;
+            text-align: left;
+            min-height: $trip-card-block-height;
+            color: $proj-colour-05; // specifically overriding any KWA colours (trip cards should always look the same)
+
+            @include breakpoint(sm) {
+                text-align: center;
+            }
+        }
+        &__description {
+            text-align: center;
+        }
+        &__detail,
+        &__travelclass {
+            text-transform: uppercase;
+            font-family: $font-family-secondary;
+        }
+        &__date {
+            white-space: nowrap;
+            color: $proj-colour-15;
+            border-right: 1px solid $proj-colour-15;
+            padding-right: 5px;
+            margin-right: 5px;
+            text-transform: capitalize;
+            font-size: 12px;
+            @include breakpoint(sm) {
+                font-size: 13px;
+            }
+            @include breakpoint(md) {
+                font-size: 15px;
+            }
+        }
+        &__subtext {
+            font-size: 10px;
+            color: $proj-colour-15;
+            text-transform: capitalize;
+        }
+        &__price {
+            color: $proj-colour-15;
+            white-space: nowrap;
+            font-size: 12px;
+            @include breakpoint(sm) {
+                font-size: 13px;
+            }
+            @include breakpoint(md) {
+                font-size: 15px;
+            }
+        }
+        &__perperson {
+            text-transform: none;
+            font-size: 10px;
+        }
+    }
+    @include breakpoint(xs-max) {
+        margin-bottom: 50px;
+    }
+}
+
+@mixin trip-card-stacked() {
+    width: auto;
+    margin: 0 -15px;
+
+    .trip-card__content {
+        position: relative;
+        width: 67%;
+        padding-top: 50px;
+        height: 100%;
+        @include breakpoint(xxs-max) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .trip-card__title {
+        min-height: auto;
+        text-align: center;
+    }
+
+    .trip-card__description {
+        text-align: left;
+    }
+
+    .trip-card__medialink {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 33%;
+        display: block;
+        overflow: hidden;
+        height: auto;
+    }
+
+    .trip-card__badge {
+        position: absolute;
+        top: 20px;
+        margin: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 1rem;
+        z-index: 100;
+        white-space: nowrap;
+        @include breakpoint(xxs-max) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    .trip-card__detail {
+        font-size: 12px;
+    }
+
+    .trip-card__travelclass {
+        font-size: 12px;
+    }
+
+    .trip-card__info {
+        @include breakpoint(xxs-max) {
+            padding: 8px 10px;
+            margin-left: -5px;
+            font-size: 0;
+            padding-bottom: 3px;
+        }
+    }
+}
+
+@mixin trip-card-xs-carousel() {
+    margin-bottom: 50px;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .2);
+
+    .trip-card__medialink {
+        overflow: hidden;
+        display: block;
+        height: 200px;
+    }
+
+    // fix for preventing flickering of badge - due to global transition effect on image links
+    .trip-card__media {
+        transition: none;
+        transform: none;
+        &:active,
+        &:focus,
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .trip-card__content {
+        text-align: center;
+        position: relative;
+        padding: 20px 40px 10px;
+    }
+
+    .trip-card__badge {
+        display: block;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%) translateZ(0);
+    }
+
+    .trip-card__link {
+        display: block;
+    }
+
+    .trip-card__title {
+        text-align: center;
+        min-height: initial;
+    }
+
+    .trip-card__detail {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .trip-card__travelclass {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .trip-card__info {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 50%) translateZ(0);
+    }
+}
+
+@mixin trip-card-small() {
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, .2);
+
+    .trip-card__medialink {
+        width: 100%;
+        height: 200px;
+        display: block;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .trip-card__badge {
+        display: block;
+        position: absolute;
+        margin-top: -23px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        white-space: nowrap;
+    }
+
+    .trip-card__content {
+        text-align: center;
+        padding: 10px;
+        .trip-cards__carousel & {
+            padding: 15px;
+        }        
+    }
+
+    .trip-card__title {
+        min-height: 0;
+        text-align: center;
+        .trip-cards__carousel & {
+            font-size: 1.45rem;
+        }
+    }
+
+    .trip-card__description {
+        text-align: center;
+    }
+
+    .trip-card__detail,
+    .trip-card__travelclass {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .trip-card__info {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+    }
+
+    @include breakpoint(xs-max) {
+        margin-bottom: 50px;
+    }
+}
+
+@mixin trip-card-large() {
+    width: auto;
+    margin: 10px 0;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, .1);
+
+    .trip-card__content {
+        text-align: center;
+        margin-left: auto;
+        margin-right: 0;
+        position: relative;
+        width: 42%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 70px 10px;
+    }
+
+    .trip-card__title {
+        min-height: inherit;
+        font-size: 32px;
+        line-height: 38px;
+        margin: 10px;
+    }
+
+    .trip-card__medialink {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 58%;
+        display: block;
+        overflow: hidden;
+        height: auto;
+    }
+
+    .trip-card__badge {
+        z-index: 100;
+        white-space: nowrap;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .trip-card__detail {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .trip-card__travelclass {
+        font-size: 14px;
+    }
+
+    .trip-card__info {
+        position: static;
+        left: auto;
+        bottom: auto;
+        transform: none;
+    }
+}
+
+.trip-card {
+    @include trip-card-shared();
+}
+
+.trip-card-xs-small {
+    .trip-card,
+    &.trip-card {
+        @include breakpoint(xs-max) {
+            @include trip-card-small();
+        }
+    }
+}
+
+.trip-card-sm-small {
+    .trip-card,
+    &.trip-card {
+        @include breakpoint(sm) {
+            @include trip-card-small();
+        }
+    }
+}
+
+.trip-card-xs-stacked {
+
+    &:nth-of-type(odd) {
+        .trip-card:not(.trip-results) {
+            background-color: $proj-colour-23;
+        }
+    }
+    .trip-card,
+    &.trip-card {
+        @include breakpoint(xs-max) {
+            @include trip-card-stacked();
+        }
+    }
+}
+
+.trip-card-xs-large {
+    .trip-card,
+    &.trip-card {
+        @include breakpoint(xs-max) {
+            @include trip-card-large();
+        }
+    }
+}
+
+.trip-card-sm-large {
+    .trip-card,
+    &.trip-card {
+        @include breakpoint(sm) {
+            @include trip-card-large();
+        }
+    }
+}
+
+// A row-12 must auto-display an embedded trip-card as large on desktop, and small on mobile
+.row-12__col {
+    > .trip-card {
+        @include breakpoint(xs-max) {
+            @include trip-card-small();
+        }
+        @include breakpoint(sm) {
+            @include trip-card-large();
+        }
+    }
+}
+
+// A grid-carousel must display trip-cards as small
+.grid-carousel {
+    > .trip-card {
+        @include trip-card-small();
+    }
+}

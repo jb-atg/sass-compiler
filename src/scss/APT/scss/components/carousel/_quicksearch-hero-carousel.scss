@@ -1,0 +1,101 @@
+﻿.quicksearch-hero-carousel {
+    .owl-nav {
+        @include breakpoint(xs-max) {
+            display: none;
+        }
+
+        #{$kwa-page-selector} & {
+            width: 100%;
+            position: absolute;
+            display: block;
+            bottom: 2.4rem;
+            left: 0;
+            right: 0;
+
+            @include breakpoint(sm) {
+                width: 60%;
+                max-width: 65rem;
+                margin: auto;
+                top: 50%;
+                bottom: auto;
+            }
+        }
+    }
+
+    .disabled {
+        visibility: hidden;
+    }
+
+    &__container {
+        position: relative;
+        height: 85vh;
+
+        @include breakpoint(xs-max) {
+            height: 90vh;
+        }
+    }
+
+    #{$kwa-page-selector} & {
+        $kwa-nav-font-size-desktop: 30px;
+        $kwa-nav-font-size-mobile: 23px;
+
+        &.owl-carousel--has-nav {
+            .owl-nav .owl-prev,
+            .owl-nav .owl-next {
+                background: transparent;
+                box-shadow: none;
+                width: $kwa-nav-font-size-mobile;
+                height: $kwa-nav-font-size-mobile;
+
+                &:before {
+                    color: $proj-colour-15;
+                    font-size: $kwa-nav-font-size-mobile;
+                }
+
+                @include breakpoint (sm) {
+                    width: $kwa-nav-font-size-desktop;
+                    height: $kwa-nav-font-size-desktop;
+
+                    &:before {
+                        font-size: $kwa-nav-font-size-desktop;
+                    }
+                }
+            }
+
+            .owl-nav .owl-prev {
+                margin-left: $grid-gutter-width;
+
+                @include breakpoint(sm) {
+                    margin-left: ceil($grid-gutter-width / 2);
+                }
+            }
+
+            .owl-nav .owl-next {
+                margin-right: $grid-gutter-width;
+
+                @include breakpoint(sm) {
+                    margin-right: floor($grid-gutter-width / 2);
+                }
+            }
+
+            .owl-dots {
+                bottom: 1rem;
+                pointer-events: none;
+
+                @include breakpoint(sm) {
+                    bottom: .5rem;
+                }
+
+                .owl-dot {
+                    color: $proj-colour-15;
+                    border-color: $proj-colour-15;
+                    pointer-events: all;
+
+                    &.active {
+                        background-color: $proj-colour-15;
+                    }
+                }
+            }
+        }
+    }
+}

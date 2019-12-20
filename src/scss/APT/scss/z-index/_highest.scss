@@ -1,0 +1,23 @@
+// Highest priority z-index (>8000)
+
+.apt-loading {
+    z-index: 8000;
+}
+
+.modal {
+    z-index: 9000;
+}
+
+.modal-backdrop {
+    z-index: 8050;
+}
+
+.site-hero-predictive-search {
+    &.active {
+        z-index: 10000;
+    }
+}
+
+.btn-quick-view-brochure {
+    z-index: 11000;
+}

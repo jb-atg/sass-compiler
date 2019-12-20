@@ -1,0 +1,10 @@
+$navbar-divider-colour: #e9eaea;
+$navbar-menu-item-bg-hover: #f4f4f4;
+
+@import 'navbar/nav-mobile';
+@import 'navbar/nav-sticky';
+@import 'navbar/navbar-collapse';
+@import 'navbar/navbar-explore-trips';
+@import 'navbar/navbar-desktop';
+@import 'navbar/navbar-desktop-dropdown';
+@import 'navbar/navbar-nav';

@@ -1,0 +1,225 @@
+﻿.navbar {
+    .explore-trips {
+        &.is-visible {
+            display: block;
+        }
+    }
+
+    .explore-trips-destination-map-image {
+        width: 100%;
+    }
+
+    .explore-trips-destination-map {
+        position: relative !important;
+        width: 100%;
+
+        .map-point {
+            &:before {
+                content: ' ';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: $proj-colour-02;
+                opacity: .85;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                border-radius: 5px;
+                z-index: -1;
+            }
+            max-width: 160px; // Abitrary max-width
+            position: absolute;
+            color: $proj-colour-15;
+            text-align: center;
+            text-transform: none;
+            padding: 3px 8px;
+            font-size: 12px;
+
+            font-family: $font-family-primary;
+            z-index: 1;
+            line-height: 20px;
+
+            &:hover {
+                text-decoration: none;
+
+                &:after {
+                    content: ' ';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $proj-colour-14;
+                    opacity: .25;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    transition: all 1s ease;
+                }
+            }
+        }
+    }
+
+    .explore-trips-destination-heading-lockup {
+        position: relative !important;
+    }
+    .explore-trips__back-button {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        display: flex;
+        color: $proj-colour-13;
+        // transition: opacity ease-in-out 300ms;
+
+        &:hover {
+            text-decoration: none;
+            opacity: .7;
+            // transition: opacity ease-in-out 300ms;
+        }
+
+        &:before {
+            content: '\e907';
+            display: inline-block;
+            font-family: 'icomoon';
+            font-size: 13px;
+            transform: rotate(-90deg);
+            margin-right: 12px;
+        }
+    }
+
+
+    .explore-trips-mode {
+        .carousel,
+        .carousel-inner,
+        .item {
+            position: relative !important;
+        }
+        .carousel-inner {
+            height: 240px;
+            > .next,
+            > .prev {
+                position: absolute !important;
+            }
+        }
+        .carousel-indicators {
+            bottom: 22px;
+            >.active {
+                background-color: $proj-colour-03;
+            }
+
+            > li,
+            > .active {
+                cursor: pointer;
+                border-color: $proj-colour-03;
+                margin: 0 2px;
+                width: 10px;
+                height: 10px;
+            }
+        }
+        position: relative !important;
+        .btn {
+            width: 100%;
+        }
+
+        .navbar-dropdown-heading {
+            text-align: left !important;
+        }
+    }
+
+    .explore-trips-mode-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .explore-trips-mode-listitem {
+        padding: 0;
+        margin: 0;
+        height: 40px;
+        line-height: 40px;
+        display: block;
+
+        a {
+            font-size: 14px;
+            font-family: $font-family-primary;
+            color: $proj-colour-13;
+
+            &:hover {
+                font-family: inherit;
+                text-decoration: none;
+                color: $proj-colour-30;
+            }
+        }
+
+        & + .explore-trips-mode-listitem {
+            border-top: 1px solid rgba(255, 255, 255, .5);
+        }
+    }
+
+    .explore-trips-mode-controls {
+        position: relative;
+        width: 100%;
+        height: 70px;
+        line-height: 70px;
+
+        > .control {
+            cursor: pointer;
+            opacity: 1;
+            width: auto;
+            display: inline;
+            font-family: $font-family-primary;
+            color: $proj-colour-03;
+            font-size: 14px;
+            background: none;
+            position: relative;
+
+            &:before,
+            &:after {
+                top: 4px;
+                position: relative;
+                font-size: 20px;
+            }
+
+            &.left {
+                float: left;
+                left: -100px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all .3s ease;
+                &:before {
+                    @include icon(icon-leftarrow-small)
+                }
+                &.is-visible {
+                    left: 0;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &.right {
+                float: right;
+                right: -100px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all .3s ease;
+                &:after {
+                    @include icon(icon-rightarrow-small)
+                }
+                &.is-visible {
+                    right: 0;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        a {
+            width: auto;
+            &:hover {
+                font-family: inherit;
+                text-decoration: none;
+                color: $proj-colour-30;
+            }
+        }
+    }
+}

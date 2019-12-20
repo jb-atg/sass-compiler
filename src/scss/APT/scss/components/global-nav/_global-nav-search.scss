@@ -1,0 +1,63 @@
+.global-nav-search {
+    white-space: nowrap;
+    .global-nav-form-control {
+        @include placeholder-content {
+            color: $global-nav-font-colour;
+        }
+
+        @include breakpoint(sm) {
+            font-size: $global-nav-font-size-sm;
+            width: 248px;
+        }
+
+        @include breakpoint(md) {
+            font-size: $global-nav-font-size;
+            width: 280px;
+        }
+        font-family: $font-family-primary;
+        background: transparent;
+        border: 0;
+        width: 280px;
+        height: 30px;
+        padding: 0;
+        border-radius: 0;
+        -webkit-appearance: none;  // sass-lint:disable-line no-vendor-prefixes
+        position: relative;
+
+        // We use the required attribute on the input combined with valid selector
+        // to detect if user has inputted text
+        &:focus,
+        &:active:focus,
+        &.active,
+        &:valid {
+            outline: none;
+            color: $global-nav-font-colour;
+            @include placeholder(rgba(255, 255, 255, 0));
+        }
+
+        &:invalid {
+            box-shadow: none;
+        }
+    }
+    
+    .btn-search {
+        margin: 0;
+        background: none;
+        top: 5px;
+        padding: 0;
+        right: 17px;
+        box-shadow: none;
+
+        i {
+            top: 0;
+            &:hover {
+                color: $global-nav-font-colour-hover;
+                opacity: $global-nav-font-opacity-hover;
+            }
+        }
+        &:disabled {
+            cursor: initial;
+            opacity: 1;
+        }
+    }
+}

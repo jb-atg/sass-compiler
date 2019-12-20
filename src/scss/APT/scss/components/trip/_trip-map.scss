@@ -1,0 +1,199 @@
+%trip-map-cta {
+    position: absolute;
+    top: -5px;
+    &.visible-xs {
+
+        @include breakpoint(xs-max) {
+            display: inline-block !important;
+            position: relative;
+            transform: translate(0, -55%);
+        }
+    }
+}
+
+.trip-map {
+
+    .trip-heading-container {
+        position: relative;
+        .trip-notes {
+
+            text-align: center;
+
+            &__cta {
+                right: 0;
+                @extend %trip-map-cta;
+                &.visible-xs {
+                    @include breakpoint(xs-max) {
+                        margin-left: .3rem;
+                    }
+                }
+            }
+            &__list {
+                margin-bottom: 50px;
+            }
+        }
+        .print-pdf {
+            &__cta {
+                left: 0;
+                @extend %trip-map-cta;
+                &.visible-xs {
+                    @include breakpoint(xs-max) {
+                        margin-right: .3rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .map-image-container {
+        position: relative;
+        display: block;
+        .map-image {
+            position: absolute;
+            height: 100%;
+            max-width: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .trip-map-journey-container {
+        width: 100%;
+        margin-top: 30px;
+        min-height: 100px;
+        .trip-map-journey {
+            &__title {
+                text-align: center;
+            }
+        }
+        &.contains-reverse-trip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .trip-map-journey {
+                display: flex;
+                width: 100%;
+                &__title {
+                    width: 42.5%;
+                    > a {
+                        text-decoration: none;
+                    }
+                    &--current-trip {
+                        text-align: right;
+
+                        #{$kwa-page-selector} & {
+                            color: $proj-colour-kwa-01 !important; // !important to override apt colour-primary class
+                        }
+
+                        @include breakpoint(xs-max) {
+                            display: inline-block;
+                            text-align: center;
+                            font-size: 20px;
+                            line-height: 22px;
+                        }
+                    }
+                    &--reverse-trip {
+                        text-align: left;
+                        color: $proj-colour-12;
+                        transition: all .3s ease-in;
+
+                        &:hover {
+                            color: $proj-colour-02;
+                        }
+
+                        #{$kwa-page-selector} &:hover {
+                            color: $proj-colour-kwa-01;
+                        }
+
+                        @include breakpoint(xs-max) {
+                            text-align: center;
+                            font-size: 20px;
+                            line-height: 22px;
+                        }
+                    }
+
+                    @include breakpoint(xs-max) {
+                        width: 100%;
+                        &:first-child {
+                            border-bottom: 1px solid $proj-colour-13;
+                        }
+                    }
+                }
+                &__reverse-content {
+                    position: relative;
+                    width: 15%;
+                    margin-top: 10px;
+                }
+                @include breakpoint(xs-max) {
+                    width: 70%;
+                    flex-direction: column;
+                    margin-top: 0;
+                }
+            }
+            .trip-map-aside {
+                display: none;
+                @include breakpoint(xs-max) {
+                    width: 30%;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+        @include breakpoint(xs-max) {
+            margin-top: 0;
+        }
+    }
+
+    .icon-reverse-arrows {
+        display: block;
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        text-align: center;
+        color: $proj-colour-02;
+        border-radius: 100%;
+        border: 1px solid $proj-colour-02;
+        box-shadow: 0 5px 10px -3px $proj-colour-13;
+        outline: none;
+        text-decoration: none;
+        transition: all .3s ease;
+        
+        &:hover,
+        &:active,
+        &:focus {
+            background: $proj-colour-02;
+            color: $proj-colour-15;
+        }
+
+        #{$kwa-page-selector} & {
+            color: $proj-colour-kwa-01;
+            border-color: $proj-colour-kwa-01;
+
+            &:hover,
+            &:active,
+            &:focus {
+                background: $proj-colour-kwa-01;
+                color: $proj-colour-15;
+            }
+        }
+
+        @include breakpoint(xs-max) {
+            transform: rotate(90deg);
+        }
+    }
+    .reverse-text {
+        font-family: $font-family-secondary;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 16px;
+        @include breakpoint(xs-max) {
+            line-height: 18px;
+        }
+    }
+
+}

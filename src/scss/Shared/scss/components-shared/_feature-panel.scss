@@ -1,0 +1,20 @@
+﻿.feature-panel {
+    text-align: center;
+
+    &__image img {     
+        width: 100%; // required for when image ratio class is not used
+        height: 100%; // required for object fit
+        font-family: 'object-fit: cover;'; // fix to allow object-fit to work on all browsers
+        object-fit: cover;
+
+        &.svg {
+            display: inline;
+            
+            .owl-item & {
+                display: inline;
+            }
+        }
+
+    }
+}
+

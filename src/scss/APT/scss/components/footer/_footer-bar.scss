@@ -1,0 +1,93 @@
+$footer-bar-font-size-xs: 12px;
+$footer-bar-line-height-sm: 18px;
+$footer-bar-line-height-xs: 24px;
+$footer-bar-font-size-sm: 16px;
+
+.footer-bar {
+    position: relative;
+    line-height: $footer-bar-line-height-xs;
+    padding: 24px 0 100px;
+    font-size: $footer-bar-font-size-xs;
+    font-family: $font-family-primary;
+    text-align: center;
+    color: $proj-colour-15;
+    background-color: $proj-colour-06;
+
+    @include breakpoint(sm) {
+        padding: 60px 0;
+        font-size: $footer-bar-font-size-sm;
+        line-height: $footer-bar-line-height-sm;
+    }
+
+    .footer-bar-list {
+        padding: 0;
+        list-style-type: none;
+
+        .footer-bar-listitem {
+            display: inline-block;
+
+            & > *:first-child {
+                margin: 0 10px;
+
+                @include breakpoint(sm) {
+                    margin: 0 20px;
+                }
+            }
+
+            &:not(:last-child) {
+                &::after {
+                    content: '|';
+                    color: $proj-colour-34;
+                }
+            }
+
+            a {
+                @include breakpoint(xs-max) {
+                    padding: 5px 0;
+                }
+
+                font-size: $footer-bar-font-size-xs;
+
+                @include breakpoint(sm) {
+                    font-size: $footer-bar-font-size-sm;
+                }
+
+                color: $proj-colour-15;
+                font-family: $font-family-primary;
+
+                &:hover {
+                    color: $proj-colour-20;
+                    text-decoration: none;
+                }
+            }
+
+            a[href^="tel"] {
+                color: $proj-colour-20;
+                text-decoration: none;
+            }
+
+            span {
+                color: $proj-colour-20;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .anniversary-logo-wrapper {
+        text-align: center;
+
+        @include breakpoint(xs-max) {
+            padding: 45px 2px 2px;
+        }
+
+        .anniversary-logo {
+            @include breakpoint(xs-max) {
+                max-width: 100%;
+            }
+
+            @include breakpoint(sm) {
+                margin: 45px 20px 20px;
+            }
+        }
+    }
+}

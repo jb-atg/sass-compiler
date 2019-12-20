@@ -1,0 +1,13 @@
+.brochure-carousel {
+    .brochure-carousel-dots.owl-dots {
+        .owl-dot {
+            border: 1px solid $proj-colour-12;
+            &.active {
+                background: $proj-colour-02;
+                border: 1px solid $proj-colour-02;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,41 @@
+﻿$live-chat-z-index: 16000001;
+
+.panel-heading-image-container__controls {
+    z-index: 40;
+}
+
+.trip-itinerary-panel {
+    &.contains-media {
+        .panel-heading {
+            .panel-heading-tile {
+                z-index: 50;
+            }
+
+            .panel-heading-detail {
+                z-index: 50;
+            }
+
+            &:after {
+                z-index: 50;
+            }
+        }
+    }
+}
+
+.trip-itinerary, 
+.apt-accordion {
+    .panel-heading {
+        z-index: 60;
+    }
+}
+
+.brochure-modal {
+
+    &.in {
+        z-index: $live-chat-z-index + 1;
+    }
+}
+
+.btn-quick-view-brochure {
+    z-index: 5000;
+}

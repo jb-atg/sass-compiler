@@ -1,0 +1,84 @@
+.nav-mobile {
+    .nav-input-wrapper {
+        padding: 19px 23px 5px;
+        width: 100%;
+        background-color: $proj-colour-23;
+
+        .nav-input {
+            width: 100%;
+            outline: none;
+            border: 0;
+            border-radius: 0;
+            height: 62px;
+            line-height: 62px;
+            padding-left: 19px;
+            padding-right: 48px;
+            @include placeholder-content {
+                text-align: left;
+                color: $proj-colour-12;
+                font-family: $font-family-primary;
+                font-size: 15.5px;
+            }
+
+            &__form-control {
+                position: relative;
+            }
+        }
+        .btn-search {
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            margin: 0;
+            background: none;
+            padding: 0;
+            box-shadow: none;
+            .icon-cross-dark {
+                color: $proj-colour-13;
+            }
+            &:disabled {
+                cursor: initial;
+                opacity: 1;
+            }
+        }
+        .skip-city {
+            display: block;
+            text-align: right;
+            font-size: 14px;
+            color: $proj-colour-12;
+            font-family: $font-family-secondary;
+            text-decoration: none;
+            margin-top: 3px;
+            cursor: pointer;
+            .icon-rightarrow-small {
+                top: 3px;
+                font-size: 15px;
+                color: $proj-colour-12;
+                margin: 0 -5px;
+                &::before {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    &__button {
+        &--clear {
+            position: absolute;
+            width: 48px; // Input doens't use rems, so these values won't match up with rem() mixin :. px is used
+            height: 100%;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-appearance: none;
+            border: 0;
+            background: 0;
+            
+            [class*='icon-'] {
+                display: block;
+                top: auto;
+                line-height: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}

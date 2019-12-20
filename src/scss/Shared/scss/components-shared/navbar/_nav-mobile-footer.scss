@@ -1,0 +1,198 @@
+﻿.nav-mobile {
+    @include breakpoint(sm) {
+        display: none;
+    }
+
+    .nav-list {
+        list-style-type: none;
+        width: 100%;
+        padding: 0;
+
+        &.secondary {
+            background-color: $footer-nav-mobile-bg--secondary;
+        }
+    }
+
+    .nav-listitem {
+        background: $footer-nav-mobile-bg;
+
+        &.secondary {
+            background-color: $footer-nav-mobile-bg--secondary;
+            border-top: $footer-nav-mobile-border--secondary;
+
+            .nav-heading-link {
+                color: $footer-nav-mobile-link-color;
+                font-family: $font-family-primary;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $proj-colour-05;
+                    font-family: $font-family-primary;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &.search {
+            padding: 10px;
+            margin-top: 32px;
+            border: 0;
+        }
+
+        box-shadow: none;
+        border: 0;
+        margin: 0 !important;
+        border-top: $footer-nav-mobile-border;
+        min-height: $footer-nav-mobile-listitem-height;
+        border-radius: 0;
+
+        .nav-title {
+            margin: 0;
+            line-height: $footer-nav-mobile-listitem-height;
+        }
+
+        .nav-heading {
+            position: relative;
+            height: 100%;
+            padding: 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: $footer-nav-mobile-font;
+            border: 0;
+
+            .nav-heading-link {
+                color: $proj-colour-05;
+                width: 100%;
+                display: block;
+                font-size: inherit;
+                font-family: inherit;
+                text-decoration: none;
+                // states for the footer links without sublinks
+                &:active,
+                &:focus {
+                    font-family: $footer-nav-mobile-font;
+                    text-decoration: none;
+                    color: $footer-nav-mobile-link-color--active;
+                }
+
+                @include breakpoint(xxs-max) {
+                    font-size: 16px;
+                }
+            }
+
+            &.panel-heading a {
+                &:after {
+                    @include icon($footer-nav-mobile-icon--chevron);
+                    right: 12px;
+                    top: 12px;
+                    font-size: 40px;
+                    transition: all .3s;
+                    color: $proj-colour-05;
+                    position: absolute;
+                }
+                // states for the footer links with sublinks
+                &:active,
+                &:focus {
+                    text-decoration: none;
+                    color: $proj-colour-05;
+                    font-family: $footer-nav-mobile-font;
+                }
+
+                &[aria-expanded='true'] {
+                    color: $footer-nav-mobile-link-color--active;
+
+                    &:after {
+                        transform: rotate(180deg);
+                        color: $footer-nav-mobile-link-color--active;
+                    }
+                }
+            }
+        }
+    }
+
+    .nav-search {
+        border: $footer-nav-mobile-border;
+        @include placeholder($proj-colour-05);
+        font-size: 15px;
+        font-family: $font-family-primary;
+        height: 53px;
+        background-color: $proj-colour-15;
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        position: relative;
+
+        .nav-form-control {
+            width: 100%;
+            text-align: left;
+
+            @include placeholder-content {
+                text-align: left;
+                color: $proj-colour-12;
+                font-family: $font-family-primary;
+                font-size: 1rem;
+            }
+
+            transition: all .3s ease;
+            background: transparent;
+            border: 0;
+            height: 30px;
+            padding: 0 12px;
+            position: relative;
+            color: $proj-colour-05;
+            // We use the required attribute on the input combined with valid selector
+            // to detect if user has inputted text
+            &:focus,
+            &:active:focus,
+            &.active,
+            &:valid {
+                outline: none;
+                color: $proj-colour-05;
+
+                &:after {
+                    @include icon($footer-nav-mobile-icon--close);
+                }
+            }
+
+            &:invalid {
+                box-shadow: none;
+            }
+        }
+
+        .btn-search {
+            box-shadow: none;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            background: none;
+            right: 2px;
+            top: 14px;
+
+            &.btn-reset {
+                right: 30px;
+
+                .icon {
+                    &:before {
+                        @include icon($footer-nav-mobile-icon--close);
+                    }
+                }
+            }
+
+            &:disabled {
+                cursor: initial;
+                opacity: 1;
+            }
+
+            .icon {
+                font-size: 23px;
+                top: 0;
+
+                &:before {
+                    @include icon($footer-nav-mobile-icon--search);
+                    color: $footer-nav-mobile-link-color--active;
+                }
+            }
+        }
+    }
+}

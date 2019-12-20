@@ -1,0 +1,8 @@
+﻿.similar-trips {
+    @include breakpoint(xs-max) {
+        margin-bottom: -20px;
+    }
+    @include breakpoint(sm) {
+        padding-bottom: 60px;
+    }
+}

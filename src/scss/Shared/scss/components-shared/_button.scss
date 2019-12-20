@@ -1,0 +1,72 @@
+﻿@mixin reset-btn-wrapper {
+    flex: initial;
+    align-items: initial;
+    flex-direction: initial;
+    justify-content: initial;
+
+    .btn {
+        & + .btn {
+            margin-top: initial;
+        }
+    }
+}
+
+.btn {
+
+    &--disabled {
+        pointer-events: none;
+    }
+
+    &__wrapper {
+        display: flex;
+
+        &--fluid {
+            .btn {
+                width: 100%;
+            }
+
+            &-xs {
+                .btn {
+                    width: 100%;
+                }
+
+                @include breakpoint(sm) {
+                    .btn {
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        &--stack,
+        &--stack-xs {
+            align-items: center;
+            flex-direction: column;
+
+            .btn {
+                & + .btn {
+                    margin-top: .5rem;
+                }
+            }
+        }
+
+        &--stack-xs {
+            @include breakpoint(sm) {
+                @include reset-btn-wrapper();
+            }
+        }
+
+        &--row {
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &--row-sm {
+            @include breakpoint(sm) {
+                @include reset-btn-wrapper();
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+}

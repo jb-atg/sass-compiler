@@ -1,0 +1,20 @@
+// Medium to low priority z-index (~100 to 500)
+
+.site-overlay,
+.site-hero__text,
+.quicksearch-content,
+.trip-hero-camera {
+    z-index: 100;
+}
+
+.search-page__hero.site-hero {
+    z-index: 40;
+}
+
+.site-search__hero__form-container {
+    z-index: 60;
+}
+
+.site-overlay-secondary {
+    z-index: 50;
+}

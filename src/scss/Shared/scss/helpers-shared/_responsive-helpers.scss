@@ -1,0 +1,75 @@
+﻿
+@mixin set-visible-helpers() {
+    %visible-helpers--default {
+        display: none !important;
+    }
+  
+    @each $breakpoint in map-keys($breakpoints) { 
+        .visible-#{$breakpoint},
+        .visible-#{$breakpoint}-block,
+        .visible-#{$breakpoint}-inline,
+        .visible-#{$breakpoint}-inline-block,
+        .visible-#{$breakpoint}-flex { 
+            @extend %visible-helpers--default;
+        }
+    }
+}
+
+@mixin render-visible-helpers($breakpoint) {
+    .visible-#{$breakpoint},
+    .visible-#{$breakpoint}-block { 
+        display: block !important; 
+    }
+
+    .visible-#{$breakpoint}-inline {
+        display: inline !important; 
+    }
+
+    .visible-#{$breakpoint}-inline-block { 
+        display: inline-block !important; 
+    }
+
+    .visible-#{$breakpoint}-flex { 
+        display: flex !important; 
+    }
+}
+
+@mixin render-hidden-helpers($breakpoint) {
+    .hidden-#{$breakpoint} { 
+        display: none !important; 
+    }
+}
+
+// set the default style display:none
+// for all the visible helper classes
+@include set-visible-helpers(); 
+  
+// override the default style
+// depending of the breakpoint value
+@each $breakpoint in map-keys($breakpoints) { 
+    $is-xs: str-index($breakpoint, 'xs') != null;
+    $is-not-last-entry: index(map-keys($breakpoints), $breakpoint) != length($breakpoints);
+
+    @if $is-xs {
+
+        @include breakpoint(#{$breakpoint}-max) {
+            @include render-visible-helpers($breakpoint);
+            @include render-hidden-helpers($breakpoint);
+        }
+
+    } @else if $is-not-last-entry {
+
+        @include breakpoint(#{$breakpoint}-contain) {
+            @include render-visible-helpers($breakpoint);
+            @include render-hidden-helpers($breakpoint);
+        }
+
+    } @else {
+
+        @include breakpoint(#{$breakpoint}) {
+            @include render-visible-helpers($breakpoint);
+            @include render-hidden-helpers($breakpoint);
+        }
+
+    }
+}

@@ -1,0 +1,104 @@
+﻿.special-deals {
+
+    margin-top: 3rem;
+
+    @include breakpoint(xs-max) {
+        background-color: $proj-colour-15;
+    }
+    @include breakpoint(sm) {
+        background-color: $proj-colour-14;
+    }
+
+    &__container {
+        padding-top: 1px;
+    }
+
+    &__grouping {
+        padding-top: 2rem;
+        background-color: $proj-colour-15;
+
+        &__title {
+            margin: 0;
+        }
+    }
+
+    &__panel {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        &--cta {
+            text-align: center;
+            border-bottom: 0;
+        }
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+
+        & + .special-deals__grouping__title {
+            margin-top: 2rem;
+        }
+
+    }
+
+    &__title {
+        color: $proj-colour-10;
+        text-transform: none;
+        margin-bottom: 1rem;
+        margin-top: 0;
+    }
+
+    &__link {
+        &--terms {
+            font-size: 1.15rem;
+
+            &:after {
+                content: '\A';
+                white-space: pre;
+            }
+
+
+        }
+        &--itineraries {
+            margin-top: 1.5rem;
+
+            @include breakpoint(xs-max) {
+                width: 100%;
+            }
+        }
+        &--cta {
+            @include breakpoint(xs-max) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__region-anchors {
+        @extend %clearfix;
+
+        @include breakpoint(xs-max) {
+            padding: 1.8rem 0;
+        }
+        
+        @include breakpoint(sm) {
+            padding: 1rem .3rem;
+        }
+
+        &__container {
+            & + .special-deals {
+                margin-top: 0;
+            }
+        }
+
+        &__btn {
+            text-transform: none;
+            float: left;
+            width: auto !important;
+            margin: .5rem .3rem;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+
+
+    }
+}

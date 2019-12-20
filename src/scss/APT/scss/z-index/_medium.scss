@@ -1,0 +1,15 @@
+// Medium priority z-index (~500 to 1000)
+
+.grid-carousel {
+    .trip-card {
+        .trip-card__info {
+            z-index: 200;
+        }
+    }
+}
+
+.navbar {
+    &.mobile {
+        z-index: 2000;
+    }
+}

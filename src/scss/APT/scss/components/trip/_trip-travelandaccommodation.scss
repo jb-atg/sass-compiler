@@ -1,0 +1,81 @@
+﻿.trip-travelandaccommodation {
+    @include breakpoint(sm) {
+        padding-bottom: 60px;
+    }
+
+    .col-sm-4.col-xs-12 {
+        .trip-card {
+            box-shadow: none;
+
+            @include breakpoint(sm) {
+                min-height: initial;
+                margin: 0;
+                background-color: transparent;
+                text-align: center;
+                padding-bottom: 0;
+            }
+        }
+
+        .trip-card__content {
+            min-height: initial;
+            position: relative;
+
+            @include breakpoint(sm) {
+                padding: 0;
+                height: calc(100% - 200px);
+                padding-bottom: 55px !important;
+            }
+
+            @include breakpoint(xs-max) {
+                padding-bottom: 45px !important;
+            }
+        }
+
+        .trip-card__title {
+            min-height: initial !important;
+
+            #{$kwa-page-selector} & {
+                color: $proj-colour-kwa-02;
+            }
+        }
+
+        .trip-card__description {
+            @include breakpoint(sm) {
+                margin-bottom: 0;
+            }
+        }
+
+        .trip-card__cta {
+            position: absolute;
+
+            @include breakpoint(xs-max) {
+                padding-left: 15px;
+                padding-right: 15px;
+                bottom: 10px;
+                box-shadow: none;
+                left: 10px;
+            }
+
+            @include breakpoint(sm) {
+                transform: translate(-50%, 0);
+                left: 50%;
+                bottom: 0;
+            }
+        }
+    }
+
+    .col-xs-12 {
+        &:nth-child(even) {
+            @include breakpoint(xs-max) {
+                .trip-card__medialink {
+                    left: 0;
+                    right: auto;
+                }
+
+                .trip-card__content {
+                    margin-left: 33%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+﻿.footer-social {
+    margin-bottom: 20px;
+    margin-top: 36px;
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: $footer-divider;
+
+    .footer-social-header {
+        text-transform: none;
+        margin: 0;
+    }
+    .footer-social-list {
+        padding: 0;
+        margin: 0;
+        margin-top: 20px;
+        list-style: none;
+
+        .footer-social-listitem {
+            display: inline-block;
+            @include breakpoint(xs-max) {
+                margin: 0 4px;
+            }
+            @include breakpoint(sm) {
+                margin: 0 8px;
+            }
+        }
+    }
+
+    .footer-social-icon {
+        display: inline-block;
+        color: $proj-colour-02;
+        background: $proj-colour-15;
+        border-radius: 100px;
+        border: 1px solid $proj-colour-02;
+        height: 55px;
+        width: 55px;
+        line-height: 55px;
+        margin-bottom: 10px;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        transition: all .3s ease-in-out;
+        
+        .no-touchevents &:hover,
+        .touchevents &:active,
+        .touchevents &:focus {
+            color: $proj-colour-15;
+            background: $proj-colour-02;
+            border: 1px solid $proj-colour-02;
+        }
+    }
+}

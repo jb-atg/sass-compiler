@@ -1,0 +1,57 @@
+﻿$login-cta-background-colour: $proj-colour-23;
+
+.login-cta {
+    margin: 0;
+    margin-top: 11px;
+    // Top triangle
+    &:before {
+        content: ' ';
+        border-style: solid;
+        position: absolute;
+        left: auto;
+        top: -9px;
+        right: 25px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid $proj-colour-23;
+        border-top: 0;
+    }
+
+    background-color: $proj-colour-23;
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+    white-space: nowrap;
+    left: auto;
+    right: -10px;
+
+    .login-cta-links {
+        padding: 20px;
+        margin: 0;
+        list-style: none;
+
+        li {
+            display: inline-block;
+
+            &:not(:first-of-type) {
+                padding-left: 14px;
+            }
+
+            &:not(:last-of-type) {
+                padding-right: 18px;
+                border-right: 1px solid $proj-colour-24;
+            }
+
+            a {
+                width: 190px;
+            }
+        }
+
+        .login-cta-header {
+            text-align: left;
+            line-height: initial;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+    }
+}

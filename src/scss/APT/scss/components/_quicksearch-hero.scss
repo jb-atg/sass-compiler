@@ -1,0 +1,177 @@
+﻿$quicksearch-hero-text-shadow: 0 5px 20px rgba(0, 0, 0, .7);
+$kwa-quicksearch-hero-text-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+
+.quicksearch-hero {
+    position: relative;
+    top: 0;
+    width: 100%;
+
+    &--reduced {
+        @include breakpoint(sm) {
+            height: 26.5625rem !important;
+        }
+    }
+
+
+    .quicksearch-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        color: $proj-colour-15;
+        text-align: center;
+        transform: translate(-50%, -50%);
+
+        @include breakpoint(sm) {
+            #{$kwa-page-selector} & {
+                width: 50%;
+                max-width: 60rem;
+            }
+        }
+    }
+
+    &__background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        @extend %object-fit;
+        z-index: -1;
+    }
+
+    &__title {
+        margin-bottom: 1.2rem;
+        color: $proj-colour-15;
+        text-shadow: $quicksearch-hero-text-shadow;
+        font-family: "GothamMedium","Arial","sans-serif";
+        font-size: 2.5rem;
+        line-height: 3.125rem;
+        text-transform: capitalize;
+        margin-top: 3.5rem;
+
+        #{$kwa-page-selector} & {
+            margin-bottom: 2rem;
+            text-shadow: $kwa-quicksearch-hero-text-shadow;
+            color: $proj-colour-15;
+        }
+    }
+
+    &__tagline {
+        margin-bottom: 2rem;
+        font-family: $font-family-primary;
+        font-size: 1.5rem;
+        color: $proj-colour-15;
+        text-shadow: $quicksearch-hero-text-shadow;
+
+        #{$kwa-page-selector} & {
+            text-shadow: $kwa-quicksearch-hero-text-shadow;
+        }
+    }
+
+    &__cta {
+        font-size: 1.3rem;
+    }
+
+    &__cta-supplement {
+        margin-top: 2rem;
+        color: $proj-colour-15;
+        text-shadow: $quicksearch-hero-text-shadow;
+
+        #{$kwa-page-selector} & {
+            text-shadow: $kwa-quicksearch-hero-text-shadow;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+    }
+    // Video player icon on quicksearch hero
+    .video-player-link {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 10rem;
+        width: 10rem;
+        display: block;
+        color: $proj-colour-15;
+        text-decoration: none;
+        transform: translate(-50%, -50%);
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            opacity: .8;
+        }
+
+        &:after {
+            @include icon(icon-play_circle_outline);
+            transform: none;
+            top: 0;
+            font-size: 10rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, .2);
+        }
+    }
+    // Overriding carousel settings only for this component
+    .owl-nav {
+        .owl-next,
+        .owl-prev {
+            width: 3.5rem !important;
+            height: 3.5rem !important;
+
+            &:before {
+                font-size: 1.5rem !important;
+            }
+
+            html.no-touchevents &:hover,
+            html.touchevents &:active,
+            html.touchevents &:focus {
+                background: $proj-colour-06;
+
+                &:before {
+                    color: $proj-colour-15;
+                }
+            }
+        }
+
+        .owl-prev {
+            left: 1.563rem !important;
+            border-radius: 6.25rem !important;
+
+            &:before {
+                @include icon(icon-navigate_before);
+
+                @include breakpoint(sm) {
+                    right: 1rem !important;
+                }
+            }
+        }
+
+        .owl-next {
+            right: 1.563rem !important;
+            border-radius: 6.25rem !important;
+
+            &:before {
+                @include icon(icon-navigate_next);
+
+                @include breakpoint(sm) {
+                    left: 1rem !important;
+                }
+            }
+        }
+    }
+
+    .owl-dots {
+        bottom: 0.5rem !important;
+
+        .owl-dot {
+            height: 0.875rem !important;
+            width: 0.875rem !important;
+            color: $proj-colour-15 !important;
+            border: 1px solid $proj-colour-15 !important;
+
+            &.active {
+                background: $proj-colour-15 !important;
+            }
+        }
+    }
+}

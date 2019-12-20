@@ -1,0 +1,103 @@
+.global-nav {
+
+    height: 57px;
+
+    @include breakpoint(xs-max) {
+        display: none;
+    }
+
+    &__solid {
+        background-color: $proj-colour-05;
+        height: 90px;
+
+        .global-nav__container {
+            padding-top: 12px;
+        }
+    }
+
+    &__fade {
+        background: linear-gradient(to bottom, $proj-colour-05 0%, transparent 100%);
+        height: 90px;
+
+        .global-nav__container {
+            padding-top: 12px;
+        }
+    }
+
+    .global-nav-links {
+        margin-bottom: 0;
+        list-style-type: none;
+        padding: 0;
+
+        .global-nav-listitem {
+            font-size: $global-nav-font-size;
+            display: inline-block;
+            padding: 11px 0;
+
+            & + .global-nav-listitem {
+                margin-left: 30px;
+            }
+
+            .global-nav-links__label {
+                margin-top: 9px;
+                display: inline-block;
+            }
+
+            .global-nav-links__icon {
+                color: $global-nav-font-colour;
+
+                & + .global-nav-links__label {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    // styling of links on the top navbar with hover effects
+    .global-nav-link {
+        display: inline-block;
+        color: $global-nav-font-colour;
+        cursor: pointer;
+
+        @include breakpoint(sm) {
+            font-size: $global-nav-font-size-sm;
+        }
+
+        @include breakpoint(md) {
+            font-size: $global-nav-font-size;
+        }
+
+        &:not(.login-dropdown) {
+            &:hover,
+            &:focus,
+            &:active {
+                text-decoration: none;
+                font-family: $font-family-secondary;
+                color: $global-nav-font-colour-hover;
+                opacity: $global-nav-font-opacity-hover;
+            }
+        }
+    }
+
+    .login-dropdown {
+        font-family: $font-family-secondary;
+        margin: -12px;
+        padding: 12px;
+
+        &:hover,
+        &:focus,
+        &:active {
+            > .dropdown-menu {
+                display: block;
+            }
+
+            text-decoration: none;
+
+            i,
+            span {
+                font-family: $font-family-secondary;
+                color: $global-nav-font-colour-hover;
+                opacity: $global-nav-font-opacity-hover;
+            }
+        }
+    }
+}

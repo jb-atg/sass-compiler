@@ -1,0 +1,255 @@
+// @todo need to globalise variables...
+$proj-colour-kwa-05: #220c04;
+
+// Placeholder that allows full control over the styling
+@mixin placeholder-content {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+// To use when extending icons.
+@mixin icon($icon) {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @extend .#{$icon}:before !optional;
+}
+
+@mixin animated-icon($font-size, $font-spinner-size, $icon-static, $icon-animated, $icon-color: $proj-colour-15) {
+    display: block;
+    position: relative;
+    margin: 0 auto !important;
+    top: 0;
+    text-align: center;
+
+    &:before {
+        @include icon($icon-static);
+        display: inline-block;
+        width: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $icon-color;
+        font-size: $font-size;
+    }
+
+    &:after {
+        @include icon($icon-animated);
+        display: inline-block;
+        width: auto;
+        position: relative;
+        color: $icon-color;
+        background: transparent;
+        font-size: $font-spinner-size;
+        animation: animateRotate cubic-bezier(.16, .80, .40, .59) 1.1s;
+        transform-origin: 50% 50%;
+        animation-iteration-count: infinite;
+    }
+}
+
+// overlay mixins
+@mixin overlay-background($opacity, $color: null) {
+    // Required: Opacity
+    $opacity: $opacity/100;
+    // Color Defaults
+    $background-color: rgb(0, 0, 0);
+    $background-color-kwa: $proj-colour-kwa-05;
+    // Optional: Custom colour
+    @if $color {
+        $background-color: $color;
+        $background-color-kwa: $color;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba($background-color, $opacity);
+
+        #{$kwa-page-selector} & {
+            background-color: rgba($background-color-kwa, $opacity);
+        }
+    }
+}
+
+// Remove grid margin.
+@mixin remove-margin($extraAmount: 0) {
+    margin-left: -($grid-xs-gutter-width/2) - $extraAmount;
+    margin-right: -($grid-xs-gutter-width/2) - $extraAmount;
+
+    @include breakpoint(sm) {
+        margin-left: -($grid-sm-gutter-width/2) - $extraAmount;
+        margin-right: -($grid-sm-gutter-width/2) - $extraAmount;
+    }
+
+    @include breakpoint(md) {
+        margin-left: -($grid-md-gutter-width/2) - $extraAmount;
+        margin-right: -($grid-md-gutter-width/2) - $extraAmount;
+    }
+
+    @include breakpoint(lg) {
+        margin-left: -($grid-lg-gutter-width/2) - $extraAmount;
+        margin-right: -($grid-lg-gutter-width/2) - $extraAmount;
+    }
+}
+
+@mixin padding-sides-10 {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
+@mixin box-shadow-light($opacity: .08) {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, $opacity);
+}
+
+// Fonts - https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+    $src: null;
+
+    $extmods: ( eot: "?", svg: "#" + str-replace($name, " ", "_") );
+
+    $formats: ( otf: "opentype", ttf: "truetype" );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+
+@mixin image-aspect-ratio($width-unit: 4, $height-unit: 3) {
+    // image aspect ratio, to be applied to image container
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: percentage($height-unit/$width-unit) 0 0 0;
+
+    > picture img,
+    > img,
+    > a {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+@mixin focusBase($size, $inside) {
+    $focus-position: 0 !default;
+    $focus-size: 0 !default;
+    $content: '' !default;
+
+    @if $inside == false {
+        $focus-position: -1 * $size;
+        $focus-size: calc(100% + #{$size * 2});
+    }
+    @else if $inside == true {
+        $focus-position: $size;
+        $focus-size: calc(100% - #{$size * 2});
+    }
+
+    border-color: currentColor;
+    border-radius: $focus-radius;
+    border-style: dotted;
+    border-width: 1px;
+    content: $content;
+    display: block;
+    height: $focus-size;
+    left: $focus-position;
+    opacity: .5;
+    pointer-events: none;
+    position: absolute;
+    top: $focus-position;
+    width: $focus-size;
+    transform: none;
+
+    @content;
+}
+
+@mixin focusBaseColour($main) {
+    border-color: $main;
+}
+
+@mixin focusColour($main, $selector: 'before') {
+    &:focus::#{$selector} {
+        border-color: $main;
+    }
+}
+
+@mixin focusInline($size: $focus-offset) {
+    &:focus {
+        outline: 1px dotted currentColor;
+        outline-offset: $size;
+    }
+}
+
+@mixin focus($size: $focus-offset, $selector: 'after', $inside: false) {
+    position: relative;
+
+    &:focus {
+        outline: none;
+
+        &::#{$selector} {
+            @include focusBase($size, $inside) {
+                @content;
+            }
+        }
+    }
+}

@@ -1,0 +1,113 @@
+﻿@mixin render-row-flex-modifiers($infix) {
+    .row-#{$infix}-justify-start { 
+        justify-content: flex-start; 
+    }
+
+    .row-#{$infix}-justify-end { 
+        justify-content: flex-end; 
+    }
+
+    .row-#{$infix}-justify-center { 
+        justify-content: center; 
+    }
+
+    .row-#{$infix}-align-start { 
+        align-items: flex-start; 
+    }
+
+    .row-#{$infix}-align-end { 
+        align-items: flex-end; 
+    }
+
+    .row-#{$infix}-align-center { 
+        align-items: center; 
+    }
+}
+
+@mixin render-column-flex-modifiers($infix) {
+    .col-#{$infix}-align-start {
+        align-self: flex-start !important;
+    }
+
+    .col-#{$infix}-align-end {
+        align-self: flex-end !important;
+    }
+
+    .col-#{$infix}-align-center {
+        align-self: center !important;
+    }
+}
+
+@mixin render-columns($infix) {
+    @for $i from 1 through ($grid-columns) {
+        .col-#{$infix}-#{$i} {
+            flex: 0 0 percentage($i / $grid-columns);
+            max-width: percentage($i / $grid-columns);
+        }
+    } 
+
+    .col-#{$infix}-2-5 {
+        flex: 0 0 percentage(2.5 / $grid-columns);
+        max-width: percentage(2.5 / $grid-columns);
+    }
+}
+
+@mixin render-push-columns($infix) {
+    @for $i from 0 through ($grid-columns - 1) {
+        .col-#{$infix}-push-#{$i} {
+            left: if($i > 0, percentage($i / $grid-columns), auto);
+        }
+    }
+
+    .col-#{$infix}-push-2-5 {
+        left: percentage(2.5 / $grid-columns);
+    }
+}
+
+@mixin render-pull-columns($infix) {
+    @for $i from 0 through ($grid-columns - 1) {
+        .col-#{$infix}-pull-#{$i} {
+            right: if($i > 0, percentage($i / $grid-columns), auto);
+        }
+    }
+
+    .col-#{$infix}-pull-2-5 {
+        right: percentage(2.5 / $grid-columns);
+    }
+}
+
+@mixin render-offset-columns($infix) {
+    @for $i from 0 through ($grid-columns - 1) {
+        .col-#{$infix}-offset-#{$i} {
+            margin-left: if($i > 0, percentage($i / $grid-columns), 0);
+        }
+    }
+
+    .col-#{$infix}-offset-2-5 {
+        margin-left: percentage(2.5 / $grid-columns);
+    }
+}
+
+@mixin build-flex-column($breakpoint) {
+    .col-#{$breakpoint} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    .col-#{$breakpoint}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+    }
+    
+    @include render-columns($breakpoint);
+    @include render-offset-columns($breakpoint);
+    @include render-column-flex-modifiers($breakpoint)
+    
+    // do not render push and pull helpers
+    // as it seems we are not using them
+    // ---
+    // @include render-push-columns($breakpoint);
+    // @include render-pull-columns($breakpoint); 
+}

@@ -1,0 +1,21 @@
+// Homepage mobile carousels
+.grid-component__carousel {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    .feature-panel {
+        .feature-panel-image {
+            margin: 0;
+        }
+        .feature-panel-description {
+            padding: 10px 30px;
+            margin-bottom: 0;
+            min-height: 60px;
+        }
+        // override for mobile buttons
+        .btn {
+            padding: 15px 10px;
+            font-size: 14px;
+        }
+    }
+}

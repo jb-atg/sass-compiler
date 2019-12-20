@@ -1,0 +1,20 @@
+.navbar-collapse {
+    @include breakpoint(xs-max) {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+
+
+    @include breakpoint(sm) {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    &.collapse {
+        @include breakpoint(sm) {
+            margin: 0 auto;
+            display: table !important;
+        }
+    }
+}

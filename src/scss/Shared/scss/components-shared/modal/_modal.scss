@@ -1,0 +1,15 @@
+﻿body.modal-open-scroll-fix {
+    @include breakpoint(xs) {
+        position: fixed;
+        width: 100%;
+    }
+}
+
+body.modal-open-xs {
+    @include breakpoint(xs) {
+        position: fixed;
+        width: 100%;
+        overflow: auto !important;
+        padding-right: 0 !important;
+    }
+}

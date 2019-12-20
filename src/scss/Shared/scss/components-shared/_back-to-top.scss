@@ -1,0 +1,49 @@
+﻿.btn-back-to-top {
+    display: block;
+    position: fixed;
+    cursor: pointer;
+    opacity: 0;
+    right: 34px;
+    bottom: 31px;
+    transition: opacity .3s ease-in-out;
+    width: $back-to-top-width;
+    height: $back-to-top-height;
+
+    .icon-back-top {
+        display: block;
+        position: absolute;
+        left: 0;
+        font-size: $back-to-top-font-size;
+        border-radius: $back-to-top-border-radius;
+        border: $back-to-top-border;
+        padding: $back-to-top-padding;
+        background: $back-to-top-background;
+        color: $back-to-top-color;
+        transition: all .3s ease-in-out;
+        box-shadow: $back-to-top-box-shadow;
+
+        html.no-touchevents &:hover,
+        html.touchevents &:active,
+        html.touchevents &:focus {
+            color: $proj-colour-15;
+            background: $proj-colour-06;
+            border: $back-to-top-hover-border;
+        }
+    }
+
+    @include breakpoint(xs-max) {
+        position: $mobile-back-to-top-position;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        width: $mobile-back-to-top-width;
+        bottom: 16px;
+        margin-top: $mobile-back-to-top-margin-top;
+    }
+}
+
+.show .btn-back-to-top {
+    opacity: 1;
+    transition: opacity .3s ease-in-out, height 1s;
+}

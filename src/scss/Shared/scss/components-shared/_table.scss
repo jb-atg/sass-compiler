@@ -1,0 +1,41 @@
+﻿.tbl {
+    width: 100%;
+    table-layout: fixed;
+    font-size: $tbl-font-size;
+    color: $tbl-color;
+    margin-bottom: 1.25rem;
+
+    th {
+        font-family: $tbl-th-font-family;
+        font-weight: $tbl-th-weight;
+        color: $tbl-th-color;
+        padding-bottom: 1.375rem;
+    }
+
+    td {
+        padding-bottom: 1.25rem;
+        vertical-align: bottom;
+    }
+
+    th,
+    td {
+        padding-left: .313rem;
+        padding-right: .313rem;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    tr.has-border {
+        border-bottom: 1px solid $tbl-border-color;
+
+        + tr > td {
+            padding-top: 1.25rem;
+        }
+    }
+}

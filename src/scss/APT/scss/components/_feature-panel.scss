@@ -1,0 +1,24 @@
+﻿.feature-panel {
+    &__image {
+        margin-bottom: 32px;
+    }
+
+    &__title {
+        text-transform: none;
+        margin: 0 0 22px 0;
+    }
+
+    &__description {
+        padding: 0 15px 0 0;
+        margin-bottom: 22px;
+
+        @include breakpoint(sm) {
+            min-height: 67px;
+        } 
+    }
+
+    &__link {
+        margin: 0 0 22px;
+    }
+
+}

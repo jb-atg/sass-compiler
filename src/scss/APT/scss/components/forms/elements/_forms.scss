@@ -1,0 +1,246 @@
+form {
+    // disables transitions for all child elements
+    &.no-csstransitions * {
+        transition: none;
+    }
+}
+
+.form-group {
+    margin-bottom: 19px;
+
+    label {
+        display: block;
+        font-size: 1rem;
+        color: $proj-colour-05;
+        span {
+            font-weight: normal;
+            padding-right: 10px;
+        }
+    }
+
+    .icon-form-control {
+        left: $input-width + 15px;
+        top: 50px !important;
+        font-size: 30px !important;
+    }
+
+    &.field--loading {
+        position: relative;
+        color: transparent !important;
+
+        &:before {
+            @include icon(icon-apt-logo);
+            display: block;
+            position: absolute;
+            top: 1.75em;
+            right: 1em;
+            @include browser-ie11 {
+                right: 2em;
+            }
+            transform: translateY(-50%);
+            color: $proj-colour-12;
+            font-size: 30px;
+        }
+
+        &:after {
+            @include icon(icon-loading-spin);
+            display: block;
+            position: absolute;
+            top: 1.25em;
+            right: 1em;
+            @include browser-ie11 {
+                right: 2em;
+            }
+            color: $proj-colour-12;
+            font-size: 30px;
+            animation: animateRotate linear 1s;
+            transform-origin: 50% 50%;
+            animation-iteration-count: infinite;
+        }
+    }
+}
+
+.form-control {
+    box-shadow: none;
+    color: $proj-colour-05;
+    font-family: $font-family-secondary;
+    font-size: 1rem;
+    border-radius: 1px;
+    border: 1px solid $proj-colour-13;
+    height: 50px;
+    width: $input-width;
+    transition: all .3s ease;
+    @include placeholder($proj-colour-12);
+
+    &:focus {
+        box-shadow: none;
+        color: $proj-colour-05;
+        border-color: $proj-colour-13;
+    }
+
+    &[type=password] {
+        -webkit-text-stroke-width: .25em; // sass-lint:disable-line no-vendor-prefixes
+        letter-spacing: .25em;
+
+        @include placeholder-content {
+            -webkit-text-stroke-width: 0; // sass-lint:disable-line no-vendor-prefixes
+            letter-spacing: normal;
+        }
+    }
+
+    
+}
+
+.form-control-alt {
+    position: relative;
+    background: transparent;
+    transition: all .3s ease;
+
+    .form-control {
+        background: transparent;
+    }
+
+    &:after {
+        .bg-secondary & {
+            border-color: $proj-colour-02;
+        }
+
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #fff;
+        background: transparent;
+        height: 37px;
+        border-bottom: 0;
+        pointer-events: none;
+        z-index: 100;
+    }
+}
+
+.has-content {
+    .form-control-alt {
+        &:after {
+            border-width: 0;
+        }
+    }
+}
+
+.form-control-feedback {
+    position: absolute;
+}
+
+.error {
+    font-size: 14px;
+    color: $proj-colour-danger;
+    //position: absolute;
+    margin-top: 4px;
+    position: relative;
+    top: 4px;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+}
+
+.has-error {
+    .icon-form-control {
+        color: $proj-colour-danger;
+
+        &:before {
+            color: $proj-colour-danger;
+        }
+    }
+
+    .form-control {
+        color: $proj-colour-danger !important;
+        border-color: $proj-colour-danger !important;
+        background-color: $proj-colour-danger-bg !important;
+
+        @include placeholder-content {
+            color: $proj-colour-danger !important;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+.has-success {
+    .icon-form-control {
+        color: $proj-colour-success;
+
+        &:before {
+            color: $proj-colour-success;
+        }
+    }
+
+    .form-control {
+        color: $proj-colour-success !important;
+        border-color: $proj-colour-success !important;
+        background-color: $proj-colour-success-bg !important;
+
+        @include placeholder-content {
+            color: $proj-colour-success !important;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+.hide-clear {
+    &::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
+        display: none;
+    }
+}
+
+.form-note {
+    display: none;
+    font-size: 12px;
+    color: $proj-colour-12;
+    line-height: normal;
+    margin-top: 20px;
+
+    &:before {
+        content: 'Note: ';
+        color: $proj-colour-danger;
+    }
+}
+
+.sub-note {
+    @extend .form-note;
+    display: block;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+.has-error > select {
+    background-image: url('/assets/images/Phoenix/Shared/icons/chevron-error.png') !important;
+}
+
+.has-success > select {
+    background-image: url('/assets/images/Phoenix/Shared/icons/chevron-success.png') !important;
+}
+
+select {
+    appearance: none;
+    overflow: hidden;
+    background: no-repeat right;
+    &.form-control {
+        &.light {
+            background-image: url('/assets/images/Phoenix/Shared/icons/chevron-light.png');
+        }
+        &:not(.light) {
+            background-image: url('/assets/images/Phoenix/Shared/icons/chevron-dark.png');
+        }
+    }
+}
+
+select::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
+    display: none;
+}

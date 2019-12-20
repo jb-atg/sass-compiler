@@ -1,0 +1,9 @@
+$global-nav-font-colour: $proj-colour-15;
+$global-nav-font-colour-hover: $proj-colour-14;
+$global-nav-font-opacity-hover: .7;
+$global-nav-font-size: 16px;
+$global-nav-font-size-sm: 14px;
+
+@import 'global-nav/global-nav';
+@import 'global-nav/global-nav-search';
+@import 'global-nav/login-cta';

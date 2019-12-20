@@ -1,0 +1,19 @@
+@mixin expanded-arrow() {
+    position: relative;
+
+    &::after {
+        @include icon($expanded-arrow-icon);
+        font-size: inherit;
+        color: inherit;
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translate3d(0, -50%, 0) rotate(0deg);
+        transition: transform .3s;
+        @content;
+    }
+
+    &[aria-expanded='true']::after {
+        transform: translate3d(0, -50%, 0) rotate(180deg);
+    }
+}

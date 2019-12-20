@@ -1,0 +1,146 @@
+﻿$trip-search-widget-height: 4.5rem;
+$trip-search-widget-horizontal-padding: 1.15rem;
+
+.trip-search-widget {
+    background: $proj-colour-15;
+    box-shadow: 0 2px 6px 0 rgba(202, 202, 202, .41);
+    position: relative;
+
+    @include breakpoint(sm) {
+        height: $trip-search-widget-height;
+    }
+
+    &__field {
+        height: $trip-search-widget-height;
+        display: block;
+        float: left;
+        width: 25%;
+        border-left: solid 2px $proj-colour-14;
+
+        &.-submit {
+            padding-left: 2.5rem;
+        }
+    }
+
+    &__select {
+        color: $proj-colour-12;
+        background-color: $proj-colour-15;
+        padding: 0 2rem 0 1.8rem;
+        border: 0;
+        width: 100%;
+        height: $trip-search-widget-height;
+        outline: none;
+        font-family: $font-family-secondary;
+        font-size: 1.25rem;
+        cursor: pointer;
+
+        &.active {
+            color: $proj-colour-05;
+        }
+
+        &:active,
+        &:hover,
+        &:focus {
+            outline: none;
+        }
+
+        &:focus::-ms-value {
+            background-color: inherit;
+            color: $proj-colour-05;
+        }
+
+        &:hover {
+            background-color: $proj-colour-15;
+        }
+
+        option {
+            background-color: $proj-colour-15;
+            font-family: $font-family-primary;
+        }
+    }
+
+    &__submit {
+        @include breakpoint(sm) {
+            top: 50%;
+            transform: translateY(-50%);
+            position: relative;
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        @include breakpoint(xs-max) {
+            position: relative;
+            width: 100%;
+        }
+
+        &-container {
+            @include breakpoint(xs-max) {
+                padding: 1rem $trip-search-widget-horizontal-padding;
+            }
+        }
+    }
+
+    &__list {
+        margin-bottom: 0;
+
+        &__item {
+            border-top: 0 !important;
+
+            .panel-heading {
+                border-bottom: solid 1px $proj-colour-14 !important;
+            }
+        }
+
+        &__link {
+            color: $proj-colour-12 !important;
+            font-size: 1.25rem !important;
+            padding: 1rem $trip-search-widget-horizontal-padding;
+
+            &:hover,
+            &.active {
+                color: $proj-colour-05 !important;
+            }
+
+            &:after {
+                color: $proj-colour-12 !important;
+                font-size: 2rem !important;
+                top: 1.25rem !important;
+            }
+        }
+
+        &__title {
+            text-transform: none;
+            padding: 0;
+            text-align: left;
+            line-height: 1.95 !important;
+        }
+    }
+
+    &__sub-list {
+        padding: 0;
+
+        &__item {
+            background-color: $proj-colour-15;
+            display: block;
+            border-bottom: solid 1px $proj-colour-14;
+        }
+
+        &__link {
+            color: $proj-colour-12;
+            text-transform: none;
+            text-align: left;
+            line-height: 1.95 !important;
+            font-size: 1.25rem;
+            display: block;
+            padding: .6rem $trip-search-widget-horizontal-padding;
+
+            &:hover,
+            &.active {
+                font-family: $font-family-secondary;
+                color: $proj-colour-05;
+                text-decoration: none;
+            }
+        }
+    }
+}

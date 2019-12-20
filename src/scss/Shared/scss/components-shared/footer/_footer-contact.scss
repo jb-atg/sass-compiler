@@ -1,0 +1,48 @@
+﻿.footer-cta-contact {
+    color: $proj-colour-05;
+    text-transform: uppercase;
+    font-family: $font-family-secondary;
+    text-align: right;
+
+    .footer-cta-contact-link {
+        color: $proj-colour-05;
+
+        .icon-phone {
+            margin-right: $footer-cta-icon-phone-margin-right;
+        }
+
+        .icon-email {
+            margin-right: $footer-cta-icon-email-margin-right;
+        }
+
+        &:hover {
+            color: $footer-cta-hover-colour;
+            font-family: $font-family-secondary;
+            text-decoration: none;
+        }
+    }
+
+    .footer-cta-contact-header {
+        font-size: 11.6px;
+    }
+
+    .footer-cta-contact-phone {
+        .footer-cta-contact-link {
+            i {
+                top: 0;
+            }
+
+            font-size: 30px;
+        }
+    }
+
+    .footer-cta-contact-email {
+        .footer-cta-contact-link {
+            i {
+                top: 6px;
+            }
+
+            font-size: 14px;
+        }
+    }
+}

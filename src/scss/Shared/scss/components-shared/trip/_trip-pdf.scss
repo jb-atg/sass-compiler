@@ -1,0 +1,137 @@
+.pdf-html {
+    font-size: 12px;
+}
+
+.trip-pdf {
+    .body-content-trip-pdf {
+        background-color: #fff;
+    }
+
+    page {
+        background: #fff;
+        display: block;
+        margin: 0 auto;
+        page-break-after: always;
+    }
+
+    page[size="A4"] {
+        width: 21cm;
+        height: 29.7cm;
+
+        &.auto-page-height {
+            height: auto;
+        }
+    }
+
+    .trip-pdf-flex {
+        display: flex;
+    }
+
+    &__page {
+        .trip-intro, .trip-highlights, .trip-travelandaccommodation, .trip-inclusions, .trip-itinerary, .trip-travel-accommodation {
+            background-color: #fff;
+        }
+
+        &.centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trip-intro {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .trip-card {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+
+            &__description {
+                line-height: 2rem;
+            }
+
+            .trip-pdf__medialink {
+                height: 7.5rem;
+            }
+        }
+
+        .trip-inclusions {
+            .list-2col {
+                line-height: 2rem;
+
+                li {
+                    font-size: 1.125rem;
+                    line-height: 1.625rem;
+                    padding-bottom: 1.125rem;
+                }
+            }
+
+            .trip-notes-title {
+                padding-bottom: 1rem;
+                padding-right: 2.5rem;
+                width: 100%;
+                line-height: normal;
+                margin: 1.25rem 0 1.75rem 0;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+            }
+        }
+
+        .trip-itinerary {
+            .map-image-container {
+                margin-bottom: 1rem;
+
+                .trip-map-image {
+                    height: 100%;
+                    max-width: 100%;
+                    width: 100%;
+                }
+            }
+
+            .trip-day-content {
+                p {
+                    line-height: 2rem;
+                }
+            }
+
+            &-panel:nth-child(odd), &-panel:nth-child(even) {
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                background-color: #fff;
+
+                .panel-heading {
+                    .panel-heading-tile {
+                        background-color: $proj-colour-06;
+                    }
+
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                .panel-body {
+                    .accordion__content {
+                        padding-top: 0;
+                        padding-bottom: 0;
+                    }
+                }
+            }
+
+            .panel-group {
+                .panel {
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    &__panel {
+        padding-top: 2rem;
+        page-break-inside: avoid;
+        page-break-after: auto;
+        position: relative;
+        display: block;
+    }
+}

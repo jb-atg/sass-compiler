@@ -1,0 +1,56 @@
+﻿$trip-travel-styles-height: 4.25rem;
+$trip-travel-styles-height-desktop: 5.25rem;
+$trip-travel-styles-image-horizontal-margin: .75rem;
+$trip-travel-styles-image-horizontal-margin-desktop: 1.25rem;
+$trip-travel-styles-bottom-margin: 2rem;
+$trip-travel-styles-bottom-margin-desktop: 3rem;
+$trip-travel-styles-top-margin: 2rem;
+$trip-travel-styles-top-margin-after-intro: -1rem;
+$trip-travel-styles-top-margin-after-intro-desktop: -3.5rem;
+
+.travel-styles {
+    text-align: center;
+    margin: 0;
+
+    &__container {
+        margin-bottom: $trip-travel-styles-bottom-margin;
+
+        @include breakpoint(sm) {
+            margin-bottom: $trip-travel-styles-bottom-margin-desktop;
+        }
+    }
+
+    &__item {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+
+        & + & {
+            margin-left: $trip-travel-styles-image-horizontal-margin;
+
+            @include breakpoint(sm) {
+                margin-left: $trip-travel-styles-image-horizontal-margin-desktop;
+            }
+        }
+    }
+
+    &__image {
+        height: $trip-travel-styles-height;
+
+        @include breakpoint(sm) {
+            height: $trip-travel-styles-height-desktop;
+        }
+    }
+}
+
+.travel-styles__container {
+    margin-top: $trip-travel-styles-top-margin;
+
+    .trip-intro__container + & {
+        margin-top: $trip-travel-styles-top-margin-after-intro;
+
+        @include breakpoint(sm) {
+            margin-top: $trip-travel-styles-top-margin-after-intro-desktop;
+        }
+    }
+}

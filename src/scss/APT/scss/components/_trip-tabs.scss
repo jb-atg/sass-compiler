@@ -1,0 +1,178 @@
+﻿$trip-tabs-height-desktop: 64px;
+$trip-tabs-height-mobile: 64px;
+
+.trip-tabs {
+    transform: translateZ(0);
+    width: 100%;
+
+    .container {
+        @include breakpoint(xs-max) {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        height: 100%;
+    }
+
+    background: linear-gradient($proj-colour-14, $proj-colour-38);
+
+    #{$kwa-page-selector} & {
+        @include kwa-brand-background;
+    }
+
+    @include breakpoint(xs-max) {
+        height: $trip-tabs-height-mobile;
+    }
+    @include breakpoint(sm) {
+        height: $trip-tabs-height-desktop;
+    }
+
+    .trip-tabs-list {
+        list-style: none;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        table-layout: fixed;
+        display: table;
+    }
+
+    .trip-tabs-listitem {
+        display: table-cell;
+        width: 2%;
+        line-height: normal;
+        font-family: $font-family-secondary;
+        height: 100%;
+        text-align: center;
+        vertical-align: middle;
+        color: $proj-colour-39;
+
+        @include breakpoint(xs-max) {
+            font-size: 9px;
+            line-height: 12px;
+        }
+        @include breakpoint(sm) {
+            font-size: 16px;
+        }
+
+        #{$kwa-page-selector} & {
+            color: $proj-colour-15;
+        }
+
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+
+        #{$kwa-page-selector} & {
+            border-right-style: none;
+        }
+
+        &:not(:first-of-type) {
+            border-left-color: $proj-colour-30;
+
+            #{$kwa-page-selector} & {
+                border-left-color: rgba($proj-colour-kwa-03, .5);
+            }
+        }
+        &:not(:last-of-type) {
+            border-right-color: $proj-colour-15;
+        }
+
+        .trip-tab-title__wrapper {
+            display: inline-block;
+        }
+
+        .trip-tab-icon {
+            display: table-cell;
+            vertical-align: middle;
+            color: $proj-colour-39;
+            top: auto;
+            font-size: 32px;
+
+            #{$kwa-page-selector} & {
+                color: $proj-colour-15;
+            }
+
+            @include breakpoint(xs-max) {
+                width: 100%;
+                display: block;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            @include breakpoint(sm) {
+                padding-right: 10px;
+                text-align: right;
+
+                &:before {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+
+        }
+        .trip-tab-title {
+            text-align: center;
+            @include breakpoint(xs-max) {
+                display: block;
+            }
+            @include breakpoint(sm) {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+
+        &.active {
+            box-shadow: inset 0 5px 6px rgba(0, 0, 0, .08);
+            background-color: $proj-colour-23;
+            border-color: transparent;
+            border-right-color: rgba(0, 0, 0, .1);
+            border-left-color: rgba(0, 0, 0, .1);
+            color: $proj-colour-02;
+            
+            #{$kwa-page-selector} & {
+                background-color: $proj-colour-kwa-01;
+                color: $proj-colour-03;
+                box-shadow: inset 0 3px 8px 0 rgba($proj-colour-kwa-02, .54);
+            }
+
+            i {
+                color: $proj-colour-02;
+
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-03;
+                }
+            }
+        }
+
+        html.no-touchevents &:hover:not(.active) {
+            cursor: pointer;
+            color: $proj-colour-02;
+
+            i {
+                color: $proj-colour-02;
+            }
+        }
+
+        html.no-touchevents #{$kwa-page-selector} &:hover:not(.active) {
+            color: $proj-colour-03;
+
+            i {
+                color: $proj-colour-03;
+            }
+        }
+
+        html.no-touchevents &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.trip-tabs-wrapper {
+    content: ' ';
+    @include breakpoint(xs-max) {
+        height: $trip-tabs-height-mobile;
+        min-height: $trip-tabs-height-mobile;
+    }
+    @include breakpoint(sm) {
+        height: $trip-tabs-height-desktop;
+        min-height: $trip-tabs-height-desktop;
+    }
+}

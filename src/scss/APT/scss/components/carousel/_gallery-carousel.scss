@@ -1,0 +1,49 @@
+.gallery-carousel {
+    height: 80vh;
+    
+    // required for landing page galleries
+    .content-gallery & {
+        height: 100%;
+    }
+    .owl-stage-outer,
+    .owl-stage,
+    .owl-item {
+        height: 100%;
+    }
+    .gallery-container {
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .gallery-carousel-nav {
+        position: relative;
+        top: -50%;
+    }
+    .video-player {
+        .video-player-link {
+            display: block;
+            position: absolute;
+            cursor: pointer;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            &:hover {
+                text-decoration: none;
+            }
+            &:after {
+                @include icon(icon-play);
+                color: $proj-colour-15;
+                font-size: 100px;
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, .2);
+            }
+            .video-player-image {
+                position: absolute;
+                max-width: 100%;
+                max-height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}

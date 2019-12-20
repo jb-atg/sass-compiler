@@ -1,0 +1,117 @@
+﻿
+$lifestyle-mobile-padding: 1rem;
+
+.lifestyle {
+    background-color: $color-background-gray;
+    padding-left: $lifestyle-mobile-padding;
+    padding-right: $lifestyle-mobile-padding;
+
+    &__title {
+        margin-bottom: 2rem;
+
+        @include breakpoint(sm) {
+            margin-bottom: 4rem;
+        }
+    }
+
+    @include breakpoint(sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__image-wrapper {
+        margin-bottom: 2rem !important; //avoid grid carousel to override the margin bottom
+        @include breakpoint(sm) {
+            margin-bottom: 0 !important; //avoid grid carousel to override the margin bottom
+        }
+    }
+
+    &--dual-image &__image-wrapper {
+        margin-left: calc(-1 * (#{$lifestyle-mobile-padding} + #{$grid-gutter-width}/2));
+        margin-right: calc(-1 * (#{$lifestyle-mobile-padding} + #{$grid-gutter-width}/2));
+        margin-bottom: calc(#{$lifestyle-mobile-padding} + #{$grid-gutter-width}/2);
+
+        @include breakpoint(sm) {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &--reverse-layout &__content {
+        @include breakpoint(sm) {
+            order: -1;
+        }
+    }
+
+    &__content-inner {
+        @include breakpoint(sm) {
+            max-width: 80%;
+        }
+
+        @include breakpoint(lg) {
+            max-width: 60%;
+        }
+    }
+
+    &__item {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        & + & {
+            margin-top: 1rem;
+        }
+
+        &--title a {
+            text-decoration: none;
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+
+        &--image + & {
+            margin-top: 2rem;
+        }
+
+        &--image.hidden-xs + & {
+            margin-top: 0;
+
+            @include breakpoint(sm) {
+                margin-top: 2rem;
+            }
+        }
+
+        & + .btn {
+            margin-top: 1rem;
+        }
+    }
+}
+
+#{$kwa-page-selector} {
+    .lifestyle.lifestyle--carousel {
+        .lifestyle__item > .btn.btn--tertiary {
+            background-color: $proj-colour-02;
+
+            .no-touchevents &:hover,
+            &:focus,
+            &:active {
+                // important because we are overriding a secondary button to look like a primary button
+                // cannot have a black down state
+                background-color: $proj-colour-03 !important; 
+            }
+        }
+    }
+}

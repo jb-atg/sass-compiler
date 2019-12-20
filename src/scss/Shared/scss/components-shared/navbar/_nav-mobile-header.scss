@@ -1,0 +1,156 @@
+$navbar-mobile-header-height: $navbar-mobile-open-header-height;
+
+.navbar {
+    &.mobile {
+        @include breakpoint(sm) {
+            display: none;
+        }
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        position: absolute;
+    }
+
+    &.mobile .navbar-header {
+        background-color: transparent;
+        margin-bottom: 0;
+        border-radius: 0;
+        height: auto;
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar-toggle {
+            position: absolute;
+            top: $navbar-mobile-icon-top-padding;
+            color: $navbar-mobile-color-primary;
+            border-radius: 0;
+            text-transform: uppercase;
+            padding: 0;
+            margin: 0;
+            font-family: $font-family-primary;
+            text-align: center;
+            transition: color .3s ease-in, background-color .3s ease-in;
+            min-height: 0;
+            line-height: 24px;
+            font-size: 29px;
+            width: $navbar-mobile-button-width;
+
+            i {
+                padding: 0;
+                margin: 0;
+                top: 0;
+
+                &:before {
+                    color: $navbar-mobile-color-primary;
+                }
+            }
+
+            &.active {
+                background-color: $navbar-mobile-color-primary;
+                color: #fff;
+            }
+
+            .navbar-toggle-menu-item {
+                font-size: 8px;
+            }
+
+            &.navbar-toggle-left-button {
+                left: $navbar-mobile-icon-horizontal-padding;
+
+                &.touched, 
+                &:hover, 
+                &:visited, 
+                &:active, 
+                &:focus {
+                    color: $navbar-mobile-color-primary;
+                }
+            }
+
+            &.navbar-toggle-right-button {
+                right: $navbar-mobile-icon-horizontal-padding;
+
+                &.touched, 
+                &:hover {
+                    color: $navbar-mobile-color-primary;
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        .nav-menu {
+            transition: height 0s, opacity 500ms ease;
+            position: absolute;
+            top: $navbar-mobile-header-height - 1px;
+            height: calc(100% - #{$navbar-mobile-header-height});
+            width: 100%;
+            overflow-y: scroll;
+            background-color: $navbar-mobile-nav-menu-background-color;
+        }
+
+        &.invisible {
+            visibility: visible;
+
+            .nav-menu {
+                height: 0;
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        &:not(.invisible) {
+            position: fixed;
+            width: 100%;
+            overflow-y: scroll;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $navbar-mobile-background-color;
+
+            .nav-menu {
+                transition: opacity 500ms ease, height 0;
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .navbar-toggle {
+                color: $navbar-mobile-color-secondary;
+
+                &:hover {
+                    color: $navbar-mobile-color-secondary !important;
+                }
+            }
+
+            .navbar-toggle {
+                i {
+                    &:before {
+                        color: $navbar-mobile-color-secondary;
+                    }
+                }
+            }
+
+            &.navbar-toggle-left-button {
+                &.touched, 
+                &:hover, 
+                &:visited, 
+                &:active, 
+                &:focus {
+                    color: $navbar-mobile-color-secondary !important;
+                }
+            }
+
+            &.navbar-toggle-right-button {
+                &.touched, 
+                &:hover {
+                    color: $navbar-mobile-color-secondary !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+﻿.trip-highlights {
+
+    .trip-card {
+        box-shadow: none !important;
+        @include breakpoint(sm) {
+            margin: 0 !important;
+            background-color: transparent !important;
+            text-align: center;
+        }
+    }
+
+    .trip-card__content {
+        min-height: initial !important;
+        @include breakpoint(sm) {
+            padding: 0 !important;
+        }
+    }
+
+    .trip-card__title {
+        @include breakpoint(xs-max) {
+            min-height: initial !important;
+        }
+
+        #{$kwa-page-selector} & {
+            color: $proj-colour-kwa-02;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+
+.booking-tips-hints {
+    background-color: $proj-colour-23;
+    
+    &__hr {
+        margin-top: 2.5rem;
+    }
+
+    &__title {
+        margin-top: 1.875rem;
+        text-transform: lowercase;
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+}

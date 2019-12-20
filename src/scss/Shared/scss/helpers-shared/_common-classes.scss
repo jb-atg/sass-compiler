@@ -1,0 +1,406 @@
+//===================
+// Images and Media
+//===================
+
+.image-container {
+    display: block;
+    position: relative;
+
+    > img {
+        position: absolute;
+        height: 100%;
+        max-width: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+img {
+    &.wide {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &.tall {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+%object-fit {
+    object-fit: cover;
+    font-family: 'object-fit: cover;';
+}
+
+%object-fit-position {
+    .compat-object-fit {
+        position: absolute;
+        top: 0;
+    }
+}
+
+// image aspect ratio, to be applied to image container
+.image-1_1 { // sass-lint:disable-line class-name-format
+    @extend %object-fit-position;
+    @include image-aspect-ratio(1, 1);
+}
+
+%image-3_4,
+.image-3_4 { // sass-lint:disable-line class-name-format
+    @extend %object-fit-position;
+    @include image-aspect-ratio(3, 4);
+}
+
+.image-4_3 { // sass-lint:disable-line class-name-format
+    @extend %object-fit-position;
+    @include image-aspect-ratio(4, 3);
+}
+
+.image-5_3 { // sass-lint:disable-line class-name-format
+    @extend %object-fit-position;
+    @include image-aspect-ratio(5, 3);
+}
+
+.image-16_9 { // sass-lint:disable-line class-name-format
+    @extend %object-fit-position;
+    @include image-aspect-ratio(16, 9);
+}
+
+.image-12_5 { // sass-lint:disable-line class-name-format
+    @extend %object-fit-position;
+    @include image-aspect-ratio(12, 5);
+}
+
+//===================
+// Content Widths
+//===================
+
+%content-base {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(xs-max) {
+        width: 100%;
+    }
+}
+
+.content-100 {
+    @extend %content-base;
+
+    @include breakpoint(sm) {
+        width: 100%;
+    }
+}
+
+.content-75 {
+    @extend %content-base;
+
+    @include breakpoint(sm) {
+        width: 75%;
+        min-width: 700px;
+    }
+}
+
+.content-50 {
+    @extend %content-base;
+
+    @include breakpoint(sm) {
+        width: 50%;
+    }
+}
+
+.max-width-880 {
+    max-width: rem(880px);
+}
+
+//=======
+// text
+//=======
+
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+
+.text-underline {
+    text-decoration: underline !important;
+}
+
+//===================
+// Padding and Margin
+//===================
+
+// Padding Classes
+
+.no-padding-xs {
+    @include breakpoint(xs-max) {
+        padding: 0 !important;
+    }
+}
+
+.padding-top-none {
+    padding-top: 0 !important;
+}
+
+.padding-top-40 {
+    padding-top: 40px !important;
+}
+
+.padding-sides-35 {
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+}
+
+%padding-sides-percent-10,
+.padding-sides-percent-10 {
+    @include breakpoint(sm) {
+        @include padding-sides-10();
+    }
+}
+
+%padding-sides-percent-10-md,
+.padding-sides-percent-10-md {
+    @include breakpoint(md) {
+        @include padding-sides-10();
+    }
+}
+
+.padding-x-1 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.padding-top-xs {
+    padding-top: $spacing-xs;
+}
+
+.padding-top-sm {
+    padding-top: $spacing-sm;
+}
+
+.padding-top-xlg {
+    padding-bottom: $spacing-xlg;
+}
+
+.padding-bottom-xs {
+    padding-bottom: $spacing-xs;
+}
+
+.padding-bottom-sm {
+    padding-bottom: $spacing-sm;
+}
+
+.padding-bottom-xlg {
+    padding-bottom: $spacing-xlg;
+}
+
+.padding-left-0 {
+    padding-left: 0;
+}
+
+.padding-right-0 {
+    padding-right: 0;
+}
+
+// Margin Classes
+
+.no-margin-xs {
+    @include breakpoint(xs-max) {
+        margin: 0 !important;
+    }
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+.margin-top-xxs {
+    margin-top: $spacing-xxs;
+}
+
+.margin-top-xs {
+    margin-top: $spacing-xs;
+}
+
+.margin-top-sm {
+    margin-top: $spacing-sm;
+}
+
+.margin-top-md {
+    margin-top: $spacing-md;
+}
+
+.margin-top-lg {
+    margin-top: $spacing-lg;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+
+.margin-bottom-xxs {
+    margin-bottom: $spacing-xxs;
+}
+
+.margin-bottom-xs {
+    margin-bottom: $spacing-xs;
+}
+
+.margin-bottom-sm {
+    margin-bottom: $spacing-sm;
+}
+
+.margin-bottom-md {
+    margin-bottom: $spacing-md;
+}
+
+.margin-bottom-lg {
+    margin-bottom: $spacing-lg;
+}
+
+.margin-bottom-xlg {
+    margin-bottom: $spacing-xlg;
+}
+
+.margin-bottom-xxlg {
+    margin-bottom: $spacing-xxlg;
+}
+
+//=======================
+// Flexbox Bootstrap grid
+//=======================
+.flex-container {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-justified {
+    justify-content: space-between;
+}
+
+.flex-around-justified {
+    justify-content: space-around;
+}
+
+.flex-center {
+    align-items: center;
+}
+
+//================
+// Object-Fit IE & Samsung fix
+//================
+
+.compat-object-fit {
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+
+//==========================
+// z-index stacking classes
+//==========================
+
+.z-stack-order-50 {
+    z-index: 50 !important;
+}
+
+.z-stack-order-100 {
+    z-index: 100 !important;
+}
+
+.z-stack-order-200 {
+    z-index: 200 !important;
+}
+
+.z-stack-order-300 {
+    z-index: 300 !important;
+}
+
+.z-stack-order-400 {
+    z-index: 400 !important;
+}
+
+// Misc
+.force-hide {
+    display: none !important;
+}
+
+//===================================
+// Common states for DOM manipulation
+//===================================
+
+// Layout
+.body-fixed {
+    @include breakpoint(sm) {
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+// Scrolling
+.noscroll-xs {
+    @include breakpoint(xs-max) {
+        overflow: hidden !important;
+    }
+}
+
+.background-gray {
+    background-color: $color-background-gray;
+}
+
+//================
+// List helpers
+//================
+
+.list-unstyled {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+//================
+// Float helpers
+//================
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+//================
+// Border helpers
+//================
+
+.no-border {
+    border: none !important;
+}
+
+//================
+// A11y Helpers
+//================
+
+// the class .sr-only is already available from bootstrap
+// the extend is here to help in case of shared markup
+%sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

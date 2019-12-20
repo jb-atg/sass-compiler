@@ -1,0 +1,36 @@
+//------------------------------------------
+// Forms              
+//------------------------------------------
+
+// Inputs.
+$input-color: #363636;
+$input-bg: $proj-colour-15;
+$input-border: $proj-colour-15;
+$input-placeholder-colour: #787878;
+$input-height: 70px;
+$input-width: 269px;
+
+// Selects.
+$select-height: 70px;
+
+// Checkboxes and Radios.
+$tile-input-icon: 'icon-tick';
+$tile-input-active-color: $proj-colour-06;
+$tile-input-main-label-color: $proj-colour-05;
+$tile-input-main-label-family: $font-family-primary;
+$tile-input-main-label-weight: bold;
+$tile-input-label-border-color: $proj-colour-15;
+$tile-input-label-color: $proj-colour-12;
+
+$cta-input-main-label-color: $proj-colour-05;
+$cta-input-main-label-family: $font-family-primary;
+$cta-input-main-label-weight: bold;
+$cta-input-main-label-size: 1rem;
+$cta-input-checked-color: $proj-colour-15;
+$cta-input-checked-background: $button-bg-secondary;
+$cta-input-checked-hover-color: $button-text-primary;
+$cta-input-checked-hover-background: $button-bg-secondary--hover;
+$cta-input-background: $proj-colour-13;
+$cta-input-color: inherit;
+$cta-input-hover-background: $proj-colour-14;
+$cta-input-hover-color: $button-text-secondary;

@@ -1,0 +1,15 @@
+﻿// sass map including the default container's max width values
+// for different breakpoints
+// mainly used with the grid mixins
+$container-max-widths: (
+    sm: 750px,
+    md: 970px,
+    lg: 1170px,
+    xl: 1360px
+) !default;
+
+// $grid-columns from bootstrap
+$grid-columns: 12 !default;
+
+// $grid-gutter-width from bootstrap
+$grid-gutter-width: 30px !default;

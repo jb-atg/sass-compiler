@@ -1,0 +1,37 @@
+//=======================================
+// Import APT Variables, Mixins and Fonts
+//=======================================
+
+@import 'variables';
+
+@import 'fonts';
+
+//====================
+// Import Shared SCSS
+// we include the following shared SCSS files
+// @import 'utilities'; - common utilities i.e. mixins, functions
+// @import 'bootstrap'; - core bootstrap framework used for both websites
+// @import 'components-shared'; - shared components with identical designs
+// @import 'overrides-shared'; - common overrides for the shared frameworks and plugins
+// @import 'helpers-shared'; - common helper classes that are shared for both websites 
+//====================
+
+@import '../../Shared/scss/main-shared';
+
+//==================
+// Import APT Styles
+//==================
+
+@import 'vendor';
+
+@import 'overrides';
+
+@import 'helpers'; 
+
+@import 'base';
+
+@import 'layout';
+
+@import 'components';
+
+@import 'z-index';

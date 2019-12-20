@@ -1,0 +1,42 @@
+.body-content {
+    padding-top: 1px;
+    background-color: $proj-colour-14;
+
+    &.body-content-trip-page {
+        background-color: $proj-colour-15;
+    }
+
+    &.body-content__content-page {
+        background-color: $proj-colour-15;
+        > section {
+            &:nth-of-type(odd) {
+                background: $proj-colour-15;
+                & + .quicksearch {
+                    background: $proj-colour-15;
+                }
+            }
+            &:nth-of-type(even) {
+                background: $proj-colour-14;
+                & + .quicksearch {
+                    background: $proj-colour-14;
+                }
+            }
+        }
+    }
+
+    .anniversary-logo-wrapper {
+        text-align: center;
+        @include breakpoint(xs-max) {
+            padding: 40px 30px 10px;
+        }
+
+        .anniversary-logo {
+            @include breakpoint(xs-max) {
+                max-width: 100%;
+            }
+            @include breakpoint(sm) {
+                margin: 40px 30px 10px;
+            }
+        }
+    }
+}

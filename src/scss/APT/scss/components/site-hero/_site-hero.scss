@@ -1,0 +1,595 @@
+﻿$site-hero-search-text-font-size-xs: 4vh;
+$site-hero-search-filter-font-size-xs: 4.5vh;
+$site-hero-search-filter-placeholder-font-size-xs: 3.5vh;
+$site-hero-search-text-line-height-xs: 7.6vh;
+
+$site-hero-search-text-font-size-landscape-xs: 6.5vh;
+$site-hero-search-filter-font-size-landscape-xs: 7vh;
+$site-hero-search-filter-placeholder-font-size-landscape-xs: 6vh;
+$site-hero-search-text-line-height-landscape-xs: 9vh;
+
+$site-hero-search-filter-font-size: 38px;
+
+.site-hero {
+    top: 0;
+    position: relative;
+    z-index: 1;
+
+    &--reduced {
+        @include breakpoint(sm) {
+            height: 425px !important;
+        }
+    }
+
+    &-searchtext {
+        text-shadow: 1px 1px rgba(0, 0, 0, .2);
+        display: block;
+
+        .text-block {
+            display: block;
+        }
+
+        @include breakpoint(xs-portrait) {
+            font-size: $site-hero-search-text-font-size-xs;
+            line-height: $site-hero-search-text-line-height-xs;
+        }
+
+        @include breakpoint(xs-landscape) {
+            font-size: $site-hero-search-text-font-size-landscape-xs;
+            line-height: $site-hero-search-text-line-height-landscape-xs;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 30.5px;
+            line-height: 65px;
+            margin-bottom: 40px;
+        }
+
+        color: $proj-colour-15;
+        line-height: 50px;
+        font-family: $font-family-secondary;
+
+        .search-filter {
+            position: relative;
+            display: inline;
+
+            @include breakpoint(xs-portrait) {
+                font-size: $site-hero-search-filter-font-size-xs;
+                padding-bottom: 1vh;
+            }
+
+            @include breakpoint(xs-landscape) {
+                font-size: $site-hero-search-filter-font-size-landscape-xs;
+                padding-bottom: 1vh;
+            }
+
+            @include breakpoint(sm) {
+                font-size: $site-hero-search-filter-font-size;
+                padding-bottom: 10px;
+            }
+
+            &.editable {
+                box-shadow: none;
+                background-color: transparent;
+                outline: none;
+                border: 0;
+                padding: inherit;
+                margin: inherit;
+                font-size: $site-hero-search-filter-font-size;
+                display: inline-block;
+                text-align: left;
+                cursor: text;
+                border-bottom: 3px solid $proj-colour-15;
+                height: 65px;
+                transition: height .3s;
+
+                &:not(.active):not(.has-value) {
+                    height: 60px;
+                    &:before {
+                        content: attr(data-placeholder);
+                        font-family: $font-family-primary;
+                        font-size: 25px;
+                        color: $proj-colour-14;
+                    }
+                }
+                &.has-value {
+                    min-width: auto;
+                }
+            }
+
+            &.placeholder {
+                color: $proj-colour-14;
+                padding-bottom: 5px;
+                > a {
+                    font-family: $font-family-primary;
+                    &:hover {
+                        font-family: $font-family-primary;
+                    }
+
+                    @include breakpoint(xs-portrait) {
+                        font-size: $site-hero-search-filter-placeholder-font-size-xs;
+                        display: inline-block;
+                    }
+
+                    @include breakpoint(xs-landscape) {
+                        font-size: $site-hero-search-filter-placeholder-font-size-landscape-xs;
+                    }
+                }
+            }
+
+            > a {
+                cursor: pointer;
+
+                @include breakpoint(xs-portrait) {
+                    font-size: $site-hero-search-filter-font-size-xs;
+                }
+
+                @include breakpoint(xs-landscape) {
+                    font-size: $site-hero-search-filter-font-size-landscape-xs;
+                }
+
+                @include breakpoint(sm) {
+                    font-size: $site-hero-search-filter-font-size;
+                    display: inline-block;
+                    white-space: nowrap;
+                }
+
+                font-size: inherit;
+                color: inherit;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $proj-colour-13;
+                    font-family: inherit;
+                }
+            }
+
+            @include breakpoint(xs-max) {
+                box-shadow: inset 0 -.3vh 0 #fff;
+            }
+
+            @include breakpoint(sm) {
+                box-shadow: inset 0 -3px 0 #fff;
+            }
+
+            .chevron {
+                position: relative;
+
+                @include breakpoint(sm) {
+                    padding-right: 37px;
+                }
+
+                &:after {
+                    @include breakpoint(xs-max) {
+                        font-size: .75em;
+                        padding-left: .3em;
+                    }
+
+                    @include breakpoint(sm) {
+                        font-size: 25px;
+                        padding-left: 10px;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-30%);
+                        right: 0;
+                        transition: transform .3s, right .3s;
+                    }
+
+                    @include icon(icon-downarrow);
+                }
+                &.active {
+                    &:after {
+                        @include breakpoint(sm) {
+                            transform: rotate(180deg) translateY(40%);
+                            right: -12px;
+                        }
+                    }
+                }
+
+            }
+
+            &.nl-field-open {
+                .chevron {
+                    &:after {
+                        @include breakpoint(sm) {
+                            transform: rotate(180deg) translateY(40%);
+                            right: -12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__text {
+        position: absolute;
+        transform: translateY(-50%);
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        line-height: normal;
+
+        @include breakpoint(xs-portrait) {
+            top: 58%;
+            max-width: 90%;
+        }
+        @include breakpoint(xs-landscape) {
+            top: 62%;
+            max-width: 80%;
+        }
+
+        @include breakpoint(sm) {
+            top: 65%;
+            width: 700px;
+        }
+
+        .special-deals__link.special-deals__link--terms {
+            color: $proj-colour-15;
+        }
+    }
+
+    &__title {
+        color: $proj-colour-15;
+        margin: 0;
+
+        @include breakpoint(xs-landscape) {
+            font-size: 10vh;
+        }
+        @include breakpoint(xs-portrait) {
+            font-size: 5vh;
+        }
+        @include breakpoint(sm) {
+            font-size: 42px;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-family-primary;
+        @include breakpoint(xs-portrait) {
+            margin-top: 3vh;
+            font-size: 2.4vh;
+            line-height: 3.4vh;
+        }
+        @include breakpoint(xs-landscape) {
+            margin-top: 6vh;
+            font-size: 4.8vh;
+            line-height: 6.8vh;
+        }
+        @include breakpoint(sm) {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    }
+
+    @include breakpoint(xs-max) {
+        height: 100%;
+
+        &.homepage-hero {
+            height: 100vh;
+        }
+        &.trip-page-hero {
+            height: 80vh;
+        }
+        &.search-page__hero {
+            height: 65vh;
+        }
+        &.content-page-hero {
+            height: 80vh;
+        }
+    }
+
+    @include breakpoint(xs-landscape) {
+        &.homepage-hero {
+            min-height: 320px;
+        }
+        &.trip-page-hero {
+            min-height: 320px;
+            height: 100vh;
+        }
+    }
+
+    @include breakpoint(sm) {
+        &.homepage-hero {
+            min-height: 600px;
+            height: 85vh;
+        }
+        &.trip-page-hero {
+            min-height: 400px;
+            height: 75vh;
+        }
+        &.search-page__hero {
+            height: 425px;
+        }
+        &.content-page-hero {
+            min-height: 400px;
+            height: 75vh;
+        }
+    }
+
+    .video-player-link {
+        opacity: .8;
+        left: 50%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        cursor: pointer;
+        margin: 0;
+
+        @include breakpoint(xs-max) {
+            height: 76px;
+            width: 76px;
+        }
+
+        @include breakpoint(sm) {
+            height: 110px;
+            width: 110px;
+        }
+
+        &:after {
+            left: 50% !important;
+            top: 50% !important;
+            transform: translateY(-50%) translateX(-50%) !important;
+            width: auto !important;
+            height: auto !important;
+            transition: opacity .3s;
+
+            @include breakpoint(xs-max) {
+                font-size: 90px !important;
+            }
+
+            @include breakpoint(sm) {
+                font-size: 128px !important;
+            }
+        }
+
+        &:hover {
+            &:after {
+                opacity: .85;
+            }
+        }
+    }
+}
+
+.site-hero-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    > .carousel-indicators {
+        position: absolute;
+        z-index: 300;
+
+        @include breakpoint(xs-max) {
+            bottom: 10px;
+        }
+
+        @include breakpoint(sm) {
+            bottom: 20px;
+        }
+        li {
+            margin: 10px;
+        }
+    }
+
+    > .carousel-inner {
+        overflow: visible;
+        width: 100%;
+        height: 100%;
+
+        .item {
+            justify-content: center;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+
+            &.left,
+            &.right,
+            &.active {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    }
+
+    .site-hero-controls-container {
+        height: 100%;
+        position: relative;
+        top: 0;
+
+        @include breakpoint(xs-max) {
+            width: 100%;
+        }
+    }
+
+    .site-hero-carousel-control {
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        top: 50%;
+        filter: drop-shadow(7px 7px 8px rgba(0, 0, 0, .13));
+        content: ' ';
+        background: no-repeat;
+        background-size: cover;
+        background-position: center;
+        transition: opacity .3s ease-in;
+
+        &.left {
+            transform: translateY(-50%);
+            left: 20px;
+            background-image: url('/assets/images/Phoenix/APT/icons/trip-page-carousel-arrow-left.svg');
+
+            .no-touchevents &:hover,
+            .touchevents &:active,
+            .touchevents &:focus {
+                background-image: url('/assets/images/Phoenix/APT/icons/trip-page-carousel-arrow-hover-left.svg');
+            }
+        }
+
+        &.right {
+            transform: translateY(-50%);
+            right: 20px;
+            background-image: url('/assets/images/Phoenix/APT/icons/trip-page-carousel-arrow-right.svg');
+
+            .no-touchevents &:hover,
+            .touchevents &:active,
+            .touchevents &:focus {
+                background-image: url('/assets/images/Phoenix/APT/icons/trip-page-carousel-arrow-hover-right.svg');
+            }
+        }
+
+        html.no-touchevents & {
+            @include breakpoint(sm) {
+                opacity: 0;
+            }
+        }
+    }
+
+    html.no-touchevents & {
+        &:hover {
+            .site-hero-carousel-control {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.site-hero-background,
+.site-hero-carousel .compat-object-fit {
+    background-color: $proj-colour-05;
+    width: 100%;
+    height: 100% !important; // !important to override inline styles from object fit polyfill
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    @extend %object-fit;
+
+    &:after {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transition: opacity 1s ease;
+    }
+}
+
+.site-hero-background__image {
+    background-color: $proj-colour-05;
+    width: 100%;
+    height: 100% !important; // !important to override inline styles from object fit polyfill
+    z-index: -1;
+    @extend %object-fit;
+}
+
+.site-hero-predictive-search {
+    position: relative;
+
+    &.active {
+        ~ .nl-overlay {
+            transition-delay: 0s;
+            transition: visibility 0s, opacity .3s;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+.site-hero-popup-menu {
+    bottom: 45px;
+    left: -155px;
+
+    ul {
+        &:before {
+            top: auto;
+            bottom: 0;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.homepage-hero {
+    .site-hero-contents {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        opacity: 1;
+        visibility: visible;
+        margin: 0 auto;
+        transition: opacity 1s ease;
+
+        &.invisible {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @include breakpoint(xs-max) {
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        @include breakpoint(sm) {
+            max-width: 750px;
+        }
+    }
+    // we need an override to fit the dots in the Natural Language form
+    .carousel-indicators {
+        @include breakpoint(xs-max) {
+            bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.trip-page-hero,
+.search-page__hero {
+    .site-hero-contents {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+
+        @include breakpoint(xs-max) {
+            width: 100%;
+        }
+
+        @include breakpoint(sm) {
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        height: 100% !important;
+    }
+}
+
+.site-hero-cta {
+    text-align: center;
+    position: relative;
+    margin: rem(20px auto 0);
+
+    @include breakpoint(xs-landscape) {
+        .btn {
+            font-size: 12px;
+            line-height: 12px;
+            padding: 8px 30px;
+        }
+    }
+}
+
+.site-hero-form-wrapper {
+    @include breakpoint(xs-max) {
+        position: relative;
+        padding-top: rem(36px);
+    }
+
+    @include breakpoint(xs-landscape) {
+        padding-top: rem(36px);
+    }
+}

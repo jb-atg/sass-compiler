@@ -1,0 +1,25 @@
+﻿
+.booking-tips-hints {
+    &__hr {
+        border-color: $proj-colour-13;
+    }
+
+    &__wrapper {
+        max-width: 46.25rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: 1.25rem;
+    }
+
+    &__copy {
+        margin-bottom: 1.875rem;
+
+        @include breakpoint(md) {
+            margin-bottom: 2.5rem;
+        }
+    }
+}

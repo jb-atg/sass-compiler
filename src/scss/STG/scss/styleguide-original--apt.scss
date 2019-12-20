@@ -1,0 +1,264 @@
+@import '../../APT/scss/variables/color';
+@import '../../APT/scss/variables/font';
+
+.style-guide {
+    background: $proj-colour-14;
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+    .nav-tabs > li > a {
+        transition: all .3s ease-in-out;
+    }
+
+    .nav-tabs > li > a:hover {
+        background: $proj-colour-15;
+    }
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {
+        background: $proj-colour-14;
+    }
+
+    .element-details {
+        &__list-item {
+            border-right: 1px solid $proj-colour-13;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-left: -5px;
+
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+
+    .row {
+        margin-bottom: 15px;
+    }
+
+    .well {
+        padding: 20px 0;
+        margin-bottom: 10px;
+    }
+
+    .bordered {
+        border: 1px dotted $proj-colour-11;
+    }
+
+    .padding {
+        padding: 10px;
+    }
+
+    .text-class {
+        color: $proj-colour-11;
+        display: block;
+        text-align: center;
+    }
+
+    .text-reverse {
+        color: $proj-colour-15;
+    }
+
+    .bg-white {
+        background: $proj-colour-15;
+    }
+
+    .btn {
+        margin: 10px 0;
+    }
+
+    .colour-box {
+        height: 100px;
+    }
+
+    .colour-box-01 {
+        background: $proj-colour-01;
+    }
+
+    .colour-box-02 {
+        background-color: $proj-colour-02;
+    }
+
+    .colour-box-03 {
+        background-color: $proj-colour-03;
+    }
+
+    .colour-box-04 {
+        background-color: $proj-colour-04;
+    }
+
+    .colour-box-05 {
+        background-color: $proj-colour-05;
+    }
+
+    .colour-box-06 {
+        background-color: $proj-colour-06;
+    }
+
+    .colour-box-07 {
+        background-color: $proj-colour-07;
+    }
+
+    .colour-box-08 {
+        background-color: $proj-colour-08;
+    }
+
+    .colour-box-09 {
+        background-color: $proj-colour-09;
+    }
+
+    .colour-box-10 {
+        background-color: $proj-colour-10;
+    }
+
+    .colour-box-11 {
+        background-color: $proj-colour-11;
+    }
+
+    .colour-box-12 {
+        background-color: $proj-colour-12;
+    }
+
+    .colour-box-13 {
+        background-color: $proj-colour-13;
+    }
+
+    .colour-box-14 {
+        background-color: $proj-colour-14;
+    }
+
+    .colour-box-15 {
+        background-color: $proj-colour-15;
+    }
+
+    .colour-box-16 {
+        background-color: $proj-colour-16;
+    }
+
+    .colour-box-20 {
+        background-color: $proj-colour-20;
+    }
+
+    .colour-box-21 {
+        background-color: $proj-colour-21;
+    }
+
+    .colour-box-22 {
+        background-color: $proj-colour-22;
+    }
+
+    .colour-box-23 {
+        background-color: $proj-colour-23;
+    }
+
+    .colour-box-24 {
+        background-color: $proj-colour-24;
+    }
+
+    .colour-box-25 {
+        background-color: $proj-colour-25;
+    }
+
+    .colour-box-26 {
+        background-color: $proj-colour-26;
+    }
+
+    .colour-box-27 {
+        background-color: $proj-colour-27;
+    }
+
+    .colour-box-28 {
+        background-color: $proj-colour-28;
+    }
+
+    .colour-box-29 {
+        background-color: $proj-colour-29;
+    }
+
+    .colour-box-30 {
+        background-color: $proj-colour-30;
+    }
+
+    .colour-box-31 {
+        background-color: $proj-colour-31;
+    }
+
+    .colour-box-33 {
+        background-color: $proj-colour-33;
+    }
+
+    .colour-box-34 {
+        background-color: $proj-colour-34;
+    }
+
+    .colour-box-35 {
+        background-color: $proj-colour-35;
+    }
+
+    .colour-box-36 {
+        background-color: $proj-colour-36;
+    }
+
+    .colour-box-37 {
+        background-color: $proj-colour-37;
+    }
+
+    .colour-box-38 {
+        background-color: $proj-colour-38;
+    }
+
+    .colour-box-39 {
+        background-color: $proj-colour-39;
+    }
+
+    .colour-box-kwa-01 {
+        background-color: $proj-colour-kwa-01;
+    }
+
+    .colour-box-kwa-02 {
+        background-color: $proj-colour-kwa-02;
+    }
+
+    .colour-box-kwa-03 {
+        background-color: $proj-colour-kwa-03;
+    }
+
+    .colour-box-kwa-04 {
+        background-color: $proj-colour-kwa-04;
+    }
+
+    .colour-box-kwa-05 {
+        background-color: $proj-colour-kwa-05;
+    }
+
+    .colour-box-kwa-06 {
+        background-color: $proj-colour-kwa-06;
+    }
+
+    .button-box-wrapper {
+        margin-right: 5px;
+    }
+
+    code {
+        display: inline-block;
+        background-color: $proj-colour-14;
+        padding: 1px 3px;
+        border: 1px solid darken($proj-colour-14, 10%);
+        margin-bottom: 1px;
+    }
+
+    .font-details {
+        font-size: 2rem;
+        line-height: 3rem;
+        color: $proj-colour-05;
+        
+        &--primary {
+            font-family: $font-family-primary;
+        }
+
+        &--secondary {
+            font-family: $font-family-secondary;
+        }
+    }
+}

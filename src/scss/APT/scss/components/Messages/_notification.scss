@@ -1,0 +1,22 @@
+﻿.notification {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: $proj-colour-05;
+    color: $proj-colour-13;
+
+    a {
+        font-size: 18px;
+        cursor: pointer;
+        color: $proj-colour-13;
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none;
+            font-family: $font-family-secondary;
+            color: $proj-colour-14;
+            opacity: .25;
+        }
+    }
+}

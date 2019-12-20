@@ -1,0 +1,71 @@
+﻿//================
+// Overlay Classes
+//================
+
+.overlay-25 {
+    @include overlay-background(25);
+}
+
+.overlay-30 {
+    @include overlay-background(30);
+}
+
+.overlay-35 {
+    @include overlay-background(35);
+}
+
+.overlay-40 {
+    @include overlay-background(40);
+}
+
+.overlay-45 {
+    @include overlay-background(45);
+}
+
+.overlay-50 {
+    @include overlay-background(50);
+}
+
+.overlay-55 {
+    @include overlay-background(55);
+}
+
+.overlay-60 {
+    @include overlay-background(60);
+}
+
+.overlay-70 {
+    @include overlay-background(70);
+}
+
+.overlay-75 {
+    @include overlay-background(75);
+}
+
+.overlay-blue {
+    @include overlay-background(75);
+
+    &:after {
+        background-color: rgba(0, 30, 80, .7) !important;
+    }
+}
+
+.overlay-gradient {
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(rgba(4, 28, 59, 1), rgba(4, 28, 59, 0), rgba(4, 28, 59, 0) 65%);
+        opacity: .8 !important;
+    }
+
+    @if $kwa-page-selector {
+        #{$kwa-page-selector} &:after {
+            background: linear-gradient(rgba($proj-colour-kwa-05, 1), rgba($proj-colour-kwa-05, 0), rgba($proj-colour-kwa-05, 0) 65%);
+        }
+    }
+}

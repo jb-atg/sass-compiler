@@ -1,0 +1,49 @@
+﻿.trip-testimonials {
+
+    .testimonial-container {
+
+        @include overlay-background(75);
+
+        padding-top: 75px;
+        padding-bottom: 75px;
+        position: relative;
+        background-size: cover;
+
+        .testimonial-content {
+            position: relative;
+            text-align: center;
+            width: 65%;
+            z-index: 10;
+
+            &__icon {
+                font-size: 50px;
+            }
+
+            &__description {
+                margin-top: 30px;
+                color: $proj-colour-14;
+                font-size: 26px;
+                line-height: 50px;
+
+                @include breakpoint(xs-max) {
+                    font-size: 22px;
+                    line-height: 40px;
+                }
+            }
+
+            &__author {
+                color: $proj-colour-02;
+                margin-top: 30px;
+                font-size: 22px;
+
+                @include breakpoint(xs-max) {
+                    font-size: 20px;
+                }
+            }
+
+            @include breakpoint(xs-max) {
+                width: 80%;
+            }
+        }
+    }
+}

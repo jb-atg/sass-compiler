@@ -1,0 +1,235 @@
+﻿$hotspot-width: 2rem;
+$hotspot-width-mobile: 2.55rem;
+$spot-point-opacity: .9;
+
+.hotspot {
+    overflow: hidden;
+    background-position: 50% top;
+    background-size: cover;
+    position: relative;
+
+    &__background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 0;
+        background-color: $proj-colour-kwa-03;
+
+        picture,
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            font-family: 'object-fit: cover;';
+        }
+    }
+    &__overlay {
+        position: relative;
+        height: 100%;
+        opacity: 1;
+
+        picture:before {
+            z-index: 99;
+        }
+    }
+    // Flex Grid
+    &__container {
+        display: flex;
+        flex-flow: row wrap;
+        flex-wrap: wrap-reverse;
+        width: 100%;
+        max-width: 1360px; // derived from bootstrap 3's .container class
+        margin: 0 auto;
+
+        &--left {
+            position: relative;
+            flex: 1 100%; // none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+            padding-right: 0;
+
+            @include breakpoint(md) {           
+                flex: 2 0; // none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+                padding-right: 15px; // Bootstrap gutter
+                max-width: 67.5%;
+            }
+        }
+        &--right {
+            position: relative;
+            flex: 1 100%; // none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+            
+            @include breakpoint(md) {
+                flex: 1 1; // none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+                max-width: 33.5%;
+            }
+        }
+    }
+
+
+    // Spots
+    &__spot-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        @include breakpoint(sm) {
+            padding-bottom: 0;            
+        }
+    }
+    &__spot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &-point-animation {
+            animation: animate-pulse ease-in-out 2000ms infinite 500ms;
+        }
+
+    }
+    &__spot-point {
+        display: flex;
+        margin: 0 auto .3rem;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: $proj-colour-15;
+        width: $hotspot-width-mobile;
+        height: $hotspot-width-mobile;
+        background-color: rgba($proj-colour-02, $spot-point-opacity);
+        border-radius: 50%;
+
+        @include breakpoint(sm) {
+            width: $hotspot-width;
+            height: $hotspot-width;
+        }
+
+        > span {
+            position: relative;
+            font-size: 1.5rem;
+            z-index: 1;
+
+            @include breakpoint(sm) {
+                font-size: 1.25rem;
+            }
+        }
+
+        &-animation {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: $hotspot-width-mobile;
+            height: $hotspot-width-mobile;
+            transform: translateX(-50%) translateY(-50%) scale(1);
+            border: 0 solid $proj-colour-02;
+            border-radius: 50%;
+            padding: $hotspot-width-mobile/2;
+
+            @include breakpoint(sm) {
+                width: $hotspot-width;
+                height: $hotspot-width;
+                padding: $hotspot-width/2;
+            }
+        }
+    }
+    &__spot-text {
+        position: relative;
+        font-family: $font-family-secondary;
+        font-size: .925rem;
+        color: $proj-colour-02;
+        text-align: center;
+        width: 10em;
+        font-weight: 500;
+        display: none;
+
+        @include breakpoint(sm) {
+            display: block;
+        }
+    }
+
+
+    // Image Container
+    &__image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 0;
+        z-index: 0; // padding-bottom: 67.5%; // 16:9 ratio
+        padding-bottom: 80%; // fits image ratio 960x800px
+        background-position: 50% top;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+
+        picture,
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    }
+
+
+    // Info Container
+    &__info-item {
+        margin: 4rem 0 2rem;
+        padding: 0 15px;
+        color: $proj-colour-14;
+        width: 100%;
+    }
+    &__info-container {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        text-align: center;
+
+        @include breakpoint(md) {
+            text-align: left;
+        } 
+    }
+    &__info-heading {
+        display: inline-block;
+        font-size: 1.9rem;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        color: $proj-colour-15;
+
+        @include breakpoint(md) {
+            font-size: 2rem;
+        }
+    }
+    &__info-item-text {
+        margin-bottom: 2rem;
+    }
+}
+
+
+@keyframes animate-pulse {
+    0% {
+        border: 0 solid rgba($proj-colour-02, $spot-point-opacity); 
+    }
+    75% {
+        border: 0 solid rgba($proj-colour-02, $spot-point-opacity);
+    }
+    100% {
+        border: $hotspot-width-mobile / 3 solid rgba($proj-colour-02, 0);
+    }
+}

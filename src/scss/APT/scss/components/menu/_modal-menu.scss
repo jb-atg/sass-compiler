@@ -1,0 +1,260 @@
+﻿.modal-menu {
+
+    @include breakpoint(sm) {
+        display: none;
+        z-index: -9999;
+    }
+
+    .modal-header {
+        border-radius: 5px 5px 0 0;
+        height: 76px;
+        padding: 0;
+        position: relative;
+        border: 0;
+        background-color: $proj-colour-15;
+
+        &--tall {
+            height: 90px;
+        }
+    }
+
+    .modal-button {
+        position: absolute;
+        top: 15px;
+        left: 17px;
+        margin: 0;
+        line-height: normal;
+        font-size: 12px;
+        color: $proj-colour-15;
+        background-color: $proj-colour-02;
+        border: 0;
+        border-radius: 5px;
+        padding: 10px 8px;
+
+        &:before {
+            content: '< ';
+        }
+    }
+
+    .modal-close {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        &:hover {
+            color: inherit;
+            font-family: inherit;
+            text-decoration: none;
+        }
+    }
+
+    .modal-close-icon {
+        &:after {
+            @include icon(icon-cross);
+            font-size: 25px;
+            color: $proj-colour-02;
+        }
+    }
+
+    .modal-close-text {
+        text-align: center;
+        font-size: 8px;
+        text-transform: uppercase;
+        color: $proj-colour-02;
+        line-height: normal;
+    }
+
+    .modal-title {
+        content: ' ';
+        display: block;
+        background-color: $proj-colour-06;
+        color: $proj-colour-15;
+        text-align: center;
+        font-size: 14px;
+        line-height: 27px;
+        height: 27px;
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+    }
+
+    .modal-dialog {
+        top: 50px;
+    }
+
+    .modal-content {
+        height: 358px;
+        overflow: hidden;
+    }
+
+    .modal-body {
+        position: relative;
+        padding: 0;
+        overflow-y: auto;
+
+        .slide {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            white-space: nowrap;
+            transition: visibility 0s, opacity 300ms ease;
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &:not(.active) {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    .nav-list {
+        margin: 0;
+    }
+
+    .nav-title {
+        text-transform: capitalize;
+
+        .nav-title-link,
+        .nav-title-link:focus {
+            cursor: pointer;
+            color: $proj-colour-06 !important;
+
+            &.active {
+                color: $proj-colour-02 !important;
+                border-left: 5px solid $proj-colour-02;
+                position: relative;
+                content: ' ';
+                top: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            &:hover {
+                opacity: .85;
+            }
+        }
+    }
+}
+
+.modal-lifestyle {
+    .modal-dialog {
+        .modal-close {
+            transform: unset;
+            -webkit-transform: unset; // sass-lint:disable-line no-vendor-prefixes
+            display: flex;
+            flex-direction: column-reverse;
+            top: rem(17px);
+            right: rem(17px);
+            @include z-index(above-container);
+            opacity: 1;
+            transition: opacity .3s;
+            position: absolute;
+
+            &:hover {
+                text-decoration: none;
+                opacity: .7;
+                transition: opacity .3s;
+            }
+
+            &:after {
+                text-align: center;
+                @include icon(icon-cross);
+                font-size: rem(20px);
+                color: $proj-colour-06;
+
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-02;
+                }
+            }
+
+            &:before {
+                color: #000;
+                text-align: center;
+                content: 'CLOSE';
+                font-size: rem(8px);
+                font-weight: bold;
+                padding-top: rem(3px);
+            }
+        }
+
+        .modal-body {
+            color: $proj-colour-12;
+            padding: rem(24px 10px 40px 10px);
+
+            @include breakpoint(sm) {
+                padding: rem(24px 32px 40px 32px);
+            }
+
+            .modal-title {
+                text-align: left;
+                padding-bottom: rem(20px);
+                padding-left: 0;
+                padding-right: rem(40px);            
+                color: $proj-colour-06;
+                font-size: rem(24px);
+                border-bottom: 1px solid $proj-colour-18;
+
+                @include breakpoint(sm) {
+                    text-align: center;
+                    padding-left: rem(40px);
+                }
+
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-kwa-02;
+                }
+            }
+
+            p {
+                margin: rem(40px 0 32px);
+                font-size: rem(18px);
+                line-height: 1.78;
+                color: $proj-colour-18;
+            }
+
+            ul {
+                padding: rem(0 0 30px);
+                list-style: none;
+
+                li {
+                    margin-top: rem(27px);
+                    font-size: rem(18px);
+                    position: relative;
+                    padding-left: rem(30px);
+
+                    &:before {
+                        content: ' ';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: rem(7px);
+                        height: rem(7px);
+                        margin: rem(9px);
+                        border-radius: 50%;
+                        background-color: $proj-colour-06;
+
+                        #{$kwa-page-selector} & { 
+                            background-color: $proj-colour-kwa-01;
+                        }
+                    }
+                }
+            }
+
+            button.btn--secondary {
+                padding: rem(15px 30px);
+                width: unset;
+                border-radius: rem(7px);
+                font-size: rem(18px);
+
+                #{$kwa-page-selector} & {
+                    color: $proj-colour-15;
+                }
+            }
+        }
+    }
+}

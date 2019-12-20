@@ -1,0 +1,133 @@
+﻿.trip-package-selection {
+    background-color: $color-background-dark-gray;
+
+    &__step {
+        padding-bottom: .5rem;
+    }
+
+    &__subtitle {
+        margin-bottom: 0;
+    }
+
+    &__heading-container {
+        text-align: center;
+        margin-bottom: 1rem;
+
+        @include breakpoint(sm) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__date-select {
+        margin-top: 0;
+        margin-left: .3rem;
+    }
+
+    &__selection-box-row {
+        @include breakpoint(md) {
+            flex-wrap: nowrap; // required for smooth transition
+        }
+    }
+
+    &__selection-box-wrapper {
+        transition: all .3s ease;
+        visibility: visible;
+        opacity: 1;
+
+        @include breakpoint(md) {
+            min-height: 20rem;
+        }
+
+        &.is-hidden {
+            visibility: hidden;
+            opacity: 0;
+            max-height: 0;
+        }
+    }
+
+    &__selection-box {
+        background-color: $color-white;
+        padding: .5rem 1rem 1.5rem;
+        margin-bottom: 1rem;
+
+        @include breakpoint(sm) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        @include breakpoint(md) {
+            min-height: 100%;
+        }
+
+        &__title {
+            text-align: center;
+        }
+    }
+
+    &__list-item {
+        margin-top: .75rem;
+        position: relative;
+        padding-right: 4rem;
+    }
+
+    &__info {
+        position: absolute;
+        right: 0;
+        top: .3rem;
+    }
+
+    &__upgrade {
+        margin-top: .75rem;
+
+        &__list {
+            visibility: hidden;
+            max-height: 0;
+            transition: all .3s;
+            overflow: hidden;
+
+            &.list-unstyled {
+                padding-left: 2.3rem;
+            }
+        }
+
+        &__checkbox:checked ~ &__list {
+            visibility: visible;
+            max-height: 32rem;
+            padding-bottom: 1rem;
+        }
+    }
+
+    &__label {
+        line-height: 1;
+
+        .small {
+            line-height: inherit;
+            white-space: nowrap;
+        }
+    }
+
+    &__cta {
+        &__wrapper {
+            margin-top: 1.5rem;
+
+            @include breakpoint(sm) {
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    &__form {
+        @include breakpoint(sm) {
+            margin-right: auto;
+            max-width: 26.5625rem;
+        }
+
+        @include breakpoint(md) {
+            margin-left: 2rem;
+        }
+
+        .title-wrapper {
+            display: none;
+        }
+    }
+}

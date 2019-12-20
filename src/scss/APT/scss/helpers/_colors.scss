@@ -1,0 +1,22 @@
+//===================
+// Colors
+//===================
+
+
+.color {
+    &-primary {
+        color: $proj-colour-02 !important;
+    }
+    &-secondary {
+        color: $proj-colour-05 !important;
+    }
+    &-tertiary {
+        color: $proj-colour-12 !important;
+    }
+    &-quad {
+        color: $color-kwa !important;
+    }
+    &-penta {
+        color: $color-botanica !important;
+    }
+}

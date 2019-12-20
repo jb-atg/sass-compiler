@@ -1,0 +1,23 @@
+.background-white {
+    background-color: $proj-colour-15;
+}
+
+.background-white-halftop {
+    background: linear-gradient(0deg, $proj-colour-14 50%, $proj-colour-15 50%);
+}
+
+.background-white-halfbottom {
+    background: linear-gradient(0deg, $proj-colour-15 50%, $proj-colour-14 50%);
+}
+
+.site-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    &.offset-scrollbar {
+        @include breakpoint(sm) {
+            padding-right: 17px;
+        }
+    }
+}

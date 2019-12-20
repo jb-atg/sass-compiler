@@ -1,0 +1,109 @@
+// sass-lint:disable no-vendor-prefixes, indentation
+
+// get-next-breakpoint-key()
+// Return the next breakpoint key from the $breakpoint map
+@function get-next-breakpoint-key($key) {
+    $breakpoint-names: map-keys($breakpoints);
+    @return nth($breakpoint-names, index($breakpoint-names, $key) + 1);
+}
+
+// breakpoint()
+// Breakpoint mixin using to generate the media queries
+// ---
+// As we mobile first, the expected development logic is:
+// .foo {
+//   here goes mobile styles
+//   
+//   @include breakpoint(sm) {
+//     here start desktop style
+//   }    
+// }
+//
+// ---
+// The mixin can output min-width, max-width and min-width to max-width for one range
+// @include breakpoint(sm) -> media(min-width: 801px)
+// @include breakpoint(sm-max) -> media(max-width: 991px)
+// @include breakpoint(sm-contain) -> media(min-width: 801px) and (max-width: 991px)
+//    
+// ---
+// The mixin can also print a couple of custom media queries
+// However they should be avoided as they are not really future proof
+
+@mixin breakpoint($screen) {
+
+    @if map-has-key($breakpoints, $screen) {
+        $min: map-get($breakpoints, $screen);
+
+        // min-width
+        @media(min-width: $min) {
+            @content;
+        }
+
+    } @else if str-index($screen, '-max') != null {
+        $key: str-slice($screen, 0, str-index($screen, '-') - 1);
+        $max: map-get($breakpoints, get-next-breakpoint-key($key)) - 1px;
+
+        // max-width
+        @media(max-width: $max) {
+            @content;
+        }
+
+    } @else if str-index($screen, '-contain') != null {
+        $key: str-slice($screen, 0, str-index($screen, '-') - 1);
+        $min: map-get($breakpoints, $key);
+        $max: map-get($breakpoints, get-next-breakpoint-key($key)) - 1px;
+
+        // min-width to max-width
+        @media(min-width: $min) and (max-width: $max) {
+            @content;
+        }
+
+    } @else {
+        // device related media queries
+        @if $screen == xs-exclude-tablet { 
+
+            // Only target mobile, exclude tablet.
+            @media(max-width: 767px) {
+                @content;
+            }
+
+        } @else if $screen == xs-portrait { 
+
+            // Only target portrait mobile.
+            @media(max-width: 800px) and (orientation: portrait) {
+                @content;
+            }
+
+        } @else if $screen == xs-landscape {
+
+            // Only target landscape mobile.
+            @media(max-width: 800px) and (orientation: landscape) {
+                @content;
+            }
+
+        } @else if $screen == iPad-portrait { 
+
+            // specific ipad portrait
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+                @content;
+            }
+
+        } @else if $screen == tablet-portait-custom {
+
+            // custom breakpoint for tablets in a specific range
+            @media(min-width: 720px) and (max-width: 800px) {
+                @content;
+            }
+
+        } @else {
+            @warn 'Unexpected value: `#{$key}` is not returning a media querie';
+        }
+    }
+}
+
+// Targets IE11 (and IE10) only
+@mixin browser-ie11 {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+}

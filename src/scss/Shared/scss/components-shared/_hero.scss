@@ -1,0 +1,218 @@
+﻿
+
+$hero-zindex-arrows: 4;
+$hero-zindex-title: 3;
+$hero-zindex-overlay: 2;
+$hero-desktop-height-reduced: 19rem;
+
+.page-hero {
+    position: relative;
+    height: 90vh;
+    color: $color-white;
+
+    &--reduced {
+        height: $hero-desktop-height-reduced;
+
+        .page-hero__image-wrapper {
+            height: $hero-desktop-height-reduced;
+        }
+
+        .page-hero__title-wrapper {
+            margin-top: 1.4rem;
+        }
+    }
+
+    &--full-page {
+        height: 100vh;
+    }
+
+    &__title-wrapper {
+        position: absolute;
+        z-index: $hero-zindex-title;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        text-align: center;
+    }
+
+    &__title {
+        white-space: pre-line;
+        color: inherit;
+        transition: color .3s ease-in-out;
+
+        &-description {
+            @if $font-family-tertiary {
+                font-family: $font-family-tertiary;
+            } @else {
+                font-style: oblique;
+            }
+
+            white-space: pre-line;
+            line-height: rem(28px);
+            display: block;
+
+            @media (max-width: 600px) {
+                display: none;
+            }
+            @media (max-height: 600px) {
+                display: none;
+            }
+        }
+    }
+
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        opacity: 0;
+
+        &.is-loaded {
+            opacity: 1;
+        }
+    }
+
+    &__video-player {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        margin: auto;
+        transition: opacity .5s;
+    }
+
+    &__image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 90vh;
+    }
+
+    &--full-page &__image-wrapper {
+        height: 100vh;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        font-family: 'object-fit: cover;';
+        object-fit: cover;
+    }
+    // object fit polyfill does not need to set the height in px
+    // as the parent image-wrapper as a defined height
+    .compat-object-fit {
+        height: 100% !important;
+    }
+
+    [class*='overlay-'] { // ensure common overlay classes are over the image
+        &::before,
+        &::after {
+            z-index: $hero-zindex-overlay;
+        }
+    }
+
+    &__carousel,
+    .owl-stage,
+    .owl-stage-outer {
+        height: 100%;
+    }
+
+    .owl-prev,
+    .owl-next {
+        position: absolute;
+        z-index: $hero-zindex-arrows;
+        top: 50%;
+        font-size: 1.25rem;
+        transform: translateY(-50%);
+
+        @include breakpoint(sm) {
+            font-size: 1.5rem;
+        }
+
+        &::before {
+            color: inherit;
+        }
+    }
+
+    .owl-prev {
+        left: 0;
+        padding: 2rem 2rem 2rem .75rem;
+
+        @include breakpoint(sm) {
+            left: 1.5rem;
+        }
+
+        &::before {
+            @include icon(icon-navigate_before);
+        }
+    }
+
+    .owl-next {
+        right: 0;
+        padding: 2rem .75rem 2rem 2rem;
+
+        @include breakpoint(sm) {
+            right: 1.5rem;
+        }
+
+        &::before {
+            @include icon(icon-navigate_next);
+        }
+    }
+
+    .owl-nav {
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+    }
+
+    &:hover .owl-nav {
+        opacity: 1;
+    }
+
+    .touchevents & .owl-nav { // remove hover effect for touch device
+        opacity: 1;
+    }
+
+    &__cta {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        margin-right: -50%;
+        z-index: 1000;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        color: inherit;
+
+        &::after {
+            @include icon(icon-expand_more);
+            position: absolute;
+            left: 50%;
+            top: 90%;
+            margin-left: -5%;
+            transform: translate(0, -.7rem);
+            font-size: .8rem;
+            padding-top: 1.2rem;
+            animation-name: bounce;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+            animation-duration: 2s;
+        }
+
+        &:hover {
+            opacity: .8;
+            color: inherit;
+        }
+    }
+
+    &__cta-anchor {
+        position: absolute;
+        bottom: 0;
+    }
+}

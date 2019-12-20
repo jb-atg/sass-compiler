@@ -1,0 +1,52 @@
+.booking-nav {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0;
+        // override on .container selector
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+
+    &__link {
+        font-size: .875rem;
+        transition: color .3s ease-in-out;
+
+        &:active,
+        &:focus,
+        &:hover {
+            text-decoration: none;
+        }
+
+        @include breakpoint(md) {
+            font-size: 1.125rem;
+        }
+
+        > span {
+            vertical-align: middle;
+        }
+    }
+
+    &__arrow {
+        display: inline-block;
+        line-height: 0;
+        font-size: 1.25rem;
+
+        @include breakpoint(md) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__arrow--left {
+        margin-left: -.3125rem;
+    }
+
+    &__arrow--right {
+        margin-right: -.3125rem;
+    }
+}

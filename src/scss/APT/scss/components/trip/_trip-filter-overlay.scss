@@ -1,0 +1,169 @@
+﻿$search-prefix: 'trip-finder__filters__overlay';
+$search-header-height: rem(50px);
+$search-container-width: rem(400px);
+$slide-transition: 400ms ease-out;
+$slide-transition-out: 250ms ease-out;
+$stickybutton-height: rem(74px);
+$stickybutton-height-mobile: rem(60px);
+
+.#{$search-prefix} {
+    visibility: hidden;
+    position: fixed;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include z-index(above-chat);
+    transition: visibility $slide-transition;
+
+    &-background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include overlay-background(75, $proj-colour-11);
+
+        &:before {
+            opacity: 0;
+            transition: opacity $slide-transition;
+        }
+    }
+
+    &-container {
+        position: relative;
+        width: calc(100% - rem(30px));
+        height: 100%;
+        background-color: $proj-colour-14;
+        @include z-index(above-container);
+        transform: translateX(-100%);
+        transition: transform $slide-transition-out;
+
+        @include breakpoint(sm) {
+            max-width: $search-container-width;
+        }
+    }
+
+    .trip-finder-hero__search-results {
+        display: flex;
+        width: calc(100% - #{$search-container-width});
+        margin-left: $search-container-width;
+        flex: 1;
+        position: absolute;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        transform: none;
+        top: 0;
+        @include z-index(fixed-element);
+        pointer-events: none;
+    }
+
+    &-header {
+        display: flex;
+        padding: rem(0 15px);
+        height: $search-header-height;
+        align-items: center;
+        color: $proj-colour-15;
+        background-color: $proj-colour-06;
+
+        &-title {
+            font-family: $font-family-secondary;
+            font-size: 1rem;
+            margin: 0;
+            flex: 1;
+        }
+        &-button {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            right: 0;
+            margin: 0;
+            height: $search-header-height;
+            width: $search-header-height;
+            cursor: pointer;
+
+            .icon-cross {
+                font-size: 1.25rem;
+                margin: 0;
+                top: 0;
+                color: $color-white;
+                line-height: 1;
+            }
+        }
+    }
+
+    &-filters {
+        height: calc(100vh - #{$search-header-height} - #{$stickybutton-height-mobile});
+        overflow-y: auto;
+        position: relative;
+
+        @include breakpoint(sm) {
+            height: calc(100vh - #{$search-header-height} - #{$stickybutton-height});
+        }
+
+    }
+
+    &-stickybutton {
+        width: calc(100% - rem(30px));
+        position: fixed;
+        backface-visibility: hidden;
+        bottom: 0;
+        margin: 0;
+        cursor: pointer;
+
+        @include breakpoint(sm) {
+            max-width: $search-container-width;
+        }
+
+        &.btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: $stickybutton-height-mobile;
+            border-radius: 0;
+            font-size: 1.125rem;
+            font-weight: 500;
+
+            .icon-apt-loading {
+                top: 0;
+            }
+            .icon-apt-loading:after,
+            .icon-apt-loading:before {
+                font-size: rem(40px);
+            }
+
+            @include breakpoint(sm) {
+                height: $stickybutton-height;
+                font-size: 1.25rem;
+
+                .icon-apt-loading:after,
+                .icon-apt-loading:before {
+                    font-size: rem(50px);
+                }
+            }
+        }
+
+        .icon-apt-loading {
+            width: 100%;
+        }
+    }
+}
+
+// Active state transitions
+.trip-filter-overlay-toggle:checked + .#{$search-prefix} {
+    visibility: visible;
+    transition: visibility $slide-transition;
+    .#{$search-prefix}-container {
+        transform: translateX(0);
+        transition: transform $slide-transition;
+    }
+    .#{$search-prefix}-background:before {
+        opacity: 1;
+        transition: opacity $slide-transition;
+    }
+}

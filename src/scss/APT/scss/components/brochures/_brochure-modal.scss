@@ -1,0 +1,123 @@
+﻿.brochure-modal {
+    position: fixed;
+    width: 0;
+    background-color: $proj-colour-05;
+    opacity: 0;
+    bottom: 0;
+    text-align: center;
+    visibility: hidden;
+    overflow: hidden;
+
+    @include breakpoint(xs-max) {
+        transition: visibility 0s linear 300s, opacity 300ms ease, left 300ms ease, width 0s ease 300ms, padding 0s ease 300ms;
+        left: 10rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include breakpoint(sm) {
+        transition: visibility 0s linear 300s, opacity 300ms ease, right 300ms ease, width 0s ease 300ms, padding 0s ease 300ms;
+        right: -10rem;
+    }
+
+    &.in {
+        cursor: default;
+        visibility: visible;
+        opacity: 1;
+
+        @include breakpoint(xs-max) {
+            padding: 2rem 2rem 5rem;
+            left: 0;
+            width: 100%;
+            transition: opacity 300ms ease, left 300ms ease;
+        }
+
+        @include breakpoint(sm) {
+            padding: 2rem 4rem 5rem 2rem;
+            right: 0;
+            width: 367px;
+            transition: opacity 300ms ease, right 300ms ease;
+        }
+    }
+
+    &__image-container {
+        position: relative;
+        border-radius: .5rem;
+        display: inline-block;
+        background-color: $proj-colour-15;
+        width: 100%;
+        text-align: center;
+
+        @include breakpoint(xs-portrait) {
+            flex-grow: 1;
+        }
+
+        @include breakpoint(xs-landscape) {
+            display: none;
+        }
+
+        @include breakpoint(sm) {
+            height: 284px;
+        }
+    }
+
+    &__image {
+        display: inline-block;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        @include breakpoint(xs-max) {
+            height: 80%;
+            width: auto;
+        }
+
+        @include breakpoint(sm) {
+            height: 230px;
+        }
+    }
+
+    &__title {
+        // h5.brochure-modal__title, brochure-modal__title.h5
+        // http://sass-lang.com/documentation/file.SASS_REFERENCE.html#_at-root__at-root
+        @at-root {
+            h5#{&} {
+                color: $proj-colour-15;
+                text-transform: none;
+                margin-top: 1rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+
+    &__btn {
+        width: 100%;
+
+        &:first-of-type {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        right: 2rem;
+        bottom: 1.5rem;
+        color: $proj-colour-15;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all .3s ease-in-out;
+
+        &:after {
+            @include icon(icon-cross);
+        }
+
+        html.no-touchevents &:hover {
+            text-decoration: none;
+            color: $proj-colour-12;
+        }
+    }
+}
